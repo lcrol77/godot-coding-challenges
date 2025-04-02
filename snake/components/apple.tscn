@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://br2fkqlipy0vg"]
+
+[ext_resource type="Texture2D" uid="uid://bfj2mgsn2tih8" path="res://pixel.png" id="1_q046e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ilv7"]
+size = Vector2(10, 10)
+
+[node name="Apple" type="Area2D" groups=["apple"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0.26, 0.26, 1)
+position = Vector2(-10, -10)
+scale = Vector2(20, 20)
+texture = ExtResource("1_q046e")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8ilv7")

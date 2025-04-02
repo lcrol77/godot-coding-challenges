@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkcwrgdo3oyhv"]
+
+[ext_resource type="Script" path="res://components/snake/snake.gd" id="1_xmxuq"]
+[ext_resource type="Texture2D" uid="uid://bfj2mgsn2tih8" path="res://pixel.png" id="2_10kle"]
+[ext_resource type="PackedScene" uid="uid://wldj3d5b6033" path="res://components/snake/snakeBody/snake_body.tscn" id="3_bypp5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28xh7"]
+size = Vector2(10, 10)
+
+[node name="Snake" type="Area2D"]
+script = ExtResource("1_xmxuq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(20, 20)
+texture = ExtResource("2_10kle")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_28xh7")
+
+[node name="Body" type="Node" parent="."]
+
+[node name="GenericBody" parent="Body" instance=ExtResource("3_bypp5")]
+
+[node name="GenericBody2" parent="Body" instance=ExtResource("3_bypp5")]
+
+[node name="GenericBody3" parent="Body" instance=ExtResource("3_bypp5")]
+
+[node name="GenericBody4" parent="Body" instance=ExtResource("3_bypp5")]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
