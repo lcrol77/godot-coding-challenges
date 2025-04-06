@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://w3d3vtu2jlu1"]
+[gd_scene load_steps=4 format=3 uid="uid://w3d3vtu2jlu1"]
 
 [ext_resource type="PackedScene" uid="uid://dkcwrgdo3oyhv" path="res://components/snake/snake.tscn" id="1_0dakr"]
-[ext_resource type="PackedScene" uid="uid://br2fkqlipy0vg" path="res://components/apple.tscn" id="2_hjdl6"]
+[ext_resource type="Script" path="res://main.gd" id="1_ulgk1"]
+[ext_resource type="Script" path="res://components/game_grid.gd" id="4_wjyrl"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("game_grid")]
+script = ExtResource("1_ulgk1")
+game_grid = NodePath("GameGrid")
 
 [node name="Snake" parent="." instance=ExtResource("1_0dakr")]
 position = Vector2(610, 610)
 move_delay = 0.05
 
-[node name="Apple" parent="." instance=ExtResource("2_hjdl6")]
-position = Vector2(210, 210)
+[node name="GameGrid" type="Node" parent="."]
+script = ExtResource("4_wjyrl")
+size = Vector2i(60, 60)

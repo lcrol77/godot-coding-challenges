@@ -13,7 +13,3 @@ func _ready() -> void:
 	for i in range(number_stars):
 		var new_star := STAR.instantiate()
 		stars.add_child(new_star)
-
-func _process(delta: float) -> void:
-	for star: Star in stars.get_children():
-		pass
