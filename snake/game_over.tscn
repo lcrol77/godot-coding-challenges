@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://duiha8iinbve0"]
+
+[ext_resource type="Shader" path="res://blur.gdshader" id="1_4pkvp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h76m4"]
+shader = ExtResource("1_4pkvp")
+shader_parameter/lod = 0.0
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_h76m4")
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 1200.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -407.5
+offset_top = 100.0
+offset_right = 407.5
+offset_bottom = 267.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 200
+text = "GAME OVER"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -28.0
+offset_top = -400.0
+offset_right = 28.0
+offset_bottom = -216.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="RetryBtn" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_font_sizes/font_size = 80
+text = "RETRY
+"
+
+[node name="QuitBtn" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_font_sizes/font_size = 80
+text = "QUIT"
