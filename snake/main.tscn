@@ -10,7 +10,7 @@ game_grid = NodePath("GameGrid")
 
 [node name="Snake" parent="." instance=ExtResource("1_0dakr")]
 position = Vector2(610, 610)
-move_delay = 0.5
+tick_rate = 0.05
 
 [node name="GameGrid" type="Node" parent="."]
 script = ExtResource("4_wjyrl")

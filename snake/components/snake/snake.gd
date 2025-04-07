@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var step_size: int = 20
-@export var move_delay: float = 0.1  # Time (in seconds) between moves
+@export_range(0.005, 0.1) var tick_rate: float = 0.1  # Time (in seconds) between moves
 @onready var body: Node = $Body
 
 const SNAKE_BODY = preload("res://components/snake/snakeBody/snake_body.tscn")
@@ -15,10 +15,12 @@ var last_pos: Vector2
 
 func _ready() -> void:
 	target_position = global_position
-
-func _physics_process(delta):
+	
+func _physics_process(delta: float) -> void:
+	# movement 
 	time_since_last_move += delta
-	if time_since_last_move >= move_delay:
+	if time_since_last_move >= tick_rate:
+		print(time_since_last_move)
 		last_pos = global_position
 		target_position = global_position + (direction * step_size)
 		curr_physics_direction = direction
@@ -32,12 +34,10 @@ func _physics_process(delta):
 			last_pos = tmp_pos
 			Events.grid_add.emit(child)
 		Events.grid_remove.emit(last_pos)
-
-func _process(_delta: float) -> void:
+		
+func _process(delta: float) -> void:
+	# direction setting
 	var input_direction := Input.get_vector("left", "right", "up", "down")
-	# FIXME: game current will allow you to cycle through vert -> horiz -> vert without actually
-	# applying a direction update in _physics_process. This can cause the game to think that it 
-	# applied the correct logic but it didn't.
 	if Input.is_action_pressed("right") || Input.is_action_pressed("left"):
 		input_direction.y = 0
 	elif Input.is_action_pressed("up") || Input.is_action_pressed("down"):
@@ -45,11 +45,15 @@ func _process(_delta: float) -> void:
 	input_direction = input_direction.normalized()
 	if _input_direction_valid(input_direction):
 		direction = input_direction
-
+		
+	
 func _input_direction_valid(input_direction) -> bool:
 	return (input_direction.x != 0 and curr_physics_direction.x == 0) or (input_direction.y != 0 and curr_physics_direction.y == 0)
 
-func _add_snake_body(snake_body: SnakeBody) -> void:
+func _add_snake_body() -> void:
+	var snake_body: SnakeBody = SNAKE_BODY.instantiate()
+	snake_body.global_position = global_position
+	snake_body.enabled = false
 	body.add_child(snake_body)
 
 func _on_area_entered(area: Area2D) -> void:
@@ -59,7 +63,7 @@ func _on_area_entered(area: Area2D) -> void:
 			var snake_body: SnakeBody = SNAKE_BODY.instantiate()
 			snake_body.global_position = global_position
 			snake_body.enabled = false
-			call_deferred("_add_snake_body", snake_body)
+			call_deferred("_add_snake_body")
 		Events.apple_eaten.emit()
 	elif area.is_in_group("body"):
 		var curr_body: SnakeBody = area
