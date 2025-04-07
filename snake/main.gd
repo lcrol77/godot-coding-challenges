@@ -24,7 +24,7 @@ func handle_apple_eaten() -> void:
 	var pos : Vector2 = get_global_from_tile(game_grid.get_random_empty_tile())
 	var inst : Area2D = APPLE.instantiate()
 	inst.global_position = pos
-	add_child(inst)
+	call_deferred("add_child", inst)
 	
 func get_tile_from_global(global_pos: Vector2) -> Vector2i:
 	var tile_x := int(global_pos.x) / PIXEL_SIZE

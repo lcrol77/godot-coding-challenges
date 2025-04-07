@@ -4,16 +4,14 @@ extends Area2D
 @export var move_delay: float = 0.1  # Time (in seconds) between moves
 @onready var body: Node = $Body
 
-enum CardinalDirection {
-	HORIZ, VERT
-}
-
 const SNAKE_BODY = preload("res://components/snake/snakeBody/snake_body.tscn")
 var target_position: Vector2
 var direction: Vector2 = Vector2.DOWN
-var curr_cardnal_direction: CardinalDirection = CardinalDirection.VERT
+# this is the direction that is being "processed on this physics step"
+var curr_physics_direction: Vector2 = direction
 var time_since_last_move: float = 0.0
 var last_pos: Vector2
+
 
 func _ready() -> void:
 	target_position = global_position
@@ -23,6 +21,7 @@ func _physics_process(delta):
 	if time_since_last_move >= move_delay:
 		last_pos = global_position
 		target_position = global_position + (direction * step_size)
+		curr_physics_direction = direction
 		global_position = target_position
 		Events.grid_add.emit(self)
 		time_since_last_move = 0.0
@@ -34,30 +33,22 @@ func _physics_process(delta):
 			Events.grid_add.emit(child)
 		Events.grid_remove.emit(last_pos)
 
-		
-
 func _process(_delta: float) -> void:
 	var input_direction := Input.get_vector("left", "right", "up", "down")
-	var new_direction: CardinalDirection
-	var horizontal = Input.is_action_pressed("right") or Input.is_action_pressed("left")
-	var vertical = Input.is_action_pressed("up") or Input.is_action_pressed("down")
-	match true:
-		horizontal:
-			new_direction = CardinalDirection.HORIZ
-		vertical:
-			new_direction = CardinalDirection.VERT
-
-	if input_direction != Vector2.ZERO and new_direction != curr_cardnal_direction:
+	# FIXME: game current will allow you to cycle through vert -> horiz -> vert without actually
+	# applying a direction update in _physics_process. This can cause the game to think that it 
+	# applied the correct logic but it didn't.
+	if Input.is_action_pressed("right") || Input.is_action_pressed("left"):
+		input_direction.y = 0
+	elif Input.is_action_pressed("up") || Input.is_action_pressed("down"):
+		input_direction.x = 0
+	input_direction = input_direction.normalized()
+	if _input_direction_valid(input_direction):
 		direction = input_direction
-		if Input.is_action_pressed("right") || Input.is_action_pressed("left"):
-			direction.y = 0
-			curr_cardnal_direction = CardinalDirection.HORIZ
-		elif Input.is_action_pressed("up") || Input.is_action_pressed("down"):
-			direction.x = 0
-			curr_cardnal_direction = CardinalDirection.VERT
-		
-	direction = direction.normalized()
-	
+
+func _input_direction_valid(input_direction) -> bool:
+	return (input_direction.x != 0 and curr_physics_direction.x == 0) or (input_direction.y != 0 and curr_physics_direction.y == 0)
+
 func _add_snake_body(snake_body: SnakeBody) -> void:
 	body.add_child(snake_body)
 
