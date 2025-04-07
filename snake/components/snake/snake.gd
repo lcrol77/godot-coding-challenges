@@ -20,7 +20,6 @@ func _physics_process(delta: float) -> void:
 	# movement 
 	time_since_last_move += delta
 	if time_since_last_move >= tick_rate:
-		print(time_since_last_move)
 		last_pos = global_position
 		target_position = global_position + (direction * step_size)
 		curr_physics_direction = direction
@@ -70,3 +69,7 @@ func _on_area_entered(area: Area2D) -> void:
 		if curr_body.enabled:
 			Events.game_over.emit()
 		
+
+
+func _on_screen_exited() -> void:
+	Events.game_over.emit()
