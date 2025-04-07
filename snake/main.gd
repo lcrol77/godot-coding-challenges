@@ -2,13 +2,15 @@ extends Node2D
 
 @export var PIXEL_SIZE: int = 20
 @export var game_grid: GameGrid
+@export var stats: Stats
+
 const APPLE = preload("res://components/apple.tscn")
 func _ready() -> void:
 	Events.game_over.connect(handle_game_over)
 	Events.grid_add.connect(handle_grid_add)
 	Events.grid_remove.connect(handle_grid_remove)
 	Events.apple_eaten.connect(handle_apple_eaten)
-	handle_apple_eaten()
+	_instance_new_apple()
 	
 func handle_game_over():
 	print("Game Over")
@@ -19,13 +21,18 @@ func handle_grid_add(node: Node2D):
 
 func handle_grid_remove(pos: Vector2):
 	game_grid.remove(get_tile_from_global(pos))
-
-func handle_apple_eaten() -> void:
+	
+func _instance_new_apple():
 	var pos : Vector2 = get_global_from_tile(game_grid.get_random_empty_tile())
 	var inst : Area2D = APPLE.instantiate()
 	inst.global_position = pos
 	call_deferred("add_child", inst)
 	
+func handle_apple_eaten() -> void:
+	_instance_new_apple()
+	print(stats.score)
+	stats.score = stats.score + 1
+
 func get_tile_from_global(global_pos: Vector2) -> Vector2i:
 	var tile_x := int(global_pos.x) / PIXEL_SIZE
 	var tile_y := int(global_pos.y) / PIXEL_SIZE

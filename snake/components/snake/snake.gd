@@ -68,8 +68,6 @@ func _on_area_entered(area: Area2D) -> void:
 		var curr_body: SnakeBody = area
 		if curr_body.enabled:
 			Events.game_over.emit()
-		
-
 
 func _on_screen_exited() -> void:
 	Events.game_over.emit()
