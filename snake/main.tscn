@@ -8,7 +8,7 @@
 [node name="Main" type="Node2D" node_paths=PackedStringArray("game_grid", "stats")]
 script = ExtResource("1_ulgk1")
 game_grid = NodePath("GameGrid")
-stats = NodePath("CanvasLayer/Score")
+stats = NodePath("HudCanvasLayer/Score")
 
 [node name="Snake" parent="." instance=ExtResource("1_0dakr")]
 position = Vector2(610, 610)
@@ -18,9 +18,9 @@ tick_rate = 0.05
 script = ExtResource("4_wjyrl")
 size = Vector2i(60, 60)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="HudCanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Score" type="Panel" parent="CanvasLayer"]
+[node name="Score" type="Panel" parent="HudCanvasLayer"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -31,10 +31,12 @@ offset_bottom = 60.0
 grow_horizontal = 0
 script = ExtResource("4_iti83")
 
-[node name="Label" type="Label" parent="CanvasLayer/Score"]
+[node name="Label" type="Label" parent="HudCanvasLayer/Score"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="UICanvasLayer" type="CanvasLayer" parent="."]

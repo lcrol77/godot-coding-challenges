@@ -3,6 +3,11 @@ extends Node2D
 @export var PIXEL_SIZE: int = 20
 @export var game_grid: GameGrid
 @export var stats: Stats
+@export var game_over_scene: PackedScene = preload("res://game_over.tscn")
+
+@onready var ui_canvas_layer: CanvasLayer = $UICanvasLayer
+@onready var snake: Area2D = $Snake
+
 
 const APPLE = preload("res://components/apple.tscn")
 func _ready() -> void:
@@ -13,8 +18,18 @@ func _ready() -> void:
 	_instance_new_apple()
 	
 func handle_game_over():
-	print("Game Over")
-	get_tree().paused = true
+	snake.set_process(false)
+	snake.set_physics_process(false)
+	show_game_over()
+
+func show_game_over() -> void:
+	var instance = game_over_scene.instantiate()
+	ui_canvas_layer.add_child(instance)
+	instance.retry.connect(on_game_over_retry)
+
+func on_game_over_retry() -> void:
+	var main_scene_path = get_tree().current_scene.scene_file_path
+	get_tree().change_scene_to_file(main_scene_path)
 
 func handle_grid_add(node: Node2D):
 	game_grid.add(get_tile_from_global(node.position), node)
@@ -40,3 +55,7 @@ func get_tile_from_global(global_pos: Vector2) -> Vector2i:
 	
 func get_global_from_tile(tile: Vector2i) -> Vector2:
 	return Vector2(tile.x * PIXEL_SIZE + 10, tile.y * PIXEL_SIZE + 10)
+
+
+func _on_quit_btn_pressed() -> void:
+	print("pressed")
