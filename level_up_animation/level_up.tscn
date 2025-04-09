@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://d4kijtrtacaoo"]
+[gd_scene load_steps=27 format=3 uid="uid://d4kijtrtacaoo"]
 
+[ext_resource type="Texture2D" uid="uid://058saqmbygkh" path="res://assets/rounded_rect.png" id="1_ckmao"]
 [ext_resource type="Texture2D" uid="uid://bgpsdwjtbyhfw" path="res://assets/rays.png" id="1_p4npv"]
 [ext_resource type="FontFile" uid="uid://cylpm0qnoh3vr" path="res://assets/fonts/signika/Signika-Medium.ttf" id="1_uvp7q"]
 [ext_resource type="Texture2D" uid="uid://b268tkv6iudcu" path="res://assets/shield.png" id="2_aj08d"]
@@ -22,6 +23,58 @@ width = 1920
 height = 1080
 use_hdr = true
 metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_r6god"]
+offsets = PackedFloat32Array(0, 0.208145, 0.628959, 0.995475)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.360784, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gxvog"]
+gradient = SubResource("Gradient_r6god")
+
+[sub_resource type="Curve" id="Curve_gbkyf"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.445783, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_0yuim"]
+curve = SubResource("Curve_gbkyf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yqql3"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(960, 540, 1)
+angle_min = -720.0
+angle_max = 720.0
+gravity = Vector3(0, -15, 0)
+scale_min = 0.1
+scale_max = 0.25
+scale_curve = SubResource("CurveTexture_0yuim")
+color_ramp = SubResource("GradientTexture1D_gxvog")
+
+[sub_resource type="Gradient" id="Gradient_l41st"]
+offsets = PackedFloat32Array(0, 0.208145, 0.628959, 0.995475)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.360784, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mfedn"]
+gradient = SubResource("Gradient_l41st")
+
+[sub_resource type="Curve" id="Curve_6icom"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.445783, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_a17rn"]
+curve = SubResource("Curve_6icom")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jbnvy"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(960, 540, 1)
+angle_min = -720.0
+angle_max = 720.0
+gravity = Vector3(0, -15, 0)
+scale_min = 0.1
+scale_max = 0.25
+scale_curve = SubResource("CurveTexture_a17rn")
+color_ramp = SubResource("GradientTexture1D_mfedn")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ehwu5"]
 bg_color = Color(0.0784314, 0.164706, 0.352941, 1)
@@ -57,6 +110,22 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_rvkw6")
 
+[node name="BGParticles" type="GPUParticles2D" parent="."]
+position = Vector2(960, 540)
+amount = 31
+process_material = SubResource("ParticleProcessMaterial_yqql3")
+texture = ExtResource("1_ckmao")
+lifetime = 4.5
+randomness = 0.4
+
+[node name="WingParticles" type="GPUParticles2D" parent="."]
+position = Vector2(960, 540)
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_jbnvy")
+texture = ExtResource("3_2yp6d")
+lifetime = 1.2
+randomness = 0.4
+
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -88,6 +157,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Rays" type="TextureRect" parent="Anchor"]
+self_modulate = Color(1, 1, 0.52549, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
