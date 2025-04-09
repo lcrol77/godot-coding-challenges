@@ -11,5 +11,11 @@ config_version=5
 [application]
 
 config/name="Level Up Animation"
+run/main_scene="res://level_up.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://assets/shield.png"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080

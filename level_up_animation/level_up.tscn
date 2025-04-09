@@ -1,0 +1,255 @@
+[gd_scene load_steps=10 format=3 uid="uid://d4kijtrtacaoo"]
+
+[ext_resource type="Texture2D" uid="uid://bgpsdwjtbyhfw" path="res://assets/rays.png" id="1_p4npv"]
+[ext_resource type="FontFile" uid="uid://cylpm0qnoh3vr" path="res://assets/fonts/signika/Signika-Medium.ttf" id="1_uvp7q"]
+[ext_resource type="Texture2D" uid="uid://b268tkv6iudcu" path="res://assets/shield.png" id="2_aj08d"]
+[ext_resource type="Texture2D" uid="uid://bmf5nxw5ae7fv" path="res://assets/wing.png" id="3_2yp6d"]
+[ext_resource type="Texture2D" uid="uid://cfpvfr4mwnxv0" path="res://assets/ribbon.png" id="4_eantp"]
+[ext_resource type="FontFile" uid="uid://bq576idtgkcvs" path="res://assets/fonts/signika/Signika-SemiBold.ttf" id="5_85ifi"]
+[ext_resource type="FontFile" uid="uid://deo8melbvd5n0" path="res://assets/fonts/signika/Signika-Bold.ttf" id="6_c32yg"]
+
+[sub_resource type="Gradient" id="Gradient_51oa0"]
+offsets = PackedFloat32Array(0.00267023, 1)
+colors = PackedColorArray(0.160784, 0.298039, 0.607843, 1, 0.101961, 0.219608, 0.494118, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rvkw6"]
+gradient = SubResource("Gradient_51oa0")
+width = 1920
+height = 1080
+use_hdr = true
+metadata/_snap_enabled = true
+
+[node name="LevelUp" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_rvkw6")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -352.5
+offset_top = 54.0
+offset_right = 352.5
+offset_bottom = 124.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_uvp7q")
+theme_override_font_sizes/font_size = 56
+text = "You have reached a new level!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Anchor" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -177.0
+offset_right = 20.0
+offset_bottom = -137.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Rays" type="TextureRect" parent="Anchor"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -462.0
+offset_top = -397.0
+offset_right = 462.0
+offset_bottom = 397.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_p4npv")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Shield" type="TextureRect" parent="Anchor"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -326.0
+offset_top = -236.0
+offset_right = 326.0
+offset_bottom = 236.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_aj08d")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="WingR" type="TextureRect" parent="Anchor/Shield"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -195.0
+offset_top = -115.0
+offset_right = 33.0
+offset_bottom = 115.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("3_2yp6d")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="WingL" type="TextureRect" parent="Anchor/Shield"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -115.0
+offset_right = 182.0
+offset_bottom = 115.0
+grow_vertical = 2
+texture = ExtResource("3_2yp6d")
+expand_mode = 3
+stretch_mode = 5
+flip_h = true
+
+[node name="Level" type="Label" parent="Anchor/Shield"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 129.0
+offset_right = 101.0
+offset_bottom = 199.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.839216, 0.329412, 1)
+theme_override_fonts/font = ExtResource("1_uvp7q")
+theme_override_font_sizes/font_size = 60
+text = "LEVEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelNbr" type="Label" parent="Anchor/Shield"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -35.0
+offset_right = 101.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_85ifi")
+theme_override_font_sizes/font_size = 186
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelUp" type="Label" parent="Anchor"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -418.5
+offset_top = 155.0
+offset_right = 418.5
+offset_bottom = 385.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0.839216, 0.329412, 1)
+theme_override_fonts/font = ExtResource("6_c32yg")
+theme_override_font_sizes/font_size = 111
+text = "LEVEL UP!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ribbon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -230.0
+offset_top = -270.0
+offset_right = 232.482
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_eantp")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Rewards" type="Label" parent="Ribbon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.241
+offset_top = -40.0
+offset_right = 101.759
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_uvp7q")
+theme_override_font_sizes/font_size = 36
+text = "REWARDS
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -159.0
+offset_top = -154.0
+offset_right = 159.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 15
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
