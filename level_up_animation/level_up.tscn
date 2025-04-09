@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://d4kijtrtacaoo"]
+[gd_scene load_steps=35 format=3 uid="uid://d4kijtrtacaoo"]
 
 [ext_resource type="Texture2D" uid="uid://058saqmbygkh" path="res://assets/rounded_rect.png" id="1_ckmao"]
 [ext_resource type="Texture2D" uid="uid://bgpsdwjtbyhfw" path="res://assets/rays.png" id="1_p4npv"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cfpvfr4mwnxv0" path="res://assets/ribbon.png" id="4_eantp"]
 [ext_resource type="FontFile" uid="uid://bq576idtgkcvs" path="res://assets/fonts/signika/Signika-SemiBold.ttf" id="5_85ifi"]
 [ext_resource type="FontFile" uid="uid://deo8melbvd5n0" path="res://assets/fonts/signika/Signika-Bold.ttf" id="6_c32yg"]
+[ext_resource type="Shader" path="res://fake_3D.gdshader" id="6_lhqv6"]
 [ext_resource type="Texture2D" uid="uid://bfm3424lwa44u" path="res://assets/bomb.png" id="8_30ev8"]
 [ext_resource type="FontFile" uid="uid://dec5ome6qoy4" path="res://assets/fonts/signika/Signika-Regular.ttf" id="9_mbga1"]
 [ext_resource type="Texture2D" uid="uid://bg04a42hq5l36" path="res://assets/heart.png" id="10_5r4ou"]
@@ -106,6 +107,13 @@ scale_curve = SubResource("CurveTexture_jydr6")
 color_ramp = SubResource("GradientTexture1D_lsc56")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gsi38"]
+shader = ExtResource("6_lhqv6")
+shader_parameter/rect_size = Vector2(652, 472)
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ehwu5"]
 bg_color = Color(0.0784314, 0.164706, 0.352941, 1)
@@ -150,14 +158,14 @@ lifetime = 4.5
 randomness = 0.4
 
 [node name="WingParticles" type="GPUParticles2D" parent="."]
-position = Vector2(1184, 376)
+position = Vector2(1213, 372)
 amount = 1
 process_material = SubResource("ParticleProcessMaterial_jbnvy")
 texture = ExtResource("3_2yp6d")
 lifetime = 1.2
 
 [node name="WingParticles2" type="GPUParticles2D" parent="."]
-position = Vector2(728, 376)
+position = Vector2(697, 376)
 scale = Vector2(-1, -1)
 amount = 1
 process_material = SubResource("ParticleProcessMaterial_ikcvp")
@@ -238,9 +246,9 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -195.0
+offset_left = -172.0
 offset_top = -115.0
-offset_right = 33.0
+offset_right = 56.0
 offset_bottom = 115.0
 grow_horizontal = 0
 grow_vertical = 2
@@ -254,9 +262,9 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = -30.0
+offset_left = -47.0
 offset_top = -115.0
-offset_right = 182.0
+offset_right = 165.0
 offset_bottom = 115.0
 grow_vertical = 2
 texture = ExtResource("3_2yp6d")
