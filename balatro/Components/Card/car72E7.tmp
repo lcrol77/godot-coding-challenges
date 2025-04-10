@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://cm28su6dqvq1i"]
+
+[ext_resource type="Script" path="res://Components/Card/card.gd" id="1_fd5em"]
+[ext_resource type="Texture2D" uid="uid://c44yepmbgd234" path="res://visuals/Tiles_A_white.png" id="2_xkmn3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xlx8s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6y2q7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6iiqr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qo8yq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sqm1g"]
+
+[node name="Card" type="Button"]
+custom_minimum_size = Vector2(152, 207)
+offset_right = 152.0
+offset_bottom = 207.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xlx8s")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6y2q7")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6iiqr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qo8yq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sqm1g")
+script = ExtResource("1_fd5em")
+
+[node name="Shadow" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(1, 1, 1, 0.168627)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 27.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xkmn3")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CardTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xkmn3")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
