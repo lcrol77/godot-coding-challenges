@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cm28su6dqvq1i"]
+[gd_scene load_steps=10 format=3 uid="uid://cm28su6dqvq1i"]
 
 [ext_resource type="Script" path="res://Components/Card/card.gd" id="1_fd5em"]
 [ext_resource type="Texture2D" uid="uid://c44yepmbgd234" path="res://visuals/Tiles_A_white.png" id="2_xkmn3"]
+[ext_resource type="Shader" path="res://visuals/shaders/fake_3D.gdshader" id="3_ypok3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xlx8s"]
 
@@ -12,6 +13,15 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qo8yq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sqm1g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ntqh"]
+shader = ExtResource("3_ypok3")
+shader_parameter/rect_size = Vector2(152, 207)
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
 
 [node name="Card" type="Button"]
 custom_minimum_size = Vector2(152, 207)
@@ -40,6 +50,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="CardTexture" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_8ntqh")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
