@@ -5,13 +5,17 @@ extends Button
 @export var angle_y_max: float = 15.0
 @export var max_offset_shadow: float = 50.0
 
-
 var tween_hover: Tween
 var tween_rot: Tween
 var following_mouse: bool = false
 
 @onready var card_texture: TextureRect = $CardTexture
 @onready var shadow: TextureRect = $Shadow
+
+func _ready() -> void:
+	# Convert to radians because lerp_angle is using that
+	angle_x_max = deg_to_rad(angle_x_max)
+	angle_y_max = deg_to_rad(angle_y_max)
 
 func _process(delta: float) -> void:
 	follow_mouse(delta)
@@ -30,18 +34,15 @@ func handle_shadow(_delta) -> void:
 
 func _on_gui_input(event: InputEvent) -> void:
 	handle_mouse_click(event)
-	if following_mouse: return
 	if not event is InputEventMouseMotion: return
-	var mouse_pos : Vector2 = get_local_mouse_position()
+	var mouse_pos: Vector2 = get_local_mouse_position()
 	var lerp_val_x: float = remap(mouse_pos.x, 0.0, size.x, 0, 1)
-	var lerp_val_y: float = remap(mouse_pos.y,0.0, size.y,0,1)
-	var rot_x: float = lerp(-angle_x_max, angle_x_max, lerp_val_x)
-	var rot_y: float = lerp(angle_y_max, -angle_y_max, lerp_val_y)
-	
-	# setting the rotations amount on the card texture material
+	var lerp_val_y: float = remap(mouse_pos.y, 0.0, size.y, 0, 1)
+	var rot_x: float = rad_to_deg(lerp_angle(-angle_x_max, angle_x_max, lerp_val_x))
+	var rot_y: float = rad_to_deg(lerp_angle(angle_y_max, -angle_y_max, lerp_val_y))
 	card_texture.material.set_shader_parameter("x_rot", rot_y)
 	card_texture.material.set_shader_parameter("y_rot", rot_x)
-	
+
 func handle_mouse_click(event) -> void:
 	if not event is InputEventMouseButton: return
 	if event.button_index != MOUSE_BUTTON_LEFT: return

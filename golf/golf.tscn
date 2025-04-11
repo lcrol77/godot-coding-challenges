@@ -1,0 +1,105 @@
+[gd_scene load_steps=9 format=3 uid="uid://cen3cu38tfdmd"]
+
+[ext_resource type="Script" path="res://golf.gd" id="1_bcl7e"]
+[ext_resource type="Shader" path="res://shaders/noise_move.gdshader" id="1_duq2n"]
+[ext_resource type="PackedScene" uid="uid://cm28su6dqvq1i" path="res://Components/Card/card.tscn" id="1_yq1q1"]
+[ext_resource type="Script" path="res://hand_grid.gd" id="3_pwirm"]
+
+[sub_resource type="Gradient" id="Gradient_lbo7h"]
+colors = PackedColorArray(0, 0.227451, 0.113725, 1, 0, 0.345098, 0.129412, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wx1hx"]
+noise_type = 3
+frequency = 0.015
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bqg4n"]
+color_ramp = SubResource("Gradient_lbo7h")
+noise = SubResource("FastNoiseLite_wx1hx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_er7v0"]
+shader = ExtResource("1_duq2n")
+shader_parameter/dir = Vector2(0.5, 0.5)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_bqg4n")
+
+[node name="Golf" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bcl7e")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_er7v0")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Card7" parent="." instance=ExtResource("1_yq1q1")]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 295.0
+offset_right = 434.0
+offset_bottom = 502.0
+
+[node name="Hand" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -514.0
+offset_top = -552.0
+offset_right = 514.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("3_pwirm")
+bounds = Vector2i(3, 2)
+metadata/_edit_use_anchors_ = true
+
+[node name="Card" parent="Hand" instance=ExtResource("1_yq1q1")]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 260.0
+offset_right = 632.0
+offset_bottom = 467.0
+
+[node name="Card6" parent="Hand" instance=ExtResource("1_yq1q1")]
+layout_mode = 0
+offset_left = 669.0
+offset_top = 259.0
+offset_right = 821.0
+offset_bottom = 466.0
+
+[node name="Card2" parent="Hand" instance=ExtResource("1_yq1q1")]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 258.0
+offset_right = 446.0
+offset_bottom = 465.0
+
+[node name="Card3" parent="Hand" instance=ExtResource("1_yq1q1")]
+layout_mode = 0
+offset_left = 649.0
+offset_top = -1.0
+offset_right = 801.0
+offset_bottom = 206.0
+
+[node name="Card4" parent="Hand" instance=ExtResource("1_yq1q1")]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 3.0
+offset_right = 624.0
+offset_bottom = 210.0
+
+[node name="Card5" parent="Hand" instance=ExtResource("1_yq1q1")]
+layout_mode = 0
+offset_left = 287.0
+offset_top = 1.0
+offset_right = 439.0
+offset_bottom = 208.0

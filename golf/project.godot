@@ -10,9 +10,10 @@ config_version=5
 
 [application]
 
-config/name="balatro"
+config/name="Golf"
+run/main_scene="res://golf.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://visuals/Tiles_A_white.png"
 
 [display]
 
