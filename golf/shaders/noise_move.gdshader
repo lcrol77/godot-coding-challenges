@@ -7,4 +7,3 @@ void fragment() {
 	//COLOR.rgb = texture(noise_texture, UV + (normalize(dir) * TIME)).rgb;
 	COLOR.rgb = texture(noise_texture, UV).rgb;
 }
-

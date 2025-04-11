@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cen3cu38tfdmd"]
+[gd_scene load_steps=8 format=3 uid="uid://cen3cu38tfdmd"]
 
 [ext_resource type="Script" path="res://golf.gd" id="1_bcl7e"]
 [ext_resource type="Shader" path="res://shaders/noise_move.gdshader" id="1_duq2n"]
-[ext_resource type="PackedScene" uid="uid://cm28su6dqvq1i" path="res://Components/Card/card.tscn" id="1_yq1q1"]
-[ext_resource type="Script" path="res://hand_grid.gd" id="3_pwirm"]
+[ext_resource type="Script" path="res://play_area.gd" id="3_m0f54"]
 
 [sub_resource type="Gradient" id="Gradient_lbo7h"]
 colors = PackedColorArray(0, 0.227451, 0.113725, 1, 0, 0.345098, 0.129412, 1)
@@ -30,7 +29,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bcl7e")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="BG" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_er7v0")
 layout_mode = 1
 anchors_preset = 15
@@ -39,67 +38,42 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Card7" parent="." instance=ExtResource("1_yq1q1")]
-layout_mode = 0
-offset_left = 282.0
-offset_top = 295.0
-offset_right = 434.0
-offset_bottom = 502.0
+[node name="PlayArea" type="Node" parent="."]
+script = ExtResource("3_m0f54")
 
-[node name="Hand" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -514.0
-offset_top = -552.0
-offset_right = 514.0
-grow_horizontal = 2
-grow_vertical = 0
-script = ExtResource("3_pwirm")
-bounds = Vector2i(3, 2)
-metadata/_edit_use_anchors_ = true
+[node name="LeftTop" type="Node2D" parent="PlayArea"]
+position = Vector2(758, 702)
 
-[node name="Card" parent="Hand" instance=ExtResource("1_yq1q1")]
-layout_mode = 0
-offset_left = 480.0
-offset_top = 260.0
-offset_right = 632.0
-offset_bottom = 467.0
+[node name="MiddleTop" type="Node2D" parent="PlayArea"]
+position = Vector2(960, 702)
 
-[node name="Card6" parent="Hand" instance=ExtResource("1_yq1q1")]
-layout_mode = 0
-offset_left = 669.0
-offset_top = 259.0
-offset_right = 821.0
-offset_bottom = 466.0
+[node name="RightTop" type="Node2D" parent="PlayArea"]
+position = Vector2(1162, 702)
 
-[node name="Card2" parent="Hand" instance=ExtResource("1_yq1q1")]
-layout_mode = 0
-offset_left = 294.0
-offset_top = 258.0
-offset_right = 446.0
-offset_bottom = 465.0
+[node name="LeftBottom" type="Node2D" parent="PlayArea"]
+position = Vector2(758, 933)
 
-[node name="Card3" parent="Hand" instance=ExtResource("1_yq1q1")]
-layout_mode = 0
-offset_left = 649.0
-offset_top = -1.0
-offset_right = 801.0
-offset_bottom = 206.0
+[node name="MiddleBottom" type="Node2D" parent="PlayArea"]
+position = Vector2(960, 933)
 
-[node name="Card4" parent="Hand" instance=ExtResource("1_yq1q1")]
-layout_mode = 0
-offset_left = 472.0
-offset_top = 3.0
-offset_right = 624.0
-offset_bottom = 210.0
+[node name="RightBottom" type="Node2D" parent="PlayArea"]
+position = Vector2(1162, 933)
 
-[node name="Card5" parent="Hand" instance=ExtResource("1_yq1q1")]
-layout_mode = 0
-offset_left = 287.0
-offset_top = 1.0
-offset_right = 439.0
-offset_bottom = 208.0
+[connection signal="gui_input" from="PlayArea/LeftTop/Card" to="PlayArea/LeftTop/Card" method="_on_gui_input"]
+[connection signal="mouse_entered" from="PlayArea/LeftTop/Card" to="PlayArea/LeftTop/Card" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="PlayArea/LeftTop/Card" to="PlayArea/LeftTop/Card" method="_on_mouse_exited"]
+[connection signal="gui_input" from="PlayArea/MiddleTop/Card" to="PlayArea/MiddleTop/Card" method="_on_gui_input"]
+[connection signal="mouse_entered" from="PlayArea/MiddleTop/Card" to="PlayArea/MiddleTop/Card" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="PlayArea/MiddleTop/Card" to="PlayArea/MiddleTop/Card" method="_on_mouse_exited"]
+[connection signal="gui_input" from="PlayArea/RightTop/Card" to="PlayArea/RightTop/Card" method="_on_gui_input"]
+[connection signal="mouse_entered" from="PlayArea/RightTop/Card" to="PlayArea/RightTop/Card" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="PlayArea/RightTop/Card" to="PlayArea/RightTop/Card" method="_on_mouse_exited"]
+[connection signal="gui_input" from="PlayArea/LeftBottom/Card" to="PlayArea/LeftBottom/Card" method="_on_gui_input"]
+[connection signal="mouse_entered" from="PlayArea/LeftBottom/Card" to="PlayArea/LeftBottom/Card" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="PlayArea/LeftBottom/Card" to="PlayArea/LeftBottom/Card" method="_on_mouse_exited"]
+[connection signal="gui_input" from="PlayArea/MiddleBottom/Card" to="PlayArea/MiddleBottom/Card" method="_on_gui_input"]
+[connection signal="mouse_entered" from="PlayArea/MiddleBottom/Card" to="PlayArea/MiddleBottom/Card" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="PlayArea/MiddleBottom/Card" to="PlayArea/MiddleBottom/Card" method="_on_mouse_exited"]
+[connection signal="gui_input" from="PlayArea/RightBottom/Card" to="PlayArea/RightBottom/Card" method="_on_gui_input"]
+[connection signal="mouse_entered" from="PlayArea/RightBottom/Card" to="PlayArea/RightBottom/Card" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="PlayArea/RightBottom/Card" to="PlayArea/RightBottom/Card" method="_on_mouse_exited"]
