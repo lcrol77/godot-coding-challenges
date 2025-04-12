@@ -12,7 +12,7 @@ extends Node
 
 func _ready() -> void:
 	#TODO: include code to set where the play nodes are
-	for child: Node2D in get_children():
+	for child in get_children():
 		var new_card: Card = card_prefab.instantiate()
-		new_card.position = child.position + (new_card.size/2)
+		new_card.position -= (new_card.size /2)
 		child.add_child(new_card)
