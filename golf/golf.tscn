@@ -58,22 +58,3 @@ position = Vector2(960, 933)
 
 [node name="RightBottom" type="Node2D" parent="PlayArea"]
 position = Vector2(1162, 933)
-
-[connection signal="gui_input" from="PlayArea/LeftTop/Card" to="PlayArea/LeftTop/Card" method="_on_gui_input"]
-[connection signal="mouse_entered" from="PlayArea/LeftTop/Card" to="PlayArea/LeftTop/Card" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="PlayArea/LeftTop/Card" to="PlayArea/LeftTop/Card" method="_on_mouse_exited"]
-[connection signal="gui_input" from="PlayArea/MiddleTop/Card" to="PlayArea/MiddleTop/Card" method="_on_gui_input"]
-[connection signal="mouse_entered" from="PlayArea/MiddleTop/Card" to="PlayArea/MiddleTop/Card" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="PlayArea/MiddleTop/Card" to="PlayArea/MiddleTop/Card" method="_on_mouse_exited"]
-[connection signal="gui_input" from="PlayArea/RightTop/Card" to="PlayArea/RightTop/Card" method="_on_gui_input"]
-[connection signal="mouse_entered" from="PlayArea/RightTop/Card" to="PlayArea/RightTop/Card" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="PlayArea/RightTop/Card" to="PlayArea/RightTop/Card" method="_on_mouse_exited"]
-[connection signal="gui_input" from="PlayArea/LeftBottom/Card" to="PlayArea/LeftBottom/Card" method="_on_gui_input"]
-[connection signal="mouse_entered" from="PlayArea/LeftBottom/Card" to="PlayArea/LeftBottom/Card" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="PlayArea/LeftBottom/Card" to="PlayArea/LeftBottom/Card" method="_on_mouse_exited"]
-[connection signal="gui_input" from="PlayArea/MiddleBottom/Card" to="PlayArea/MiddleBottom/Card" method="_on_gui_input"]
-[connection signal="mouse_entered" from="PlayArea/MiddleBottom/Card" to="PlayArea/MiddleBottom/Card" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="PlayArea/MiddleBottom/Card" to="PlayArea/MiddleBottom/Card" method="_on_mouse_exited"]
-[connection signal="gui_input" from="PlayArea/RightBottom/Card" to="PlayArea/RightBottom/Card" method="_on_gui_input"]
-[connection signal="mouse_entered" from="PlayArea/RightBottom/Card" to="PlayArea/RightBottom/Card" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="PlayArea/RightBottom/Card" to="PlayArea/RightBottom/Card" method="_on_mouse_exited"]

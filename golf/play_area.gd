@@ -1,8 +1,7 @@
-@tool
 class_name PlayArea
 extends Node
 
-@export var card_prefab: PackedScene = preload("res://components/Card/card.tscn")
+@export var card_prefab: PackedScene = preload("res://components/card/card.tscn")
 
 @onready var middle_top: Node2D = $MiddleTop
 @onready var middle_bottom: Node2D = $MiddleBottom
