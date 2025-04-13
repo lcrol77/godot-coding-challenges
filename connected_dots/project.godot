@@ -11,5 +11,14 @@ config_version=5
 [application]
 
 config/name="connected_dots"
+run/main_scene="res://dots.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.141176, 0.141176, 0.141176, 1)
