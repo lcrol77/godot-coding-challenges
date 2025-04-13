@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=3 uid="uid://cen3cu38tfdmd"]
+[gd_scene load_steps=7 format=3 uid="uid://cen3cu38tfdmd"]
 
-[ext_resource type="Script" path="res://golf.gd" id="1_bcl7e"]
 [ext_resource type="Shader" path="res://shaders/noise_move.gdshader" id="1_duq2n"]
 [ext_resource type="Script" path="res://play_area.gd" id="3_m0f54"]
 
@@ -27,7 +26,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_bcl7e")
 
 [node name="BG" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_er7v0")
@@ -42,19 +40,19 @@ grow_vertical = 2
 script = ExtResource("3_m0f54")
 
 [node name="LeftTop" type="Node2D" parent="PlayArea"]
-position = Vector2(758, 702)
+position = Vector2(758, 627)
 
 [node name="MiddleTop" type="Node2D" parent="PlayArea"]
-position = Vector2(960, 702)
+position = Vector2(960, 627)
 
 [node name="RightTop" type="Node2D" parent="PlayArea"]
-position = Vector2(1162, 702)
+position = Vector2(1162, 627)
 
 [node name="LeftBottom" type="Node2D" parent="PlayArea"]
-position = Vector2(758, 933)
+position = Vector2(758, 908)
 
 [node name="MiddleBottom" type="Node2D" parent="PlayArea"]
-position = Vector2(960, 933)
+position = Vector2(960, 908)
 
 [node name="RightBottom" type="Node2D" parent="PlayArea"]
-position = Vector2(1162, 933)
+position = Vector2(1162, 908)
