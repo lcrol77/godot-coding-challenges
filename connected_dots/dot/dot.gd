@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @export var speed := 100
 @export var radius: float = 5
-@export var detection_radius: float = 100
+var detection_radius: float: set = _set_detection_radius
 
 var close_dots: Array[Dot] = []
 
@@ -18,6 +18,11 @@ func _draw() -> void:
 
 func _process(delta: float) -> void:
 	queue_redraw()
+
+func _set_detection_radius(val: float) -> void:
+	detection_radius = val
+	$DetectionArea/CollisionShape2D.shape.radius = detection_radius
+	
 
 func _physics_process(delta: float) -> void:
 	var collison := move_and_collide(velocity * delta)
