@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cf07wie4swg3w"]
+[gd_scene load_steps=4 format=3 uid="uid://cf07wie4swg3w"]
+
+[ext_resource type="Script" path="res://dots.gd" id="1_kha64"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nd37y"]
 size = Vector2(20, 1080)
@@ -7,6 +9,7 @@ size = Vector2(20, 1080)
 size = Vector2(1920, 20)
 
 [node name="Dots" type="Node2D"]
+script = ExtResource("1_kha64")
 
 [node name="DotsContainer" type="Node2D" parent="."]
 
