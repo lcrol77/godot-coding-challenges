@@ -10,19 +10,15 @@ extends Node
 @onready var left_top: Node2D = $LeftTop
 @onready var left_bottom: Node2D = $LeftBottom
 
-func _random_color() -> Color:
-	return Color(randf_range(0,1),randf_range(0,1),randf_range(0,1))
-
 func _ready() -> void:
 	#TODO: include code to set where the play nodes are
 	for child in get_children():
 		var new_card: Card = card_prefab.instantiate()
-		new_card.position -= (new_card.size /2)
-		new_card.modulate = _random_color()
-		setup_card(new_card)
 		child.add_child(new_card)
+		new_card.position -= (new_card.size /2)
+		setup_card(new_card)
 		
-func setup_card(card: Card) -> void:
+func setup_card(card: Card) -> void: 	
 	card.drag_and_drop.drag_started.connect(_on_card_drag_started.bind(card))
 	card.drag_and_drop.drag_canceled.connect(_on_card_drag_canceled.bind(card))
 	card.drag_and_drop.dropped.connect(_on_card_dropped.bind(card))

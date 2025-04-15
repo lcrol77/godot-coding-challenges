@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://cen3cu38tfdmd"]
+
+[ext_resource type="Shader" path="res://shaders/noise_move.gdshader" id="1_duq2n"]
+[ext_resource type="Script" path="res://play_area.gd" id="3_m0f54"]
+
+[sub_resource type="Gradient" id="Gradient_lbo7h"]
+colors = PackedColorArray(0, 0.227451, 0.113725, 1, 0, 0.345098, 0.129412, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wx1hx"]
+noise_type = 3
+frequency = 0.015
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bqg4n"]
+color_ramp = SubResource("Gradient_lbo7h")
+noise = SubResource("FastNoiseLite_wx1hx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_er7v0"]
+shader = ExtResource("1_duq2n")
+shader_parameter/dir = Vector2(0.5, 0.5)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_bqg4n")
+
+[node name="Golf" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_er7v0")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayArea" type="Node" parent="."]
+script = ExtResource("3_m0f54")
+
+[node name="LeftTop" type="Node2D" parent="PlayArea"]
+position = Vector2(758, 627)
+
+[node name="MiddleTop" type="Node2D" parent="PlayArea"]
+position = Vector2(960, 627)
+
+[node name="RightTop" type="Node2D" parent="PlayArea"]
+position = Vector2(1162, 627)
+
+[node name="LeftBottom" type="Node2D" parent="PlayArea"]
+position = Vector2(758, 908)
+
+[node name="MiddleBottom" type="Node2D" parent="PlayArea"]
+position = Vector2(960, 908)
+
+[node name="RightBottom" type="Node2D" parent="PlayArea"]
+position = Vector2(1162, 908)
