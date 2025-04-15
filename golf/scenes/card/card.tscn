@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cm28su6dqvq1i"]
 
-[ext_resource type="Script" path="res://components/card/card.gd" id="1_fd5em"]
+[ext_resource type="Script" path="res://scenes/card/card.gd" id="1_fd5em"]
 [ext_resource type="Texture2D" uid="uid://c44yepmbgd234" path="res://visuals/Tiles_A_white.png" id="2_xkmn3"]
 [ext_resource type="Shader" path="res://shaders/fake_3D.gdshader" id="3_ixt5l"]
 
