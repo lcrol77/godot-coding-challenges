@@ -11,6 +11,7 @@ var following_mouse: bool = false
 
 @onready var card_texture: TextureRect = $CardTexture
 @onready var shadow: TextureRect = $Shadow
+@onready var drag_and_drop: DragAndDrop = $DragAndDrop
 
 func _ready() -> void:
 	# Convert to radians because lerp_angle is using that
@@ -18,14 +19,9 @@ func _ready() -> void:
 	angle_y_max = deg_to_rad(angle_y_max)
 
 func _process(delta: float) -> void:
-	follow_mouse(delta)
+	if drag_and_drop.dragging:
+		_reset_rotation()
 	handle_shadow(delta)
-
-func follow_mouse(_delta: float) -> void:
-	if not following_mouse: return
-	_reset_rotation()
-	var mouse_pos: Vector2 = get_global_mouse_position()
-	global_position = mouse_pos - (size/2)
 
 func handle_shadow(_delta) -> void:
 	var center: Vector2 = get_viewport_rect().size / 2

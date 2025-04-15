@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cm28su6dqvq1i"]
+[gd_scene load_steps=11 format=3 uid="uid://cm28su6dqvq1i"]
 
 [ext_resource type="Script" path="res://scenes/card/card.gd" id="1_fd5em"]
 [ext_resource type="Texture2D" uid="uid://c44yepmbgd234" path="res://visuals/Tiles_A_white.png" id="2_xkmn3"]
 [ext_resource type="Shader" path="res://shaders/fake_3D.gdshader" id="3_ixt5l"]
+[ext_resource type="Script" path="res://components/drag_and_drop.gd" id="4_21fdo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xlx8s"]
 
@@ -15,6 +16,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sqm1g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ved3j"]
+resource_local_to_scene = true
 shader = ExtResource("3_ixt5l")
 shader_parameter/rect_size = Vector2(152, 207)
 shader_parameter/fov = 90.0
@@ -62,6 +64,11 @@ texture = ExtResource("2_xkmn3")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="DragAndDrop" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("4_21fdo")
+target = NodePath("..")
+
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="gui_input" from="." to="DragAndDrop" method="_on_card_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
