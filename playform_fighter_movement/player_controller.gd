@@ -33,11 +33,20 @@ func physics_tick(delta: float) -> void:
 	move_and_slide()
 
 func handle_jump(delta: float, move_direction: Vector2, jump_pressed: bool, _jump_released: bool) -> void:
-	if jump_pressed and can_jump:
+	if (jump_pressed or should_jump) and can_jump:
 		apply_jump(move_direction)
+	elif jump_pressed:
+		buffer_jump()
 	if is_on_floor() and velocity.y >= 0:
 		can_jump = true
 		jumping = false
+	else:
+		can_jump = false
+
+func buffer_jump() -> void:
+	should_jump = true
+	await get_tree().create_timer(JUMP_BUFFER_TIMER).timeout
+	should_jump = false
 
 func apply_jump(move_direction: Vector2, jump_force: float = JUMP_FORCE, jump_direction: int = JUMP_DIRECTIONS.UP) -> void:
 	jumping = true
