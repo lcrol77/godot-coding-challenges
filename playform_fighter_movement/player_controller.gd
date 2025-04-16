@@ -17,7 +17,9 @@ enum JUMP_DIRECTIONS {UP = -1, DOWN = 1}
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+var can_jump: bool = false # flag to track essentially if player is in a jumpable state
 var jumping: bool = false
+var should_jump: bool = false  # jump buffer
 
 func _physics_process(delta: float) -> void:
 	physics_tick(delta)
@@ -26,16 +28,21 @@ func physics_tick(delta: float) -> void:
 	var inputs: Dictionary = get_inputs()
 	handle_velocity(delta, inputs.input_direction)
 	handle_gravity(delta)
-	handle_jump_naive(delta,inputs.input_direction, inputs.jump_released, inputs.jump_released)
+	handle_jump(delta, inputs.input_direction, inputs.jump_released, inputs.jump_released)
 	process_animations()
 	move_and_slide()
 
-func handle_jump_naive(delta: float, move_direction: Vector2,jump_pressed: bool, _jump_released: bool) -> void:
-	if jump_pressed:
+func handle_jump(delta: float, move_direction: Vector2, jump_pressed: bool, _jump_released: bool) -> void:
+	if jump_pressed and can_jump:
 		apply_jump(move_direction)
+	if is_on_floor() and velocity.y >= 0:
+		can_jump = true
+		jumping = false
 
 func apply_jump(move_direction: Vector2, jump_force: float = JUMP_FORCE, jump_direction: int = JUMP_DIRECTIONS.UP) -> void:
 	jumping = true
+	can_jump = false
+	# TODO: make this a more interesting jump arc
 	velocity.y += jump_force * jump_direction
 	
 func handle_velocity(delta: float, input_direction: Vector2) -> void:
@@ -87,7 +94,6 @@ func process_animations() -> void:
 			animated_sprite_2d.play("idle")
 		else:
 			animated_sprite_2d.play("run")
-	
 
 
 func get_input_direction() -> Vector2:
