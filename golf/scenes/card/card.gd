@@ -7,7 +7,6 @@ extends Button
 
 var tween_hover: Tween
 var tween_rot: Tween
-var following_mouse: bool = false
 
 @onready var card_texture: TextureRect = $CardTexture
 @onready var shadow: TextureRect = $Shadow
@@ -29,7 +28,8 @@ func handle_shadow(_delta) -> void:
 	shadow.position.x = lerp(0.0, -sign(dist) * max_offset_shadow, abs(dist/(center.x)))
 
 func _on_gui_input(event: InputEvent) -> void:
-	handle_mouse_click(event)
+	drag_and_drop._handle_gui_input(event)
+	if drag_and_drop.dragging: return
 	if not event is InputEventMouseMotion: return
 	var mouse_pos: Vector2 = get_local_mouse_position()
 	var lerp_val_x: float = remap(mouse_pos.x, 0.0, size.x, 0, 1)
@@ -38,15 +38,7 @@ func _on_gui_input(event: InputEvent) -> void:
 	var rot_y: float = rad_to_deg(lerp_angle(angle_y_max, -angle_y_max, lerp_val_y))
 	card_texture.material.set_shader_parameter("x_rot", rot_y)
 	card_texture.material.set_shader_parameter("y_rot", rot_x)
-
-func handle_mouse_click(event) -> void:
-	if not event is InputEventMouseButton: return
-	if event.button_index != MOUSE_BUTTON_LEFT: return
-	if following_mouse:
-		following_mouse = false
-	else:
-		following_mouse = true
-
+	
 func _on_mouse_entered() -> void:
 	if tween_hover and tween_hover.is_running():
 		tween_hover.kill()
@@ -62,8 +54,10 @@ func _reset_rotation() -> void:
 
 func _on_mouse_exited() -> void:
 	_reset_rotation()
-	
 	if tween_hover and tween_hover.is_running():
 		tween_hover.kill()
 	tween_hover = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
 	tween_hover.tween_property(self, "scale", Vector2.ONE, 0.55)
+
+func reset_position(starting_position: Vector2) -> void:
+	global_position = starting_position

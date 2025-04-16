@@ -36,6 +36,8 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_6iiqr")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_qo8yq")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_sqm1g")
 script = ExtResource("1_fd5em")
+angle_x_max = 5.0
+angle_y_max = 5.0
 
 [node name="Shadow" type="TextureRect" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -69,6 +71,5 @@ script = ExtResource("4_21fdo")
 target = NodePath("..")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
-[connection signal="gui_input" from="." to="DragAndDrop" method="_on_card_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
