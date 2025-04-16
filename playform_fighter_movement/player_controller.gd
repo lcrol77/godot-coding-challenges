@@ -11,7 +11,7 @@ enum JUMP_DIRECTIONS {UP = -1, DOWN = 1}
 @export_range(0, 1000, 0.1) var GRAVITY: float = 500.0
 @export_range(0, 1000, 0.1) var JUMP_FORCE: float = 200.0
 @export_range(0, 1000, 0.1) var JUMP_CANCEL_FORCE: float = 800.0
-@export_range(0, 1000, 0.1) var WALL_SLIDE_SPEED: float = 50.0
+@export_range(0, 1000, 0.1) var WALL_SLIDE_SPEED: float = 50.0      
 @export_range(0, 1, 0.01) var COYOTE_TIMER: float = 0.08
 @export_range(0, 1, 0.01) var JUMP_BUFFER_TIMER: float = 0.1
 
@@ -28,7 +28,7 @@ func physics_tick(delta: float) -> void:
 	var inputs: Dictionary = get_inputs()
 	handle_velocity(delta, inputs.input_direction)
 	handle_gravity(delta)
-	handle_jump(delta, inputs.input_direction, inputs.jump_released, inputs.jump_released)
+	handle_jump(delta, inputs.input_direction, inputs.jump_pressed, inputs.jump_released)
 	process_animations()
 	move_and_slide()
 
