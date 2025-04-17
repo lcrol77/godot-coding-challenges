@@ -3,15 +3,15 @@ extends CharacterBody2D
 
 enum JUMP_DIRECTIONS {UP = -1, DOWN = 1}
 
-@export_range(0, 1000, 0.1) var ACCELERATION: float = 500.0
-@export_range(0, 1000, 0.1) var MAX_SPEED: float = 100.0
+@export_range(0, 1500, 0.1) var ACCELERATION: float = 500.0
+@export_range(0, 1500, 0.1) var MAX_SPEED: float = 100.0
 @export_range(0, 10, 0.1) var SPRINT_MULTIPLIER: float = 1.5
-@export_range(0, 1000, 0.1) var FRICTION: float = 500.0
-@export_range(0, 1000, 0.1) var AIR_RESISTENCE: float = 200.0
-@export_range(0, 1000, 0.1) var GRAVITY: float = 500.0
-@export_range(0, 1000, 0.1) var JUMP_FORCE: float = 200.0
-@export_range(0, 1000, 0.1) var JUMP_CANCEL_FORCE: float = 800.0
-@export_range(0, 1000, 0.1) var WALL_SLIDE_SPEED: float = 50.0      
+@export_range(0, 1500, 0.1) var FRICTION: float = 500.0
+@export_range(0, 1500, 0.1) var AIR_RESISTENCE: float = 200.0
+@export_range(0, 1500, 0.1) var GRAVITY: float = 500.0
+@export_range(0, 1500, 0.1) var JUMP_FORCE: float = 200.0
+@export_range(0, 1500, 0.1) var JUMP_CANCEL_FORCE: float = 800.0
+@export_range(0, 1500, 0.1) var WALL_SLIDE_SPEED: float = 50.0      
 @export_range(0, 1, 0.01) var COYOTE_TIMER: float = 0.08
 @export_range(0, 1, 0.01) var JUMP_BUFFER_TIMER: float = 0.1
 
@@ -32,16 +32,25 @@ func physics_tick(delta: float) -> void:
 	process_animations()
 	move_and_slide()
 
-func handle_jump(delta: float, move_direction: Vector2, jump_pressed: bool, _jump_released: bool) -> void:
+func handle_jump(delta: float, move_direction: Vector2, jump_pressed: bool, jump_released: bool) -> void:
 	if (jump_pressed or should_jump) and can_jump:
 		apply_jump(move_direction)
 	elif jump_pressed:
 		buffer_jump()
+	#FIXME: I believe it is possible to skip an input if I release on the same phyics step 
+	elif jump_released and velocity.y < 0:
+		cancel_jump(delta)
+		
 	if is_on_floor() and velocity.y >= 0:
 		can_jump = true
 		jumping = false
 	else:
 		can_jump = false
+
+func cancel_jump(delta: float) -> void:
+	print("ere")
+	jumping = false
+	velocity.y -= JUMP_CANCEL_FORCE * sign(velocity.y) 
 
 func buffer_jump() -> void:
 	should_jump = true

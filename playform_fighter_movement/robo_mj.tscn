@@ -200,6 +200,9 @@ height = 18.0
 
 [node name="RoboMJ" type="CharacterBody2D"]
 script = ExtResource("1_kaffr")
+GRAVITY = 800.0
+JUMP_FORCE = 1200.0
+JUMP_CANCEL_FORCE = 100.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cj5vx")
