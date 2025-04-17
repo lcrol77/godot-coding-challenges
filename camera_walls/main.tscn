@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b08f7t45ooofg"]
+[gd_scene load_steps=6 format=3 uid="uid://b08f7t45ooofg"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_58fkf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oahr5"]
 albedo_color = Color(0.478431, 0.054902, 0.054902, 1)
@@ -11,10 +13,15 @@ height = 1.0
 albedo_color = Color(0.12549, 0.792157, 0.447059, 1)
 
 [sub_resource type="Environment" id="Environment_wwqsf"]
+background_mode = 1
+background_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.2
 tonemap_mode = 1
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_58fkf")
 
 [node name="floor" type="CSGBox3D" parent="."]
 size = Vector3(10, 0.1, 10)
@@ -47,7 +54,7 @@ material = SubResource("StandardMaterial3D_738dm")
 [node name="CamRotationPoint" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="CamRotationPoint"]
-transform = Transform3D(-3.78552e-08, -0.5, 0.866025, -2.18557e-08, 0.866025, 0.5, -1, 0, -4.37114e-08, 10, 6.5, 0)
+transform = Transform3D(-3.78552e-08, -0.5, 0.866025, -2.18557e-08, 0.866025, 0.5, -1, 0, -4.37114e-08, 9.13397, 6, 4.37114e-08)
 fov = 60.0
 
 [node name="RayCast3D" type="RayCast3D" parent="CamRotationPoint/Camera3D"]
