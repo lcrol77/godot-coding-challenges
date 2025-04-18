@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://2kkve17o5npu"]
 
-[ext_resource type="Script" path="res://starfield.gd" id="1_mbq0f"]
+[ext_resource type="Script" uid="uid://62xt8gdvvd02" path="res://starfield.gd" id="1_mbq0f"]
 
 [node name="Starfield" type="Node2D"]
 script = ExtResource("1_mbq0f")

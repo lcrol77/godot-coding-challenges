@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Level Up Animation"
 run/main_scene="res://level_up.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://assets/shield.png"
 
 [display]

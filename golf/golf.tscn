@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cen3cu38tfdmd"]
 
-[ext_resource type="Shader" path="res://shaders/noise_move.gdshader" id="1_duq2n"]
-[ext_resource type="Script" path="res://play_area.gd" id="3_m0f54"]
+[ext_resource type="Shader" uid="uid://bw7v5n3gcs2lq" path="res://shaders/noise_move.gdshader" id="1_duq2n"]
+[ext_resource type="Script" uid="uid://biiklynpww147" path="res://play_area.gd" id="3_m0f54"]
 
 [sub_resource type="Gradient" id="Gradient_lbo7h"]
 colors = PackedColorArray(0, 0.227451, 0.113725, 1, 0, 0.345098, 0.129412, 1)
@@ -16,8 +16,8 @@ noise = SubResource("FastNoiseLite_wx1hx")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_er7v0"]
 shader = ExtResource("1_duq2n")
-shader_parameter/dir = Vector2(0.5, 0.5)
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_bqg4n")
+shader_parameter/dir = Vector2(0.5, 0.5)
 
 [node name="Golf" type="Control"]
 layout_mode = 3

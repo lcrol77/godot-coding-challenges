@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cfpvfr4mwnxv0" path="res://assets/ribbon.png" id="4_eantp"]
 [ext_resource type="FontFile" uid="uid://bq576idtgkcvs" path="res://assets/fonts/signika/Signika-SemiBold.ttf" id="5_85ifi"]
 [ext_resource type="FontFile" uid="uid://deo8melbvd5n0" path="res://assets/fonts/signika/Signika-Bold.ttf" id="6_c32yg"]
-[ext_resource type="Shader" path="res://fake_3D.gdshader" id="6_lhqv6"]
+[ext_resource type="Shader" uid="uid://15qpqya1vifu" path="res://fake_3D.gdshader" id="6_lhqv6"]
 [ext_resource type="Texture2D" uid="uid://bfm3424lwa44u" path="res://assets/bomb.png" id="8_30ev8"]
 [ext_resource type="FontFile" uid="uid://dec5ome6qoy4" path="res://assets/fonts/signika/Signika-Regular.ttf" id="9_mbga1"]
 [ext_resource type="Texture2D" uid="uid://bg04a42hq5l36" path="res://assets/heart.png" id="10_5r4ou"]

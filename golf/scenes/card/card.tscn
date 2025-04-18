@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://cm28su6dqvq1i"]
 
-[ext_resource type="Script" path="res://scenes/card/card.gd" id="1_fd5em"]
+[ext_resource type="Script" uid="uid://c2sqcm7gqrap5" path="res://scenes/card/card.gd" id="1_fd5em"]
 [ext_resource type="Texture2D" uid="uid://c44yepmbgd234" path="res://visuals/Tiles_A_white.png" id="2_xkmn3"]
-[ext_resource type="Shader" path="res://shaders/fake_3D.gdshader" id="3_ixt5l"]
-[ext_resource type="Script" path="res://components/drag_and_drop.gd" id="4_21fdo"]
+[ext_resource type="Shader" uid="uid://dtphj6nl1tn0" path="res://shaders/fake_3D.gdshader" id="3_ixt5l"]
+[ext_resource type="Script" uid="uid://b26mk21dd3r0w" path="res://components/drag_and_drop.gd" id="4_21fdo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xlx8s"]
 

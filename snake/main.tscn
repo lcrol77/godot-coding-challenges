@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://w3d3vtu2jlu1"]
 
 [ext_resource type="PackedScene" uid="uid://dkcwrgdo3oyhv" path="res://components/snake/snake.tscn" id="1_0dakr"]
-[ext_resource type="Script" path="res://main.gd" id="1_ulgk1"]
-[ext_resource type="Script" path="res://score.gd" id="4_iti83"]
-[ext_resource type="Script" path="res://components/game_grid.gd" id="4_wjyrl"]
+[ext_resource type="Script" uid="uid://dhjo2magtj3bv" path="res://main.gd" id="1_ulgk1"]
+[ext_resource type="Script" uid="uid://8172mxa55wc4" path="res://score.gd" id="4_iti83"]
+[ext_resource type="Script" uid="uid://dpudxhkkjutwa" path="res://components/game_grid.gd" id="4_wjyrl"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("game_grid", "stats")]
 script = ExtResource("1_ulgk1")

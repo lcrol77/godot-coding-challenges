@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://clt7x8vlxg5t3"]
 
 [ext_resource type="Texture2D" uid="uid://dfnllffqvfhmi" path="res://assets/roboMJ_Spritesheet.png" id="1_08d81"]
-[ext_resource type="Script" path="res://player_controller.gd" id="1_kaffr"]
+[ext_resource type="Script" uid="uid://chwd1ch4oo77" path="res://player_controller.gd" id="1_kaffr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iyj4u"]
 atlas = ExtResource("1_08d81")
