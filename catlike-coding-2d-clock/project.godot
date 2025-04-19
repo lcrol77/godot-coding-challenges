@@ -11,5 +11,14 @@ config_version=5
 [application]
 
 config/name="Catlike Coding 2D Clock"
+run/main_scene="uid://dwicc7uq3fts3"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="viewport"
+
+[rendering]
+
+anti_aliasing/quality/msaa_2d=2

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwicc7uq3fts3"]
+
+[ext_resource type="PackedScene" uid="uid://bywwmemb8ieid" path="res://clock.tscn" id="1_juj43"]
+
+[node name="SingleClockView" type="Node2D"]
+
+[node name="Clock" parent="." instance=ExtResource("1_juj43")]
+position = Vector2(576, 324)
