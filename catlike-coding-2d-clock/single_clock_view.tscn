@@ -6,3 +6,5 @@
 
 [node name="Clock" parent="." instance=ExtResource("1_juj43")]
 position = Vector2(576, 324)
+start_time = 3
+start_hour = 1
