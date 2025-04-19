@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cppm2qf3fau2i"]
+
+[ext_resource type="Script" uid="uid://bhhpdfovar7wy" path="res://main.gd" id="1_ig7tw"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ig7tw"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ig7tw")
+
+[node name="Bottom" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
+shape = SubResource("WorldBoundaryShape2D_ig7tw")
+
+[connection signal="body_entered" from="Bottom" to="." method="_on_bottom_body_entered"]

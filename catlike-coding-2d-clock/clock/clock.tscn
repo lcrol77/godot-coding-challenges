@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bywwmemb8ieid"]
+[gd_scene load_steps=5 format=3 uid="uid://bywwmemb8ieid"]
 
-[ext_resource type="Script" uid="uid://75jpnc6hd6ca" path="res://clock.gd" id="1_venu5"]
+[ext_resource type="Script" uid="uid://75jpnc6hd6ca" path="res://clock/clock.gd" id="1_venu5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vx6em"]
+radius = 128.0
 
 [sub_resource type="Gradient" id="Gradient_5rrw5"]
 offsets = PackedFloat32Array(0.98, 1)
@@ -14,8 +17,11 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
-[node name="Clock" type="Node2D"]
+[node name="Clock" type="RigidBody2D"]
 script = ExtResource("1_venu5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vx6em")
 
 [node name="Face" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture2D_venu5")
