@@ -9,16 +9,14 @@ ambient_light_color = Color(1, 1, 1, 1)
 [node name="ClockView" type="Node3D"]
 
 [node name="CSGCylinder3D" parent="." instance=ExtResource("1_r0u74")]
-transform = Transform3D(10, 0, 0, 0, -8.74228e-09, -10, 0, 0.2, -4.37114e-07, 0, 0, 0)
 
 [node name="CSGCylinder3D2" parent="." instance=ExtResource("1_r0u74")]
-transform = Transform3D(10, 0, 0, 0, -8.74228e-09, -10, 0, 0.2, -4.37114e-07, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -9.35162)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pant1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, -0.909563, 0.415567, 0, -0.415567, -0.909563, 0.138873, 8.3996, -9.74726)
+transform = Transform3D(1, 0, 0, 0, 0.822104, 0.569337, 0, -0.569337, 0.822104, 0.138873, 8.3996, 13.2852)
