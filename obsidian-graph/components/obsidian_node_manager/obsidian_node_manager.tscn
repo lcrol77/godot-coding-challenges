@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgpe52ovjj3qk"]
+
+[ext_resource type="Script" uid="uid://df1l11yvps46f" path="res://components/obsidian_node_manager/obsidian_node_manager.gd" id="1_t6qc6"]
+[ext_resource type="PackedScene" uid="uid://c7tbtv32kron1" path="res://components/obsidian_node/obsidian_node.tscn" id="2_gjbqh"]
+
+[node name="ObsidianNodeManager" type="Node2D"]
+script = ExtResource("1_t6qc6")
+node_prefab = ExtResource("2_gjbqh")

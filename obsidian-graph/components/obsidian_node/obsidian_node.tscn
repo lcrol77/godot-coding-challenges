@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7tbtv32kron1"]
+
+[ext_resource type="Script" uid="uid://cke18jhqvj33e" path="res://components/obsidian_node/obsidian_node.gd" id="1_h33cv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xpisr"]
+
+[node name="ObsidianNode" type="CharacterBody2D"]
+script = ExtResource("1_h33cv")
+
+[node name="NodeBody" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xpisr")
