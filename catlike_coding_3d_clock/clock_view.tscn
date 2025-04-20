@@ -1,8 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dihqhp08365f1"]
+[gd_scene load_steps=5 format=3 uid="uid://dihqhp08365f1"]
 
 [ext_resource type="PackedScene" uid="uid://soh7kblv21wt" path="res://clock.tscn" id="1_r0u74"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r0u74"]
+
+[sub_resource type="Sky" id="Sky_cciwq"]
+sky_material = SubResource("ProceduralSkyMaterial_r0u74")
+
 [sub_resource type="Environment" id="Environment_pant1"]
+background_mode = 2
+background_color = Color(0.577008, 0.577008, 0.577008, 1)
+sky = SubResource("Sky_cciwq")
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 
@@ -13,10 +21,10 @@ ambient_light_color = Color(1, 1, 1, 1)
 [node name="CSGCylinder3D2" parent="." instance=ExtResource("1_r0u74")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -7)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pant1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 0.822104, 0.569337, 0, -0.569337, 0.822104, 0.138873, 8.3996, 13.2852)
+transform = Transform3D(1, 0, 0, 0, -0.964318, 0.264749, 0, -0.264749, -0.964318, 0.138873, 8.3996, 13.2852)
