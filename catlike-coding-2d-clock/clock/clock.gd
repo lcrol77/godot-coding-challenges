@@ -10,7 +10,6 @@ enum StartTimeMode{ SYSTEM_TIME, RANDOM_TIME, FIXED_TIME, OFFSET_TIME}
 @export_range(0,59) var start_min := 0
 @export_range(0,59) var start_sec := 0
 
-
 @onready var hour_arm: Polygon2D = $HourArm
 @onready var minute_arm: Polygon2D = $MinuteArm
 @onready var second_arm: Polygon2D = $SecondArm
