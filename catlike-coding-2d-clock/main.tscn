@@ -1,8 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cppm2qf3fau2i"]
+[gd_scene load_steps=4 format=3 uid="uid://cppm2qf3fau2i"]
 
 [ext_resource type="Script" uid="uid://bhhpdfovar7wy" path="res://main.gd" id="1_ig7tw"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ig7tw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
+size = Vector2(1, 1)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ig7tw")
@@ -11,5 +14,10 @@ script = ExtResource("1_ig7tw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
 shape = SubResource("WorldBoundaryShape2D_ig7tw")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_ig7tw")
 
 [connection signal="body_entered" from="Bottom" to="." method="_on_bottom_body_entered"]
