@@ -34,15 +34,19 @@ func _ready() -> void:
 			)
 		if start_time != StartTimeMode.SYSTEM_TIME:
 			seconds += start_sec + start_min * 60 + start_hour * 3600
-
+	visualization.self_modulate.a = randf()
+	
+	
 func _process(delta: float) -> void:
 	seconds += delta * time_scale
-	set_time()
+	var s := fmod(seconds, 60.0) / 60
+	var m := fmod(seconds / 60.0, 60.0) / 60.0
+	var h := fmod(seconds / 3600.0, 12.0) / 12.0
+	second_arm.rotation = s * TAU
+	minute_arm.rotation = m * TAU
+	hour_arm.rotation = h * TAU
+	visualization.self_modulate = Color(s, m, h, visualization.self_modulate.a)
 
-func set_time():
-	second_arm.rotation = fmod(seconds, 60.0) * TAU / 60
-	minute_arm.rotation = fmod(seconds / 60.0, 60.0) * TAU / 60
-	hour_arm.rotation = fmod(seconds/3600, 12.0) * TAU / 12
 
 func set_uniform_scale(scale_factor: float) -> void:
 	var scale_vector = Vector2(scale_factor,scale_factor)
