@@ -1,14 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://cppm2qf3fau2i"]
+[gd_scene load_steps=5 format=3 uid="uid://cppm2qf3fau2i"]
 
 [ext_resource type="Script" uid="uid://bhhpdfovar7wy" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://bywwmemb8ieid" path="res://clock/clock.tscn" id="2_0xm2m"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ig7tw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
 size = Vector2(1, 1)
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("bottom", "ground")]
 script = ExtResource("1_ig7tw")
+clock_prefab = ExtResource("2_0xm2m")
+bottom = NodePath("Bottom")
+ground = NodePath("Ground")
 
 [node name="Bottom" type="Area2D" parent="."]
 
