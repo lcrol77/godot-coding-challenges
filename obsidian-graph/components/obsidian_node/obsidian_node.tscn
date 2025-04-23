@@ -1,27 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7tbtv32kron1"]
+[gd_scene load_steps=3 format=3 uid="uid://c7tbtv32kron1"]
 
 [ext_resource type="Script" uid="uid://cke18jhqvj33e" path="res://components/obsidian_node/obsidian_node.gd" id="1_h33cv"]
-
-[sub_resource type="Gradient" id="Gradient_h33cv"]
-offsets = PackedFloat32Array(0.616883, 0.75974)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_fwvqx"]
-gradient = SubResource("Gradient_h33cv")
-width = 20
-height = 20
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xpisr"]
 
 [node name="ObsidianNode" type="RigidBody2D"]
+input_pickable = true
 linear_velocity = Vector2(1, 1)
 script = ExtResource("1_h33cv")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_fwvqx")
+radius = 8
 
 [node name="NodeBody" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xpisr")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

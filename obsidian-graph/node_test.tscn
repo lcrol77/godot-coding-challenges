@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4y8kgjbmjxow"]
+
+[ext_resource type="PackedScene" uid="uid://c7tbtv32kron1" path="res://components/obsidian_node/obsidian_node.tscn" id="1_h6fog"]
+
+[node name="NodeTest" type="Node2D"]
+
+[node name="ObsidianNode" parent="." node_paths=PackedStringArray("connected_nodes") instance=ExtResource("1_h6fog")]
+connected_nodes = [NodePath("../ObsidianNode2"), NodePath("../ObsidianNode3"), NodePath("../ObsidianNode4"), NodePath("../ObsidianNode5"), NodePath("../ObsidianNode6")]
+
+[node name="ObsidianNode2" parent="." instance=ExtResource("1_h6fog")]
+position = Vector2(-64, -260)
+
+[node name="ObsidianNode3" parent="." instance=ExtResource("1_h6fog")]
+position = Vector2(52, -276)
+
+[node name="ObsidianNode4" parent="." instance=ExtResource("1_h6fog")]
+position = Vector2(12, -226)
+
+[node name="ObsidianNode5" parent="." instance=ExtResource("1_h6fog")]
+position = Vector2(35, -160)
+
+[node name="ObsidianNode6" parent="." instance=ExtResource("1_h6fog")]
+position = Vector2(-35, -185)
+
+[node name="Camera2D" type="Camera2D" parent="."]

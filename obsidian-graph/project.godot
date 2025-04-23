@@ -15,10 +15,22 @@ run/main_scene="uid://dtaifak7e48s0"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://clvktlwfvy5h5"
 
+[autoload]
+
+Globals="*res://globals.gd"
+
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+
+[input]
+
+left_mouse={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(268, 15),"global_position":Vector2(277, 63),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
 
 [physics]
 
