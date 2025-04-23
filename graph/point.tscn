@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://bi6e2mpdj8f16"]
+[gd_scene load_steps=3 format=3 uid="uid://bi6e2mpdj8f16"]
+
+[ext_resource type="Shader" uid="uid://03qdq0qrou0o" path="res://point.gdshader" id="1_7fkqo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7fkqo"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_7fkqo")
+shader_parameter/worldPos = Vector3(0, 0, 0)
+shader_parameter/smoothness = 0.5
 
 [node name="Point" type="CSGBox3D"]
+material = SubResource("ShaderMaterial_7fkqo")

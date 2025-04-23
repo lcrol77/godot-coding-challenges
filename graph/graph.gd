@@ -1,16 +1,29 @@
 extends Node3D
 
 @export var point_prefab: PackedScene
-@export var number_points: int = 10
+@export var points_container: Node3D
+@export_range(10,100) var resolution: int = 10
 
-
+var time: float = 0.0
+var points: Array[CSGBox3D]
 
 func _ready() -> void:
-	var position_vec = Vector3.ZERO;
-	var scale_vec = Vector3.ONE / 5.0;
-	for i in range(number_points):
-		var point: Node3D = point_prefab.instantiate()
-		add_child(point)
-		position_vec.x = (((i as float) + .5) / 5.0 - 1.0)
-		point.position = position_vec
-		point.scale = scale_vec
+	var _step: float = 2.0 / (resolution as float)
+	var _position = Vector3.ZERO;
+	var _scale = Vector3.ONE * _step;
+	points = []
+	for i in range(resolution):
+		var point: CSGBox3D = point_prefab.instantiate()
+		points_container.add_child(point)
+		_position.x = (((i as float) + .5) * _step - 1.0)
+		point.position = _position
+		point.scale = _scale
+		point.material.set_shader_parameter("worldPos", _position)
+		points.append(point)
+
+func _process(delta: float) -> void:
+	time += delta
+	for point: Node3D in points:
+		var pos: Vector3 = point.position
+		pos.y = sin((pos.x + time) * PI )
+		point.position = pos

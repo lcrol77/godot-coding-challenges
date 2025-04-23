@@ -20,6 +20,10 @@ config/icon="res://visuals/Tiles_A_white.png"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 
+[dotnet]
+
+project/assembly_name="Golf"
+
 [input]
 
 select={

@@ -9,15 +9,16 @@
 sky_material = SubResource("ProceduralSkyMaterial_q2ojr")
 
 [sub_resource type="Environment" id="Environment_2637j"]
-background_mode = 2
 sky = SubResource("Sky_41hjn")
-ambient_light_source = 3
+ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 reflected_light_source = 2
 
-[node name="Graph" type="Node3D"]
+[node name="Graph" type="Node3D" node_paths=PackedStringArray("points_container")]
 script = ExtResource("1_41hjn")
 point_prefab = ExtResource("2_2637j")
+points_container = NodePath("Points")
+resolution = 50
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
@@ -30,3 +31,6 @@ environment = SubResource("Environment_2637j")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 0.753942, 0.656941, 0, -0.656941, 0.753942, 0, 3.9397, 0)
+
+[node name="Points" type="Node3D" parent="."]
+top_level = true
