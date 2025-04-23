@@ -19,3 +19,8 @@ config/icon="uid://clvktlwfvy5h5"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+
+[physics]
+
+2d/default_gravity=0.0
+2d/default_gravity_vector=Vector2(0, 0)

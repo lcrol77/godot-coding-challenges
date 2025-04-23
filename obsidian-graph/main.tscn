@@ -1,7 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtaifak7e48s0"]
+[gd_scene load_steps=3 format=3 uid="uid://dtaifak7e48s0"]
 
 [ext_resource type="PackedScene" uid="uid://dgpe52ovjj3qk" path="res://components/obsidian_node_manager/obsidian_node_manager.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://vyvata2ay4gw" path="res://components/attractor/attractor.tscn" id="2_0xm2m"]
 
 [node name="Main" type="Node2D"]
 
 [node name="ObsidianNodeManager" parent="." instance=ExtResource("1_ig7tw")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Attractor" parent="." instance=ExtResource("2_0xm2m")]
+circ_radius = 1000.0

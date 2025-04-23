@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://vyvata2ay4gw"]
+
+[ext_resource type="Script" uid="uid://dlyve2r1pplfv" path="res://components/attractor/attractor.gd" id="1_hbgdj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vcb3r"]
+
+[node name="Attractor" type="Area2D"]
+gravity_space_override = 1
+gravity_point = true
+gravity = 10.0
+script = ExtResource("1_hbgdj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vcb3r")

@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgpe52ovjj3qk"]
+
+[ext_resource type="Script" uid="uid://df1l11yvps46f" path="res://components/obsidian_node_manager/obsidian_node_manager.gd" id="1_t6qc6"]
+[ext_resource type="PackedScene" uid="uid://c7tbtv32kron1" path="res://components/obsidian_node/obsidian_node.tscn" id="2_gjbqh"]
+[ext_resource type="Script" uid="uid://jux2bfe47jlw" path="res://components/obsidian_node_manager/center.gd" id="3_gjbqh"]
+
+[sub_resource type="Gradient" id="Gradient_t6qc6"]
+offsets = PackedFloat32Array(0.584416, 0.792208)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gjbqh"]
+gradient = SubResource("Gradient_t6qc6")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[node name="ObsidianNodeManager" type="Node2D"]
+script = ExtResource("1_t6qc6")
+node_prefab = ExtResource("2_gjbqh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_gjbqh")
+
+[node name="Attractor" type="Node2D" parent="."]
+script = ExtResource("3_gjbqh")

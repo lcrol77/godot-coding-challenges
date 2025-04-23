@@ -6,5 +6,4 @@ extends Node2D
 func _ready():
 	var new_node = node_prefab.instantiate()
 	add_child(new_node)
-	new_node.position = get_viewport_rect().size / 2
-	
+	new_node.position = get_viewport_rect().size / 3
