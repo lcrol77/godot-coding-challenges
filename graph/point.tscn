@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bi6e2mpdj8f16"]
+
+[node name="Point" type="CSGBox3D"]
