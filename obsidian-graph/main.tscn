@@ -5,9 +5,9 @@
 
 [node name="Main" type="Node2D"]
 
-[node name="ObsidianNodeManager" parent="." instance=ExtResource("1_ig7tw")]
-
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ObsidianNodeManager" parent="." instance=ExtResource("1_ig7tw")]
 
 [node name="Attractor" parent="." instance=ExtResource("2_0xm2m")]
 circ_radius = 1000.0

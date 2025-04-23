@@ -15,8 +15,6 @@ func _ready() -> void:
 
 func _draw() -> void:
 	draw_circle(Vector2.ZERO, radius, Color.WHITE)
-	for node: ObsidianNode in connected_nodes:
-		draw_line(Vector2.ZERO, node.global_position,Color.WHITE)
 
 func _process(delta: float) -> void:
 	if _following_mouse:
