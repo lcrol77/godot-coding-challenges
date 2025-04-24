@@ -14,3 +14,7 @@ config/name="Catlike Coding 3D Clock"
 run/main_scene="uid://dihqhp08365f1"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://br056plgc88h8"
+
+[dotnet]
+
+project/assembly_name="Catlike Coding 3D Clock"
