@@ -20,9 +20,8 @@ gradient = SubResource("Gradient_c0usf")
 width = 20
 height = 20
 
-[node name="ObsidianNode" type="RigidBody2D"]
+[node name="ObsidianNode" type="CharacterBody2D"]
 input_pickable = true
-linear_velocity = Vector2(1, 1)
 script = ExtResource("1_h33cv")
 radius = 8
 
