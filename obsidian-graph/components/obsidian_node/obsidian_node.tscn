@@ -1,8 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7tbtv32kron1"]
+[gd_scene load_steps=8 format=3 uid="uid://c7tbtv32kron1"]
 
 [ext_resource type="Script" uid="uid://cke18jhqvj33e" path="res://components/obsidian_node/obsidian_node.gd" id="1_h33cv"]
+[ext_resource type="Shader" uid="uid://dkj2wxc1qqjqo" path="res://components/obsidian_node/obsidian_node.gdshader" id="2_fwvqx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xpisr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h33cv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bqyiw"]
+shader = ExtResource("2_fwvqx")
+shader_parameter/smoothing = 1.0
+
+[sub_resource type="Gradient" id="Gradient_c0usf"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.862745, 0.866667, 0.870588, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1a84x"]
+gradient = SubResource("Gradient_c0usf")
+width = 20
+height = 20
 
 [node name="ObsidianNode" type="RigidBody2D"]
 input_pickable = true
@@ -13,5 +29,15 @@ radius = 8
 [node name="NodeBody" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xpisr")
 
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[node name="Area2D" type="Area2D" parent="."]
+modulate = Color(0.4, 0.4, 0.4, 1)
+
+[node name="AreaBody" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_h33cv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_bqyiw")
+texture = SubResource("GradientTexture2D_1a84x")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_mouse_exited"]

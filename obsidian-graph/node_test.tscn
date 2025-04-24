@@ -15,14 +15,18 @@ connected_nodes = [NodePath("../ObsidianNode2"), NodePath("../ObsidianNode3"), N
 [node name="ObsidianNode2" parent="ObsidianNodeManager" instance=ExtResource("1_h6fog")]
 position = Vector2(-64, -260)
 
-[node name="ObsidianNode3" parent="ObsidianNodeManager" instance=ExtResource("1_h6fog")]
-position = Vector2(52, -276)
+[node name="ObsidianNode3" parent="ObsidianNodeManager" node_paths=PackedStringArray("connected_nodes") instance=ExtResource("1_h6fog")]
+position = Vector2(62, -214)
+connected_nodes = [NodePath("../ObsidianNode6"), NodePath("../ObsidianNode7")]
 
 [node name="ObsidianNode4" parent="ObsidianNodeManager" instance=ExtResource("1_h6fog")]
 position = Vector2(12, -226)
 
 [node name="ObsidianNode5" parent="ObsidianNodeManager" instance=ExtResource("1_h6fog")]
-position = Vector2(35, -160)
+position = Vector2(83, -139)
 
 [node name="ObsidianNode6" parent="ObsidianNodeManager" instance=ExtResource("1_h6fog")]
-position = Vector2(-35, -185)
+position = Vector2(143, -264)
+
+[node name="ObsidianNode7" parent="ObsidianNodeManager" instance=ExtResource("1_h6fog")]
+position = Vector2(65, -289)

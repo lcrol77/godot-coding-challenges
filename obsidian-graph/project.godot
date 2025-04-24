@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Obsidian Graph"
-run/main_scene="uid://dtaifak7e48s0"
+run/main_scene="uid://b4y8kgjbmjxow"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://clvktlwfvy5h5"
 
@@ -40,3 +40,7 @@ left_mouse={
 
 2d/default_gravity=0.0
 2d/default_gravity_vector=Vector2(0, 0)
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.101961, 0.101961, 0.101961, 1)
