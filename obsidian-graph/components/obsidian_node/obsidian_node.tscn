@@ -24,6 +24,7 @@ height = 20
 input_pickable = true
 script = ExtResource("1_h33cv")
 radius = 8
+is_created = null
 
 [node name="NodeBody" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xpisr")

@@ -11,22 +11,29 @@
 
 [node name="ObsidianNode" parent="ObsidianNodeManager" node_paths=PackedStringArray("connected_nodes") instance=ExtResource("1_h6fog")]
 connected_nodes = [NodePath("../ObsidianNode2"), NodePath("../ObsidianNode3"), NodePath("../ObsidianNode4"), NodePath("../ObsidianNode5")]
+is_created = null
 
 [node name="ObsidianNode2" parent="ObsidianNodeManager" instance=ExtResource("1_h6fog")]
 position = Vector2(-64, -260)
+is_created = null
 
 [node name="ObsidianNode3" parent="ObsidianNodeManager" node_paths=PackedStringArray("connected_nodes") instance=ExtResource("1_h6fog")]
 position = Vector2(62, -214)
 connected_nodes = [NodePath("../ObsidianNode6"), NodePath("../ObsidianNode7")]
+is_created = null
 
 [node name="ObsidianNode4" parent="ObsidianNodeManager" instance=ExtResource("1_h6fog")]
 position = Vector2(12, -226)
+is_created = null
 
 [node name="ObsidianNode5" parent="ObsidianNodeManager" instance=ExtResource("1_h6fog")]
 position = Vector2(83, -139)
+is_created = null
 
 [node name="ObsidianNode6" parent="ObsidianNodeManager" instance=ExtResource("1_h6fog")]
 position = Vector2(143, -264)
+is_created = null
 
 [node name="ObsidianNode7" parent="ObsidianNodeManager" instance=ExtResource("1_h6fog")]
 position = Vector2(65, -289)
+is_created = null

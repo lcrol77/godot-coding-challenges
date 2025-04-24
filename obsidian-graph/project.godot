@@ -18,6 +18,7 @@ config/icon="uid://clvktlwfvy5h5"
 [autoload]
 
 Globals="*res://globals.gd"
+Colors="*res://colors.gd"
 
 [display]
 

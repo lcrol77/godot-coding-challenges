@@ -19,9 +19,9 @@ func _ready() -> void:
 	node_body.shape.radius = radius
 	area_body.shape.radius = radius
 	if is_created:
-		_default_color = Globals.normal_color
+		_default_color = Colors.normal_color
 	else:
-		_default_color = Globals.muted_color
+		_default_color = Colors.muted_color
 
 func _process(delta: float) -> void:
 	if _dragging:
@@ -44,7 +44,7 @@ func _on_mouse_entered() -> void:
 			_hover_tween.kill()
 		_hover_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
 		_hover_tween.tween_property(self, "scale", Vector2(1.2,1.2), 0.5)
-		$Sprite2D.self_modulate = Globals.accent_color
+		$Sprite2D.self_modulate = Colors.accent_color
 		Globals.node_hover.emit(true)
 
 
