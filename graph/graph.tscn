@@ -10,7 +10,9 @@ sky_material = SubResource("ProceduralSkyMaterial_q2ojr")
 
 [sub_resource type="Environment" id="Environment_2637j"]
 sky = SubResource("Sky_41hjn")
+ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.35
 
 [node name="Graph" type="Node3D" node_paths=PackedStringArray("points_container")]
 transform = Transform3D(0.906308, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906308, 0, 0, 0)
