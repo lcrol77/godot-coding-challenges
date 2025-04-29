@@ -15,7 +15,6 @@ ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.35
 
 [node name="Graph" type="Node3D" node_paths=PackedStringArray("points_container")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_41hjn")
 point_prefab = ExtResource("2_2637j")
 points_container = NodePath("Points")
@@ -23,7 +22,7 @@ function = 2
 resolution = 70
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.656752, 0.293113, -0.694808, 0, 0.921368, 0.388689, 0.754104, -0.255273, 0.605111, -2.04249, 1.14261, 1.77881)
+transform = Transform3D(0.638063, 0.509746, -0.577089, 0, 0.749482, 0.662022, 0.769982, -0.422413, 0.478218, -1.65657, 1.90038, 1.37276)
 fov = 71.1622
 size = 2.0
 
