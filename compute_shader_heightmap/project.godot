@@ -13,3 +13,7 @@ config_version=5
 config/name="compute_shader_heightmap"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.webp"
+
+[dotnet]
+
+project/assembly_name="compute_shader_heightmap"
