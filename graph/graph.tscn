@@ -18,7 +18,7 @@ ambient_light_energy = 0.35
 script = ExtResource("1_41hjn")
 point_prefab = ExtResource("2_2637j")
 points_container = NodePath("Points")
-function = 2
+function = 3
 resolution = 40
 
 [node name="Camera3D" type="Camera3D" parent="."]

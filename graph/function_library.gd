@@ -1,8 +1,11 @@
 extends Node
 
-enum FunctionName {Wave, MultiWave, Ripple}
+enum FunctionName {Wave, MultiWave, Ripple, Sphere}
 
-var functions: Array[Callable] = [wave, multi_wave, ripple]
+var functions: Array[Callable] = [wave, multi_wave, ripple, sphere]
+
+func get_function(func_name: FunctionName) -> Callable:
+	return functions[func_name]
 
 func wave(u: float, v: float, t: float) -> Vector3:
 	var p = Vector3()
@@ -30,5 +33,10 @@ func ripple(u: float, v: float, t: float) -> Vector3:
 	p.z = v
 	return p
 
-func get_function(func_name: FunctionName) -> Callable:
-	return functions[func_name]
+func sphere(u: float, v: float, t: float) -> Vector3:
+	var r = cos(.5 * PI *v)
+	var p = Vector3()
+	p.x = r * sin(PI * u)
+	p.y = sin(PI * .5 * v)
+	p.z = r * cos(PI*u)
+	return p
