@@ -12,12 +12,23 @@ var points: Array[CSGBox3D]
 func _ready() -> void:
 	var _step: float = 2.0 / (resolution as float)
 	var _scale = Vector3.ONE * _step;
+	var _position = Vector3.ZERO;
 	points = []
+	var x = 0
+	var z = 0
 	for i in range(resolution * resolution):
+		if x == resolution:
+			x = 0
+			z+=1
 		var point: CSGBox3D = point_prefab.instantiate()
 		points_container.add_child(point)
+		_position.x = (((x as float) + .5) * _step - 1.0)
+		_position.z = (((z as float) + .5) * _step - 1.0)
+		point.position = _position
 		point.scale = _scale
+		point.material.set_shader_parameter("worldPos", _position)
 		points.append(point)
+		x += 1
 
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
