@@ -24,3 +24,7 @@ window/stretch/mode="viewport"
 [dotnet]
 
 project/assembly_name="marching squares simple"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.0846898, 0.08469, 0.0846898, 1)

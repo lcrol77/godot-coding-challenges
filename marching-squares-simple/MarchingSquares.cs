@@ -3,8 +3,9 @@ using System;
 
 public partial class MarchingSquares : Node2D
 {
-    private int[,] _field;
+    private float[,] _field;
     [Export] private int _rez = 20;
+    [Export] private Node2D _noise;
     private int _cols, _rows;
 
     public override void _Ready()
@@ -13,14 +14,7 @@ public partial class MarchingSquares : Node2D
         var viewPortSize = GetViewport().GetVisibleRect().Size;
         _cols = 1 + (int)viewPortSize.X / _rez;
         _rows = 1 + (int)viewPortSize.Y / _rez;
-        _field = new int[_cols, _rows];
-        for (var i = 0; i < _cols; i++)
-        {
-            for (var j = 0; j < _rows; j++)
-            {
-                _field[i, j] = GD.RandRange(0, 1);
-            }
-        }
+        _field = GenerateNoiseMap(_cols, _rows, _rez);
         QueueRedraw();
     }
 
@@ -33,15 +27,14 @@ public partial class MarchingSquares : Node2D
     public override void _Draw()
     {
         base._Draw();
-        // for (var i = 0; i < _cols; i++)
-        // {
-        //     for (var j = 0; j < _rows; j++)
-        //     {
-        //         var color = _field[i, j] * Colors.White;
-        //         color.A = Colors.White.A;
-        //         DrawCircle(new Vector2(i * _rez, j * _rez), _rez * .2f, color);
-        //     }
-        // }
+        for (var i = 0; i < _cols; i++)
+        {
+            for (var j = 0; j < _rows; j++)
+            {
+                var color = _field[i, j] * Colors.White;
+                DrawCircle(new Vector2(i * _rez, j * _rez), _rez * .2f, color);
+            }
+        }
 
         for (var i = 0; i < _cols-1; i++)
         {
@@ -53,7 +46,7 @@ public partial class MarchingSquares : Node2D
                 var b = new Vector2(x + _rez, y + _rez * 0.5f);
                 var c = new Vector2(x + _rez * 0.5f, y + _rez);
                 var d = new Vector2(x, y + _rez * 0.5f);
-                var state = GetState(_field[i, j], _field[i + 1, j], _field[i + 1, j + 1],_field[i, j + 1]);
+                var state = GetState((int) Math.Ceiling(_field[i, j]), (int)Math.Ceiling(_field[i + 1, j]), (int)Math.Ceiling(_field[i + 1, j + 1]),(int)Math.Ceiling(_field[i, j + 1]));
                 var color = Colors.White;
                 switch (state)
                 {
@@ -80,7 +73,7 @@ public partial class MarchingSquares : Node2D
                         DrawLine(a,d,color);
                         break;
                     case 8:
-                        DrawLine(a,d,color); //FIXME
+                        DrawLine(a,d,color);
                         break;
                     case 9:
                         DrawLine(a,c,color);
@@ -102,7 +95,7 @@ public partial class MarchingSquares : Node2D
                         DrawLine(c,d,color);
                         break;
                 }
-
+        
             }
         }
     }
@@ -111,4 +104,26 @@ public partial class MarchingSquares : Node2D
     {
         return a * 8 + b * 4 + c * 2 + d * 1;
     }
+    
+    private static float[,] GenerateNoiseMap(int width, int height, float scale)
+    {
+        var noise = new FastNoiseLite();
+        noise.Seed = (int)GD.Randi();
+        noise.Frequency = 1.0f / scale;
+        noise.NoiseType = FastNoiseLite.NoiseTypeEnum.Simplex;
+
+        var map = new float[width, height];
+
+        for (int y = 0; y < height; y++)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                float value = noise.GetNoise2D(x, y);
+                map[x, y] = value;
+            }
+        }
+
+        return map;
+    }
+
 }
