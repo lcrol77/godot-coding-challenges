@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnelrlrrae53c"]
+
+[ext_resource type="Script" uid="uid://boe0krmsy8121" path="res://trail_3d.gd" id="1_xjhlx"]
+[ext_resource type="Material" uid="uid://d1g8r4ate3iv4" path="res://materials/line_material.tres" id="1_y5mb6"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_mygsy"]
+
+[node name="Trail3D" type="MeshInstance3D"]
+material_override = ExtResource("1_y5mb6")
+mesh = SubResource("ImmediateMesh_mygsy")
+script = ExtResource("1_xjhlx")
+_toWidth = 0.0
