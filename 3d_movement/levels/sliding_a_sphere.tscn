@@ -1,13 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://tjnnaf8iggbr"]
+[gd_scene load_steps=8 format=3 uid="uid://tjnnaf8iggbr"]
 
 [ext_resource type="Material" uid="uid://qbw8fiwrfdpg" path="res://materials/sphere_material.tres" id="1_2d1xy"]
 [ext_resource type="Environment" uid="uid://4lryifbqyaf3" path="res://default_world_env.tres" id="1_wx6cp"]
+[ext_resource type="Script" uid="uid://o3i4pcjgkiif" path="res://player.gd" id="2_tfxar"]
 [ext_resource type="Script" uid="uid://boe0krmsy8121" path="res://trail_3d.gd" id="3_f8vag"]
 [ext_resource type="Material" uid="uid://d1g8r4ate3iv4" path="res://materials/line_material.tres" id="3_vlo2s"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2d1xy"]
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_vlo2s"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_d2gg4"]
 
 [node name="SlidingASphere" type="Node3D"]
 
@@ -15,7 +16,7 @@
 size = Vector3(10, 0.1, 10)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.856889, 0.515502, 0, -0.515502, 0.856889, 0, 3.90633, 7.50512)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6.94412, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_wx6cp")
@@ -24,7 +25,8 @@ environment = ExtResource("1_wx6cp")
 transform = Transform3D(1, 0, 0, 0, 0.574105, 0.818781, 0, -0.818781, 0.574105, 0, 9.65256, 10.6234)
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01596, 0.5, -1.38058)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("2_tfxar")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("SphereShape3D_2d1xy")
@@ -34,9 +36,8 @@ material = ExtResource("1_2d1xy")
 
 [node name="Trail3D" type="MeshInstance3D" parent="Player"]
 material_override = ExtResource("3_vlo2s")
-mesh = SubResource("ImmediateMesh_vlo2s")
+mesh = SubResource("ImmediateMesh_d2gg4")
 script = ExtResource("3_f8vag")
 _fromWidth = 0.05
 _toWidth = 0.025
-_endColor = Color(1, 1, 1, 1)
 metadata/_custom_type_script = "uid://boe0krmsy8121"
