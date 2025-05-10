@@ -8,7 +8,7 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2d1xy"]
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_d2gg4"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_tfxar"]
 
 [node name="SlidingASphere" type="Node3D"]
 
@@ -39,7 +39,7 @@ material = ExtResource("1_2d1xy")
 
 [node name="Trail3D" type="MeshInstance3D" parent="Player"]
 material_override = ExtResource("3_vlo2s")
-mesh = SubResource("ImmediateMesh_d2gg4")
+mesh = SubResource("ImmediateMesh_tfxar")
 script = ExtResource("3_f8vag")
 _fromWidth = 0.05
 _toWidth = 0.025

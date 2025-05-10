@@ -1,11 +1,84 @@
-[gd_scene load_steps=2 format=3 uid="uid://b06kxrlsww84y"]
+[gd_scene load_steps=6 format=3 uid="uid://b06kxrlsww84y"]
 
 [ext_resource type="PackedScene" uid="uid://nu1abgeql7sx" path="res://spider_bot/spider_bot_model.gltf" id="1_wxnhl"]
+[ext_resource type="Script" uid="uid://cm1a5kdv5u6jd" path="res://spider_bot/spider_bot.gd" id="2_nryhl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wxnhl"]
+albedo_color = Color(0.427493, 0.427493, 0.427493, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qsljf"]
+albedo_color = Color(1, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nryhl"]
+albedo_color = Color(0.720467, 0.720468, 0.720467, 1)
 
 [node name="SpiderBot" instance=ExtResource("1_wxnhl")]
+script = ExtResource("2_nryhl")
 
 [node name="Body_2" parent="Armature/Skeleton3D" index="0"]
 transform = Transform3D(0.325856, 0, 0, 0, 0.325856, 0, 0, 0, 0.325856, 0, 0, 0)
 
+[node name="Body_2" parent="Armature/Skeleton3D/Body_2" index="0"]
+material_override = SubResource("StandardMaterial3D_wxnhl")
+
 [node name="Cylinder" parent="Armature/Skeleton3D" index="1"]
 transform = Transform3D(0.325856, 0, 0, 0, 0, -0.325856, 0, 0.325856, 0, 0, 0.101015, -0.348666)
+
+[node name="Cylinder" parent="Armature/Skeleton3D/Cylinder" index="0"]
+material_override = SubResource("StandardMaterial3D_qsljf")
+
+[node name="Leg" parent="Armature/Skeleton3D" index="2"]
+material_override = SubResource("StandardMaterial3D_nryhl")
+
+[node name="FrontLeftIK" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="3"]
+process_priority = 1
+root_bone = &"leg1FrontLeft"
+tip_bone = &"Foot IKFrontLeft"
+use_magnet = true
+magnet = Vector3(0, 10, 0)
+target_node = NodePath("../../../FrontLeft")
+
+[node name="FrontRightIK" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="4"]
+process_priority = 1
+root_bone = &"leg1FrontRight"
+tip_bone = &"Foot IKFrontRight"
+use_magnet = true
+magnet = Vector3(0, 10, 0)
+target_node = NodePath("../../../FrontRight")
+
+[node name="BackLeftIK" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="5"]
+process_priority = 1
+root_bone = &"leg1BackLeft"
+tip_bone = &"Foot IKBackLeft"
+use_magnet = true
+magnet = Vector3(0, 10, 0)
+target_node = NodePath("../../../BackLeft")
+
+[node name="BackRightIK" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="6"]
+root_bone = &"leg1BackRight"
+tip_bone = &"Foot IKBackRight"
+use_magnet = true
+magnet = Vector3(0, 10, 0)
+target_node = NodePath("../../../BackRight")
+
+[node name="FrontLeft" type="Marker3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.593, -2.108, -3.548)
+top_level = true
+
+[node name="FrontRight" type="Marker3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.591, -2.108, -3.548)
+top_level = true
+
+[node name="BackRight" type="Marker3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.591, -2.108, 3.591)
+top_level = true
+
+[node name="BackLeft" type="Marker3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.593, -2.108, 3.591)
+top_level = true
+
+[node name="Camera3D" type="Camera3D" parent="." index="5"]
+transform = Transform3D(-0.844052, 0.17056, -0.508414, 0, 0.948073, 0.318054, 0.536261, 0.268454, -0.800223, -5.62333, 2.64482, -8.65114)
