@@ -16,7 +16,9 @@
 size = Vector3(10, 0.1, 10)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6.94412, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 9.92054, 0)
+projection = 1
+size = 11.059
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_wx6cp")
@@ -27,6 +29,7 @@ transform = Transform3D(1, 0, 0, 0, 0.574105, 0.818781, 0, -0.818781, 0.574105, 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("2_tfxar")
+_allowed_area = Rect2(-4.5, -4.5, 9, 9)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("SphereShape3D_2d1xy")
