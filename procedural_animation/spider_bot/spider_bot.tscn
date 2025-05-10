@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b06kxrlsww84y"]
+
+[ext_resource type="PackedScene" uid="uid://nu1abgeql7sx" path="res://spider_bot/spider_bot_model.gltf" id="1_wxnhl"]
+
+[node name="SpiderBot" instance=ExtResource("1_wxnhl")]
+
+[node name="Body_2" parent="Armature/Skeleton3D" index="0"]
+transform = Transform3D(0.325856, 0, 0, 0, 0.325856, 0, 0, 0, 0.325856, 0, 0, 0)
+
+[node name="Cylinder" parent="Armature/Skeleton3D" index="1"]
+transform = Transform3D(0.325856, 0, 0, 0, 0, -0.325856, 0, 0.325856, 0, 0, 0.101015, -0.348666)
