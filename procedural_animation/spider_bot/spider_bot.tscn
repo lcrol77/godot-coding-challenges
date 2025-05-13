@@ -71,29 +71,37 @@ magnet = Vector3(0, 10, 0)
 target_node = NodePath("../../../BackRight")
 script = ExtResource("3_nryhl")
 
-[node name="FrontLeft" type="Marker3D" parent="." index="1" node_paths=PackedStringArray("step_target")]
+[node name="FrontLeft" type="Marker3D" parent="." index="1" node_paths=PackedStringArray("step_target", "adj_leg", "opp_leg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.593, -2.108, -3.548)
 top_level = true
 script = ExtResource("4_ycu0m")
 step_target = NodePath("../StepTargetContainer/FrontLeftRay/FrontLeft")
+adj_leg = NodePath("../FrontRight")
+opp_leg = NodePath("../BackRight")
 
-[node name="FrontRight" type="Marker3D" parent="." index="2" node_paths=PackedStringArray("step_target")]
+[node name="FrontRight" type="Marker3D" parent="." index="2" node_paths=PackedStringArray("step_target", "adj_leg", "opp_leg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.591, -2.108, -3.548)
 top_level = true
 script = ExtResource("4_ycu0m")
 step_target = NodePath("../StepTargetContainer/FrontRightRay/FrontRight")
+adj_leg = NodePath("../FrontLeft")
+opp_leg = NodePath("../BackLeft")
 
-[node name="BackRight" type="Marker3D" parent="." index="3" node_paths=PackedStringArray("step_target")]
+[node name="BackRight" type="Marker3D" parent="." index="3" node_paths=PackedStringArray("step_target", "adj_leg", "opp_leg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.591, -2.108, 3.591)
 top_level = true
 script = ExtResource("4_ycu0m")
 step_target = NodePath("../StepTargetContainer/BackRightRay/BackRight")
+adj_leg = NodePath("../BackLeft")
+opp_leg = NodePath("../FrontLeft")
 
-[node name="BackLeft" type="Marker3D" parent="." index="4" node_paths=PackedStringArray("step_target")]
+[node name="BackLeft" type="Marker3D" parent="." index="4" node_paths=PackedStringArray("step_target", "adj_leg", "opp_leg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.593, -2.108, 3.591)
 top_level = true
 script = ExtResource("4_ycu0m")
 step_target = NodePath("../StepTargetContainer/BackLeftRay/BackLeft")
+adj_leg = NodePath("../BackRight")
+opp_leg = NodePath("../FrontRight")
 
 [node name="StepTargetContainer" type="Node3D" parent="." index="5"]
 
