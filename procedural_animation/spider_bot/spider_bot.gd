@@ -1,14 +1,10 @@
-@tool
 extends Node3D
 
-@onready var front_left_ik: SkeletonIK3D = $Armature/Skeleton3D/FrontLeftIK
-@onready var front_right_ik: SkeletonIK3D = $Armature/Skeleton3D/FrontRightIK
-@onready var back_left_ik: SkeletonIK3D = $Armature/Skeleton3D/BackLeftIK
-@onready var back_right_ik: SkeletonIK3D = $Armature/Skeleton3D/BackRightIK
+@export var move_speed: float = 5.0
+@export var turn_speed: float = 1.0
 
-func _ready() -> void:
-	front_left_ik.start()
-	front_right_ik.start()
-	back_left_ik.start()
-	back_right_ik.start()
-	print("asdf")
+func _process(delta: float) -> void:
+	var dir = Input.get_axis("ui_up", "ui_down")
+	translate(Vector3(0,0,-dir) * move_speed * delta)
+	var a_dir = Input.get_axis("ui_left", "ui_right")
+	rotate_object_local(Vector3.UP, a_dir * turn_speed * delta)

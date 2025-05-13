@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b383ibex77gh0"]
+[gd_scene load_steps=7 format=3 uid="uid://b383ibex77gh0"]
 
 [ext_resource type="Texture2D" uid="uid://benvf25vodoad" path="res://sky_box/kloofendal_48d_partly_cloudy_puresky_4k.exr" id="1_ig7tw"]
 [ext_resource type="Material" uid="uid://h0omavrnsek5" path="res://materials/floor.tres" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://b06kxrlsww84y" path="res://spider_bot/spider_bot.tscn" id="3_h2yge"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_0xm2m"]
 panorama = ExtResource("1_ig7tw")
@@ -33,4 +34,7 @@ size = Vector3(75, 35, 75)
 material = ExtResource("2_0xm2m")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.871235, -0.274165, 0.407164, 0, 0.829482, 0.558533, -0.490866, -0.486614, 0.722674, 2.53686, 3.47997, 4.50266)
+transform = Transform3D(-0.927823, 0.107218, -0.357278, 0, 0.957801, 0.287433, 0.37302, 0.266687, -0.88867, -4.69594, 3.77791, -11.6804)
+
+[node name="SpiderBot" parent="." instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.108, 0)
