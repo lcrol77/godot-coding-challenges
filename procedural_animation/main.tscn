@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b383ibex77gh0"]
+[gd_scene load_steps=8 format=3 uid="uid://b383ibex77gh0"]
 
 [ext_resource type="Texture2D" uid="uid://benvf25vodoad" path="res://sky_box/kloofendal_48d_partly_cloudy_puresky_4k.exr" id="1_ig7tw"]
 [ext_resource type="Material" uid="uid://h0omavrnsek5" path="res://materials/floor.tres" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://b06kxrlsww84y" path="res://spider_bot/spider_bot.tscn" id="3_h2yge"]
+[ext_resource type="Material" uid="uid://dqy7k5m5efmw2" path="res://materials/obstacle.tres" id="4_1bvp3"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_0xm2m"]
 panorama = ExtResource("1_ig7tw")
@@ -21,7 +22,7 @@ ambient_light_source = 3
 environment = SubResource("Environment_7dm0k")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(0.831179, 0, -0.556006, 0.294951, 0.847696, 0.440925, 0.471324, -0.530482, 0.704587, -2.40074, 2.26044, 2.66843)
+transform = Transform3D(0.831179, 9.90842e-08, -0.556006, 0.294951, 0.847696, 0.440925, 0.471324, -0.530482, 0.704587, -2.40074, 12.5934, 2.66843)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.5, 0)
@@ -33,8 +34,20 @@ operation = 2
 size = Vector3(75, 35, 75)
 material = ExtResource("2_0xm2m")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.927823, 0.107218, -0.357278, 0, 0.957801, 0.287433, 0.37302, 0.266687, -0.88867, -4.69594, 3.77791, -11.6804)
-
 [node name="SpiderBot" parent="." instance=ExtResource("3_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.23453, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49577, 2.222, -10.2096)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2336, 0, 14.688)
+radius = 17.0
+material = ExtResource("4_1bvp3")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+transform = Transform3D(4.95, 0, 0, 0, 4.95, 0, 0, 0, 4.95, -26.5658, -4.93875, -0.18538)
+polygon = PackedVector2Array(-0.526442, 0.921498, 2.58744, 0.879668, 1.64008, 1.87963, 0.259253, 1.93161)
+material = ExtResource("4_1bvp3")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 1.14611, -17)
+size = Vector3(10, 5, 5)
+material = ExtResource("4_1bvp3")

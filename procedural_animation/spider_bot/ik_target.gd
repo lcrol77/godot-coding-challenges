@@ -7,7 +7,7 @@ extends Marker3D
 @export var adj_leg: Node3D
 @export var opp_leg: Node3D
 var is_stepping: bool
-
+var t: Tween
 func _ready() -> void:
 	global_position = step_target.global_position
 
@@ -20,8 +20,7 @@ func step():
 	var target_pos = step_target.global_position
 	var half_way = (global_position + step_target.global_position) / 2
 	is_stepping = true
-	var t = get_tree().create_tween()
+	t = get_tree().create_tween()
 	t.tween_property(self, "global_position", half_way + owner.basis.y, 0.1)
 	t.tween_property(self, "global_position", target_pos, 0.1)
-	t.tween_callback(func(): is_stepping = false)
- 
+	t.tween_callback(func(): is_stepping = false) 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b06kxrlsww84y"]
+[gd_scene load_steps=10 format=3 uid="uid://b06kxrlsww84y"]
 
 [ext_resource type="PackedScene" uid="uid://nu1abgeql7sx" path="res://spider_bot/spider_bot_model.gltf" id="1_wxnhl"]
 [ext_resource type="Script" uid="uid://bldr3i1y4j643" path="res://spider_bot/spider_bot.gd" id="2_nryhl"]
 [ext_resource type="Script" uid="uid://d3vwbtv0f47f7" path="res://spider_bot/start_ik.gd" id="3_nryhl"]
 [ext_resource type="Script" uid="uid://cdv75iql1i8au" path="res://spider_bot/step_ray.gd" id="4_1jepb"]
 [ext_resource type="Script" uid="uid://b50rvoho6kr4b" path="res://spider_bot/ik_target.gd" id="4_ycu0m"]
+[ext_resource type="Script" uid="uid://cypiwv77jwa8r" path="res://spider_bot/step_target_container.gd" id="5_hqu06"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wxnhl"]
 albedo_color = Color(0.427493, 0.427493, 0.427493, 1)
@@ -104,6 +105,8 @@ adj_leg = NodePath("../BackRight")
 opp_leg = NodePath("../FrontRight")
 
 [node name="StepTargetContainer" type="Node3D" parent="." index="5"]
+script = ExtResource("5_hqu06")
+offset = 50.0
 
 [node name="FrontLeftRay" type="RayCast3D" parent="StepTargetContainer" index="0" node_paths=PackedStringArray("step_target")]
 transform = Transform3D(0.996195, 0.0871558, -1.22262e-09, -0.0868241, 0.992404, -0.0871557, -0.00759612, 0.0868241, 0.996195, -3.1415, 3.03301, -3.09822)
@@ -140,3 +143,6 @@ step_target = NodePath("BackLeft")
 
 [node name="BackLeft" type="Marker3D" parent="StepTargetContainer/BackLeftRay" index="0"]
 transform = Transform3D(0.996195, -0.0868241, 0.00759612, 0.0871557, 0.992404, -0.0868241, -9.31322e-10, 0.0871557, 0.996195, -2.38419e-07, -5.18036, 2.38419e-07)
+
+[node name="Camera3D" type="Camera3D" parent="." index="6"]
+transform = Transform3D(1, 1.52751e-08, -1.7572e-08, 0, 0.75471, 0.656059, 2.32831e-08, -0.656059, 0.75471, -1.48105e-07, 5.5296, 6.36108)

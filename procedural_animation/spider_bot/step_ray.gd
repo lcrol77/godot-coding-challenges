@@ -1,3 +1,4 @@
+@tool
 extends RayCast3D
 
 @export var step_target: Node3D
