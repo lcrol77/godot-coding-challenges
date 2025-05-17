@@ -14,7 +14,8 @@ func _on_timeout() -> void:
 	transition_requested.emit(self, State.WANDER)
 
 func _physics_process(delta: float) -> void:
-	try_chase()
+	pass
+	#try_chase()
 
 func exit()-> void:
 	idle_timer.stop()

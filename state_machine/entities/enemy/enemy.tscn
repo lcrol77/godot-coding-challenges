@@ -17,8 +17,9 @@ shape = SubResource("RectangleShape2D_tir2s")
 color = Color(0.52549, 0, 0, 1)
 polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_im2q6")
+initial_state = NodePath("Wander")
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("4_dt443")

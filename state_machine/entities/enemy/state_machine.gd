@@ -5,7 +5,7 @@ class_name StateMachine extends Node
 var current_state: EnemyState
 var states: Dictionary = {}
 
-func init() -> void:
+func _ready() -> void:
 	var children = get_children()
 	for child in children:
 		if child is EnemyState:
@@ -16,12 +16,12 @@ func init() -> void:
 		current_state.enter()
 
 # When the state is active, this is essentially the _process() function
-func process_state(delta: float):
+func _process(delta):
 	if current_state:
 		current_state.process_state(delta)
 
-# When the state is active, this is essentially the _physics_process() function
-func physics_process_state(delta: float):
+
+func _physics_process(delta):
 	if current_state:
 		current_state.physics_process_state(delta)
 
