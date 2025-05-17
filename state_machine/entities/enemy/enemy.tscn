@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://epevi85cvu8s"]
+
+[ext_resource type="Script" uid="uid://cs4ts80clqfws" path="res://entities/enemy/enemy.gd" id="1_ksmh7"]
+[ext_resource type="Script" uid="uid://bqkglgvbikgs7" path="res://entities/enemy/state_machine.gd" id="2_im2q6"]
+[ext_resource type="Script" uid="uid://d11u6561vfyor" path="res://entities/enemy/states/wander.gd" id="3_3fvr7"]
+[ext_resource type="Script" uid="uid://djhdc6cig8r08" path="res://entities/enemy/states/idle.gd" id="4_dt443"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tir2s"]
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_ksmh7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tir2s")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.52549, 0, 0, 1)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_im2q6")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_dt443")
+
+[node name="Wander" type="Node" parent="StateMachine"]
+script = ExtResource("3_3fvr7")
+state = 1
