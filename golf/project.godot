@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Golf"
 run/main_scene="res://golf.tscn"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://visuals/Tiles_A_white.png"
 
 [display]
