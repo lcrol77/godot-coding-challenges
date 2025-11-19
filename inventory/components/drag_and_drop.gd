@@ -14,7 +14,7 @@ var  dragging := false
 
 func _ready() -> void:
 	assert(target, "No target set for DragAndDrop Component")
-	target.gui_input.connect(_on_target_input_event.unbind(1))
+	target.gui_input.connect(_on_target_input_event)
 
 func _process(_delta: float) -> void:
 	if dragging and target:
@@ -47,7 +47,7 @@ func _start_dragging() -> void:
 	offset = target.global_position - target.get_global_mouse_position()
 	drag_started.emit()
 
-func _on_target_input_event(_viewport: Node, event: InputEvent) -> void:
+func _on_target_input_event(event: InputEvent) -> void:
 	if not enabled:
 		return
 	var dragging_object := get_tree().get_first_node_in_group("dragging")
