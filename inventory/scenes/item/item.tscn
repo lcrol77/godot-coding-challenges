@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnpix7qjqtosc"]
+
+[ext_resource type="Script" uid="uid://c7mgdfejfbmar" path="res://scenes/item/item.gd" id="1_ec72l"]
+[ext_resource type="Resource" uid="uid://l6msctmqkyyr" path="res://data/card.tres" id="2_wex8t"]
+[ext_resource type="Texture2D" uid="uid://d1dh0awnerel" path="res://assets/card.png" id="3_oqh30"]
+[ext_resource type="Script" uid="uid://bo10qra0ip8r8" path="res://components/drag_and_drop.gd" id="4_imnf0"]
+
+[node name="Item" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ec72l")
+item_data = ExtResource("2_wex8t")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 41.0
+offset_bottom = 42.0
+texture = ExtResource("3_oqh30")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Dnd" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("4_imnf0")
+target = NodePath("..")
