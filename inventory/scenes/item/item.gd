@@ -1,9 +1,8 @@
 @tool
 class_name Item
-extends Control
+extends TextureRect
 
 @export var item_data: ItemData: set = set_item_data
-@onready var texture_rect: TextureRect = $TextureRect
 @onready var dnd: DragAndDrop = $Dnd
 
 var is_hovered: bool
@@ -25,7 +24,7 @@ func set_item_data(val: ItemData) -> void:
 		return
 	if not is_node_ready():
 		await ready
-	texture_rect.texture = item_data.image
+	self.texture = item_data.image
 
 func _on_mouse_entered() -> void:
 	if dnd.dragging:
