@@ -12,15 +12,7 @@ config_version=5
 
 config/name="Inventory"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="uid://j2rbi7wtn657"
-
-[display]
-
-window/size/viewport_width=576
-window/size/viewport_height=324
-window/size/window_width_override=1920
-window/size/window_height_override=1080
-window/stretch/mode="canvas_items"
+config/icon="uid://b0d5pja22dfn"
 
 [dotnet]
 
