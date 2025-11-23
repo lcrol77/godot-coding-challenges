@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2o12itum0q0x"]
+
+[ext_resource type="Texture2D" uid="uid://ijefs7epxyfw" path="res://assets/inventory_slot.tres" id="1_sb433"]
+[ext_resource type="Script" uid="uid://c0pv70suqxsdg" path="res://scenes/inventory_slot/inventory_slot.gd" id="1_un2i7"]
+
+[node name="InventorySlot" type="CenterContainer" groups=["inventory_slots"]]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_un2i7")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 2
+texture_normal = ExtResource("1_sb433")
+
+[connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton" to="." method="_on_texture_button_mouse_exited"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cae2u0wrf4bbo"]
+
+[ext_resource type="Script" uid="uid://be8j05xeo86bw" path="res://scenes/item_pedestal/item_pedestal.gd" id="1_uff8s"]
+[ext_resource type="Texture2D" uid="uid://ijefs7epxyfw" path="res://assets/inventory_slot.tres" id="2_e4s4j"]
+[ext_resource type="Resource" uid="uid://dk3wv83rgtg4l" path="res://data/godot.tres" id="2_u0luo"]
+
+[node name="ItemPedestal" type="CenterContainer" groups=["inventory_slots"]]
+script = ExtResource("1_uff8s")
+item_data = ExtResource("2_u0luo")
+metadata/_custom_type_script = "uid://c0pv70suqxsdg"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 2
+texture_normal = ExtResource("2_e4s4j")
+
+[connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton" to="." method="_on_texture_button_mouse_exited"]

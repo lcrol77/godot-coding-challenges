@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=3 uid="uid://u0txa3yf14cx"]
+
+[ext_resource type="PackedScene" uid="uid://bipcu7mxwnk4o" path="res://scenes/item_pedestal/item_pesestal.tscn" id="1_noev5"]
+[ext_resource type="Script" uid="uid://7qe3b0edb27a" path="res://components/slot_grid.gd" id="2_lxijn"]
+[ext_resource type="PackedScene" uid="uid://d2o12itum0q0x" path="res://scenes/inventory_slot/inventory_slot.tscn" id="2_nldah"]
+[ext_resource type="Script" uid="uid://cy28g5hlpmj3m" path="res://components/item_mover.gd" id="4_lxijn"]
+
+[node name="TestInv" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemPedestal" parent="." instance=ExtResource("1_noev5")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -198.0
+offset_right = 32.0
+offset_bottom = -134.0
+item_scene = null
+
+[node name="MainGrid" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.0
+offset_top = -100.0
+offset_right = 134.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+script = ExtResource("2_lxijn")
+
+[node name="InventorySlot" parent="MainGrid" instance=ExtResource("2_nldah")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="MainGrid" instance=ExtResource("2_nldah")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="MainGrid" instance=ExtResource("2_nldah")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="MainGrid" instance=ExtResource("2_nldah")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="MainGrid" instance=ExtResource("2_nldah")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="MainGrid" instance=ExtResource("2_nldah")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="MainGrid" instance=ExtResource("2_nldah")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="MainGrid" instance=ExtResource("2_nldah")]
+layout_mode = 2
+
+[node name="InventorySlot9" parent="MainGrid" instance=ExtResource("2_nldah")]
+layout_mode = 2
+
+[node name="InventorySlot10" parent="MainGrid" instance=ExtResource("2_nldah")]
+layout_mode = 2
+
+[node name="InventorySlot11" parent="MainGrid" instance=ExtResource("2_nldah")]
+layout_mode = 2
+
+[node name="InventorySlot12" parent="MainGrid" instance=ExtResource("2_nldah")]
+layout_mode = 2
+
+[node name="ItemMover" type="Node" parent="." node_paths=PackedStringArray("slot_grid")]
+script = ExtResource("4_lxijn")
+slot_grid = NodePath("../MainGrid")

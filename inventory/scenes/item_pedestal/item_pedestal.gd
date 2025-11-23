@@ -1,5 +1,5 @@
 class_name ItemPedestal
-extends Control
+extends ItemSlot
 
 # preloaded item to instance off of 
 const ITEM_PRELOAD := preload("res://scenes/item/item.tscn")
@@ -9,7 +9,7 @@ const ITEM_PRELOAD := preload("res://scenes/item/item.tscn")
 func _ready() -> void:
 	assert(item_data, "Need to set item_data")
 	var display_item: Item = _instance_item()
-	add_child(display_item)
+	add_item_to_slot(display_item)
 
 func _instance_item() -> Item:
 	var display_item: Item = ITEM_PRELOAD.instantiate()
