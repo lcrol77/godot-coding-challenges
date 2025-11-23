@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Inventory"
+run/main_scene="uid://u0txa3yf14cx"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://b0d5pja22dfn"
 
@@ -23,6 +24,11 @@ project/assembly_name="Inventory"
 folder_colors={
 "res://assets/": "red"
 }
+
+[global_group]
+
+items="Inventory Items"
+inventory_slots=""
 
 [input]
 

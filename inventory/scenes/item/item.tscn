@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://dk3wv83rgtg4l" path="res://data/godot.tres" id="3_pg5me"]
 [ext_resource type="Script" uid="uid://bo10qra0ip8r8" path="res://components/drag_and_drop.gd" id="4_imnf0"]
 
-[node name="Item" type="TextureRect"]
+[node name="Item" type="TextureRect" groups=["items"]]
 custom_minimum_size = Vector2(32, 32)
 offset_right = 32.0
 offset_bottom = 32.0
