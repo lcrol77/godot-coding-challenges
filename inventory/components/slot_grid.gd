@@ -1,27 +1,31 @@
 class_name SlotGrid
-extends Node
+extends Container
+
+@export var dimesions: Vector2i
+
 
 signal slot_grid_changed
-
-var current_hovered_slot: ItemSlot : get = _get_hovered_slot
-
 var slots: Dictionary
+var bounds: Rect2i
+
 
 func _ready() -> void:
-	for child: Node in get_tree().get_nodes_in_group("inventory_slots"):
-		if child is ItemSlot:
-			slots[child] = false
-			setup_item_slot(child)
+	bounds = Rect2i(Vector2.ZERO, dimesions)
 
-func setup_item_slot(slot: ItemSlot) -> void:
-	slot.slot_hovered.connect(_on_slot_hovered)
+func get_tile_from_global(global: Vector2) -> Vector2i:
+	return local_to_map(to_local(global))
 
-func _on_slot_hovered(which: ItemSlot, is_hovering: bool) -> void:
-	print(which, is_hovering)
-	slots[which] = is_hovering
-	
+func get_global_from_tile(tile: Vector2i) -> Vector2:
+	return to_global(map_to_local(tile))
+
+func get_hovered_tile() -> Vector2i:
+	return local_to_map(get_local_mouse_position())
+
+func is_tile_in_bounds(tile: Vector2i) -> bool:
+	return bounds.has_point(tile)
+
 # Wraps slot.add_item_to_slot
-func add_item(item: Item, slot: ItemSlot = current_hovered_slot) -> Item:
+func add_item(item: Item, slot: ItemSlot) -> Item:
 	# can have an item in the slot that needs to be swapped
 	var swapped_item: Item = slot.add_item_to_slot(item)
 	slot_grid_changed.emit()
@@ -32,8 +36,3 @@ func remove_item(slot: ItemSlot) -> void:
 		return
 	slot.remove_item()
 	slot_grid_changed.emit()
-
-func _get_hovered_slot() -> ItemSlot:
-	var result = slots.keys().filter(func(k): return slots[k])
-	print(len(result))
-	return result[0]

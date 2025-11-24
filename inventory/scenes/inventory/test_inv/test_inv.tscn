@@ -13,7 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ItemPedestal" parent="." instance=ExtResource("4_g2b87")]
+[node name="ItemPedestal" type="GridContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -21,11 +21,15 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -32.0
-offset_top = -193.0
+offset_top = -213.0
 offset_right = 32.0
-offset_bottom = -129.0
+offset_bottom = -149.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_lxijn")
+
+[node name="ItemPedestal" parent="ItemPedestal" instance=ExtResource("4_g2b87")]
+layout_mode = 2
 
 [node name="MainGrid" type="GridContainer" parent="."]
 layout_mode = 1
@@ -77,6 +81,45 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="InventorySlot12" parent="MainGrid" instance=ExtResource("2_nldah")]
+layout_mode = 2
+
+[node name="HotBar" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -269.0
+offset_top = -108.0
+offset_right = 271.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("2_lxijn")
+
+[node name="InventorySlot" parent="HotBar" instance=ExtResource("2_nldah")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="HotBar" instance=ExtResource("2_nldah")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="HotBar" instance=ExtResource("2_nldah")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="HotBar" instance=ExtResource("2_nldah")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="HotBar" instance=ExtResource("2_nldah")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="HotBar" instance=ExtResource("2_nldah")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="HotBar" instance=ExtResource("2_nldah")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="HotBar" instance=ExtResource("2_nldah")]
 layout_mode = 2
 
 [node name="ItemMover" type="Node" parent="." node_paths=PackedStringArray("slot_grid")]

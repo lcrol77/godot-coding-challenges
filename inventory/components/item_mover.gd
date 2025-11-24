@@ -11,7 +11,7 @@ func _ready() -> void:
 
 # Do stuff here like setup dnd signal connections
 func setup_item(item: Item) -> void:
-	item.dnd.drag_started.connect(_on_item_drag_started)
+	item.dnd.drag_started.connect(_on_item_drag_started.bind(item))
 	item.dnd.drag_canceled.connect(_on_item_drag_canceled.bind(item))
 	item.dnd.dropped.connect(_on_item_dropped.bind(item))
 
@@ -26,9 +26,8 @@ func _move_item(item: Item) -> void:
 	item.global_position = slot.global_position
 
 #region
-func _on_item_drag_started() -> void:
-	origin_slot = slot_grid.current_hovered_slot
-	print(origin_slot)
+func _on_item_drag_started(item: Item) -> void:
+	origin_slot = item.get_parent() as ItemSlot
 	if origin_slot != null:
 		slot_grid.remove_item(origin_slot)
 	

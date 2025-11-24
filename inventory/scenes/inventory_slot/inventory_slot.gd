@@ -1,8 +1,6 @@
 class_name ItemSlot
 extends CenterContainer
 
-signal slot_hovered(which: ItemSlot, is_hovering: bool)
-
 @export var item_scene: PackedScene = preload("res://scenes/item/item.tscn")
 @export var item: Item
 
@@ -17,7 +15,7 @@ func add_item_to_slot(new_item: Item) -> Item:
 	self.item.z_index = 64
 
 	if new_item.get_parent():
-		new_item.reparent(self)  # move an existing item
+		new_item.reparent(self)  # move an existisng item
 	else:
 		self.add_child(new_item)  # brand-new item
 
@@ -28,9 +26,3 @@ func remove_item() -> void:
 
 func is_empty() -> bool:
 	return item == null
-
-func _on_texture_button_mouse_entered() -> void:
-	slot_hovered.emit(self, true)
-
-func _on_texture_button_mouse_exited() -> void:
-	slot_hovered.emit(self, false)
