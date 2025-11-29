@@ -1,14 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://64swiwuydi0d"]
+[gd_scene load_steps=2 format=3 uid="uid://64swiwuydi0d"]
 
 [ext_resource type="Script" uid="uid://ci26ygdg1527l" path="res://player.gd" id="2_onrkg"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_4flbx"]
-
-[node name="Player" type="CharacterBody3D"]
-rotation_edit_mode = 1
+[node name="Player" type="Node3D"]
+rotation_edit_mode = 2
 script = ExtResource("2_onrkg")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_4flbx")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]

@@ -1,22 +1,33 @@
 class_name Player 
-extends CharacterBody3D
+extends Node3D
 
 var rolling: bool = false
 var rotation_time: float = .25
 var size = 1.0
 
 
-func _physics_process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	if rolling:
+		return
 	# Movement input
 	if Input.is_action_pressed("ui_up"):
-		roll(Vector3.FORWARD, delta)
+		roll(Vector3.FORWARD)
 	if Input.is_action_pressed("ui_down"):
-		roll(Vector3.BACK,delta)
+		roll(Vector3.BACK)
 	if Input.is_action_pressed("ui_left"):
-		roll(Vector3.LEFT,delta)
+		roll(Vector3.LEFT)
 	if Input.is_action_pressed("ui_right"):
-		roll(Vector3.RIGHT,delta)
+		roll(Vector3.RIGHT)
 
-func roll(direction: Vector3, delta):
+func roll(dir: Vector3) -> void:
 	rolling = true
-	rotate_object_local(direction, delta)
+	var rot = transform.basis.rotated(dir, PI/2)
+	var start_q := Quaternion(transform.basis)
+	var end_q := Quaternion(rot)
+
+	var tween = get_tree().create_tween()
+	tween.tween_method(apply_quat, start_q, end_q, rotation_time)
+	tween.finished.connect(func(): rolling  = false)
+
+func apply_quat(q: Quaternion) -> void:
+	transform.basis = Basis(q)
