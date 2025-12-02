@@ -5,6 +5,8 @@ var rolling: bool = false
 var rotation_time: float = .25
 var size = 1.0
 
+@onready var marker: CSGSphere3D = $Marker
+
 
 func _process(_delta: float) -> void:
 	if rolling:
@@ -21,7 +23,12 @@ func _process(_delta: float) -> void:
 
 func roll(dir: Vector3) -> void:
 	rolling = true
-	var rot = transform.basis.rotated(dir, PI/2)
+	
+	var pivot:Vector3 = global_transform.origin + Vector3(dir.x * .5, -.5, dir.z * .5)
+	marker.global_position = pivot
+	
+	var axis:Vector3 = pivot.cross(dir).normalized()
+	var rot = transform.basis.rotated(axis, PI/2)
 	var start_q := Quaternion(transform.basis)
 	var end_q := Quaternion(rot)
 
