@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cr0iqcfs7jmtb"]
+
+[ext_resource type="PackedScene" uid="uid://ds23qk6rwh1qf" path="res://enviorments/world_environment.tscn" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://dhbytni0jd0vc" path="res://assets/prototype/light/texture_07.png" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://ccsk26bwbucyc" path="res://scenes/cctv/cctv.tscn" id="3_sugp2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sugp2"]
+albedo_texture = ExtResource("2_0wfyh")
+uv1_triplanar = true
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("1_o5qli")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+material_override = SubResource("StandardMaterial3D_sugp2")
+size = Vector3(10, 0.5, 10)
+
+[node name="Cctv" parent="." instance=ExtResource("3_sugp2")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.6838981, 0.55232245, -0.47667947, 0, 0.6533637, 0.7570442, 0.72957754, -0.5177411, 0.44683418, -3.0257285, 6.0921016, 2.836285)
