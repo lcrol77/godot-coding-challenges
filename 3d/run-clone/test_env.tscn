@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://d8qqachrxsu"]
+
+[ext_resource type="PackedScene" uid="uid://bgiy26iw3udm3" path="res://floor.tscn" id="1_gco2m"]
+[ext_resource type="PackedScene" uid="uid://cpx3tole2nl01" path="res://runner.tscn" id="2_u6okc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uk6fs"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_7m1oh"]
+sky_material = SubResource("ProceduralSkyMaterial_uk6fs")
+
+[sub_resource type="Environment" id="Environment_xolal"]
+background_mode = 2
+sky = SubResource("Sky_7m1oh")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="TestEnv" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xolal")
+
+[node name="Floor" parent="." instance=ExtResource("1_gco2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, -20)
+
+[node name="Floor2" parent="." instance=ExtResource("1_gco2m")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 5.1, 5, -20)
+
+[node name="Floor3" parent="." instance=ExtResource("1_gco2m")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -5.1, 5, -20)
+
+[node name="Runner" parent="." instance=ExtResource("2_u6okc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+move_speed = 1.0

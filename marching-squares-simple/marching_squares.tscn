@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ba5k8nuuepx52"]
-
-[ext_resource type="Script" uid="uid://dd1b1agchv8w1" path="res://MarchingSquares.cs" id="1_j4roy"]
-
-[node name="MarchingSquares" type="Node2D"]
-script = ExtResource("1_j4roy")
