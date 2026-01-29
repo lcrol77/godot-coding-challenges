@@ -34,7 +34,7 @@ ambient_light_source = 3
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_272bh"]
 render_priority = 0
 shader = ExtResource("4_lquwl")
-shader_parameter/primary_color = Color(0, 0, 0, 1)
+shader_parameter/primary_color = Color(0, 0.43137255, 0.5921569, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_kek77"]
 material = SubResource("ShaderMaterial_272bh")
