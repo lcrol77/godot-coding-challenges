@@ -1,0 +1,64 @@
+[gd_scene load_steps=13 format=3 uid="uid://draj4p33oe7go"]
+
+[ext_resource type="Texture2D" uid="uid://wb5q4g0gvq5i" path="res://assets/prototype/red/texture_09.png" id="1_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://6dl6fko8lq4b" path="res://assets/prototype/dark/texture_04.png" id="2_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://benvf25vodoad" path="res://assets/sky_box/kloofendal_48d_partly_cloudy_puresky_4k.exr" id="3_lquwl"]
+[ext_resource type="Shader" uid="uid://ctwbp6vjeohik" path="res://water.gdshader" id="4_lquwl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mycd"]
+albedo_texture = ExtResource("1_1bvp3")
+uv1_triplanar = true
+uv1_world_triplanar = true
+uv2_triplanar = true
+uv2_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_272bh"]
+albedo_color = Color(0.31061712, 0.31061712, 0.3106171, 1)
+albedo_texture = ExtResource("2_1bvp3")
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5vw27"]
+size = Vector2(10, 10)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_kek77"]
+panorama = ExtResource("3_lquwl")
+
+[sub_resource type="Sky" id="Sky_4c57u"]
+sky_material = SubResource("PanoramaSkyMaterial_kek77")
+
+[sub_resource type="Environment" id="Environment_efxa6"]
+background_mode = 2
+sky = SubResource("Sky_4c57u")
+ambient_light_source = 3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_272bh"]
+render_priority = 0
+shader = ExtResource("4_lquwl")
+shader_parameter/primary_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kek77"]
+material = SubResource("ShaderMaterial_272bh")
+size = Vector2(5, 5)
+
+[node name="Main" type="Node3D"]
+
+[node name="Pool" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_7mycd")
+size = Vector3(5.5, 2, 5.5)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Pool"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+operation = 2
+size = Vector3(5, 2, 5)
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_272bh")
+mesh = SubResource("PlaneMesh_5vw27")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_efxa6")
+
+[node name="WaterPlane" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6403053, 0)
+mesh = SubResource("PlaneMesh_kek77")
