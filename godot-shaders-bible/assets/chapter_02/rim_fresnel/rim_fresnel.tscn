@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b638c6rak7y0"]
+
+[ext_resource type="Material" uid="uid://coxfm3l6awfdx" path="res://assets/chapter_02/rim_fresnel/materials/rim_fresnel.tres" id="1_bjvit"]
+[ext_resource type="ArrayMesh" uid="uid://7q8v1n7umic5" path="res://assets/chapter_02/lambert/meshes/suzanne.tres" id="1_rwvp1"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, -0.000332829, 0.000126672, 0.000332812, 1, 0.000185277, -0.000126717, -0.000185246, 1, 0, 0, 0)
+material_override = ExtResource("1_bjvit")
+mesh = ExtResource("1_rwvp1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)

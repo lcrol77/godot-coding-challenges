@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcs83ks024n1y"]
+
+[ext_resource type="PackedScene" uid="uid://cctffafg7oxyx" path="res://assets/chapter_01/spaces/tangent_space/meshes/anime_eye.fbx" id="1_0cc8b"]
+[ext_resource type="Material" uid="uid://cx7gtifeki33b" path="res://assets/chapter_01/spaces/tangent_space/materials/anime_skin.tres" id="2_idfkb"]
+[ext_resource type="Material" uid="uid://demwl7i4ayd8w" path="res://assets/chapter_01/spaces/tangent_space/materials/anime_eyes.tres" id="3_0cc8b"]
+
+[node name="anime_eye" instance=ExtResource("1_0cc8b")]
+
+[node name="eye_mesh" parent="." index="0"]
+material_override = ExtResource("2_idfkb")
+
+[node name="skin_mesh" parent="." index="1"]
+material_override = ExtResource("2_idfkb")
+
+[node name="pupil_mesh" parent="." index="2"]
+material_override = ExtResource("3_0cc8b")

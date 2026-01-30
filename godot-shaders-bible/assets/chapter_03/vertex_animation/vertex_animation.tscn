@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://dga46uhelge2h"]
+
+[ext_resource type="Material" uid="uid://dhn5yb1vk6kpb" path="res://assets/chapter_03/vertex_animation/materials/ui_animation.tres" id="1_mw4on"]
+[ext_resource type="Texture2D" uid="uid://yyfxswjkv6i1" path="res://assets/chapter_03/vertex_animation/textures/ui_background.png" id="2_wjdij"]
+[ext_resource type="Texture2D" uid="uid://brkmangysetsh" path="res://assets/chapter_03/vertex_animation/textures/ui_pumpkin.png" id="3_lbrtk"]
+[ext_resource type="Texture2D" uid="uid://c2e70hpfe7x1u" path="res://assets/chapter_03/vertex_animation/textures/ui_wild.png" id="4_bvjic"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Control"]
+modulate = Color(0.423529, 0.423529, 0.423529, 1)
+material = ExtResource("1_mw4on")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -437.5
+offset_top = -441.25
+offset_right = 437.5
+offset_bottom = 441.25
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wjdij")
+expand_mode = 1
+
+[node name="Pumpkin" type="TextureRect" parent="Control"]
+material = ExtResource("1_mw4on")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -421.0
+offset_right = 451.0
+offset_bottom = 420.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_lbrtk")
+expand_mode = 1
+
+[node name="Wild" type="TextureRect" parent="Control"]
+modulate = Color(0.244776, 0.244776, 0.244776, 1)
+material = ExtResource("1_mw4on")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = 220.0
+offset_right = 258.0
+offset_bottom = 459.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_bvjic")
+expand_mode = 1

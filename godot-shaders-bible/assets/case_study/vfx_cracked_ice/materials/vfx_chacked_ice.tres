@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://ctbqfqkc1q23d"]
+
+[ext_resource type="Shader" uid="uid://dtfhgvaes3p84" path="res://assets/case_study/vfx_cracked_ice/materials/shaders/vfx_cracked_ice.gdshader" id="1_tnctt"]
+[ext_resource type="Texture2D" uid="uid://du5jxfsdnb4d8" path="res://assets/case_study/vfx_cracked_ice/textures/crack_ice_tex.jpg" id="2_g8xul"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_tnctt")
+shader_parameter/_MainTex = ExtResource("2_g8xul")
+shader_parameter/_Samples = 30.0
+shader_parameter/_Offset = 0.2999999932944
+shader_parameter/_Detail = 4.0
+shader_parameter/_Color = Color(0.78422517, 0.8075343, 0.9319901, 1)

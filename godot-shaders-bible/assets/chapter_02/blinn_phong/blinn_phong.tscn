@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://osep25qlw1am"]
+
+[ext_resource type="Material" uid="uid://c0nbhww2qtu2h" path="res://assets/chapter_02/blinn_phong/materials/blinn_phong.tres" id="1_8h4hc"]
+[ext_resource type="ArrayMesh" uid="uid://7q8v1n7umic5" path="res://assets/chapter_02/lambert/meshes/suzanne.tres" id="2_42n0f"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_8h4hc")
+mesh = ExtResource("2_42n0f")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.981955, 0.00592887, -0.189023, 0.108712, 0.800164, 0.589847, 0.154746, -0.599752, 0.78508, 0, 0, 0)

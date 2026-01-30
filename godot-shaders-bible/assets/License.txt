@@ -1,0 +1,48 @@
+	
+
+	Jettelly Godot Course.
+	
+	Created and distributed by Jettelly Inc. (www.jettelly.com)
+	Version : Godot Engine v4.6 rc1 (from v4.1)
+	
+	Date : 2024-12-27 free sample
+	Date : 2025-04-02 (update) world space
+	Date : 2025-04-26 (update) tangent space
+	Date : 2025-05-30 (update) matrices and lambertian model
+	Date : 2025-07-10 (update) fresnel, blinn-phong, and anisotropy
+	Date : 2025-08-12 (update) procedural 2D shapes
+	Date : 2025-09-20 (update) vertex transformation and animation, nomral map, hemisphere
+	Date : 2025-10-19 (update) matrix rotation and quaternions
+	Date : 2025-11-26 (update) transparency based distance
+	Date : 2025-12-22 (update) 3D textures and ray marching
+	Date : 2026-01-07 (update) stencil buffer
+	Date : 2026-01-26 (update) Godot 4.6 rc1
+
+		---
+
+	Copyright © 2024 Jettelly Inc.
+	
+	Code License
+	All source code included in this project is provided free of charge and may 
+	be used, copied, modified, merged, published, distributed, sublicensed, 
+	and/or sold for commercial and personal purposes, without restriction.
+
+	Assets License
+	All non-code assets included in this project (such as models, textures, 
+	images, audio files, and similar resources) are not covered by the code 
+	license. These assets are licensed under the Creative Commons 
+	Attribution–NonCommercial 4.0 International License (CC BY-NC 4.0).
+
+	This means the assets may be used and shared for non-commercial purposes 
+	only, provided that proper attribution is given.
+
+	License text:
+	https://creativecommons.org/licenses/by-nc/4.0/
+
+		---	
+
+	• https://jettelly.com/
+	• https://www.linkedin.com/company/jettelly
+	• https://x.com/ushadersbible
+	• https://x.com/jettelly
+	

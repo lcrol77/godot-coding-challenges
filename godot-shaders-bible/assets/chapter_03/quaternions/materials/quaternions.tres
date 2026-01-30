@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://cp2ueebe85gxq"]
+
+[ext_resource type="Shader" uid="uid://bavlpjahq7ss6" path="res://assets/chapter_03/quaternions/materials/shaders/quaternions.gdshader" id="1_32cd3"]
+[ext_resource type="Texture2D" uid="uid://brbdupi543pcw" path="res://assets/chapter_03/quaternions/textures/crypt_back_tex.png" id="2_32cd3"]
+[ext_resource type="Texture2D" uid="uid://b86xb7vvjfiuy" path="res://assets/chapter_03/quaternions/textures/crypt_front_tex.png" id="3_ylhxt"]
+[ext_resource type="Texture2D" uid="uid://bmbsqflc2ajya" path="res://assets/chapter_03/quaternions/textures/spot_tex.png" id="4_c8ldb"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_32cd3")
+shader_parameter/_FrontMap = ExtResource("3_ylhxt")
+shader_parameter/_BackMap = ExtResource("2_32cd3")
+shader_parameter/_SpotMap = ExtResource("4_c8ldb")
+shader_parameter/_LightRotation = Vector3(0, 0, 0)
+shader_parameter/_LightPosition = Vector3(0.010890961, 0.69824886, 0)

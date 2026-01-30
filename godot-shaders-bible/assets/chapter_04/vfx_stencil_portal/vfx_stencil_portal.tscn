@@ -1,0 +1,306 @@
+[gd_scene format=4 uid="uid://dsdluyxqx8w66"]
+
+[ext_resource type="Material" uid="uid://ccmo7ams4qw30" path="res://assets/chapter_04/vfx_stencil_portal/materials/stencil_write.tres" id="1_uy73l"]
+[ext_resource type="Material" uid="uid://dt81gcl8luaxp" path="res://assets/chapter_04/vfx_stencil_portal/materials/stencil_read.tres" id="2_0328w"]
+[ext_resource type="Texture2D" uid="uid://cw0buwn7hjdoo" path="res://assets/chapter_04/vfx_camera_distance/textures/skybox_tex.png" id="3_g0i7d"]
+[ext_resource type="Material" uid="uid://dmns4paiptpbb" path="res://assets/chapter_04/vfx_ray_marching/materials/vfx_ray_marching_01.tres" id="4_cemj0"]
+[ext_resource type="Material" uid="uid://bpvpu4ky5hjsm" path="res://assets/chapter_04/vfx_ray_marching/materials/vfx_ray_marching_02.tres" id="5_g0i7d"]
+[ext_resource type="Material" uid="uid://der3bb4a01a1m" path="res://assets/chapter_04/vfx_ray_marching/materials/vfx_ray_marching_03.tres" id="6_ex3ro"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iujke"]
+resource_name = "openPBR_shader1"
+vertex_color_use_as_albedo = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7fox3"]
+_surfaces = [{
+"aabb": AABB(-1, -1, 0, 2, 2, 1e-05),
+"format": 34359742465,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAgADAAAA"),
+"name": "openPBR_shader1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AACAPwAAgD8AAAAAAACAPwAAgL8AAAAAAACAvwAAgL8AAAAAAACAvwAAgD8AAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ws0x5"]
+resource_name = "portal_mesh"
+_surfaces = [{
+"aabb": AABB(-1, -1, 0, 2, 2, 1e-05),
+"attribute_data": PackedByteArray("AACAPwAAAAAAAIA/AACAPwAAAAAAAIA/AAAAAAAAAAA="),
+"format": 34359742487,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAgADAAAA"),
+"material": SubResource("StandardMaterial3D_iujke"),
+"name": "openPBR_shader1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AACAPwAAgD8AAAAAAACAPwAAgL8AAAAAAACAvwAAgL8AAAAAAACAvwAAgD8AAAAA/3//f////7//f/9/////v/9//3////+//3//f////78=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_7fox3")
+
+[sub_resource type="Animation" id="Animation_b15sv"]
+resource_name = "Take 001"
+length = 2.5833333
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_esebc"]
+_data = {
+&"Take 001": SubResource("Animation_b15sv")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p06dl"]
+resource_name = "openPBR_shader1"
+vertex_color_use_as_albedo = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_h34in"]
+_surfaces = [{
+"aabb": AABB(-2.5, -2.5, -2.5, 5, 5, 5),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAQAAAAQABAAAAAMABQACAAEAAwACAAUABAAGAAEAAQAGAAUAAwAHAAQABgAEAAcABQAHAAMABwAFAAYA"),
+"name": "openPBR_shader1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAgwAAAIEAAACBAAAAgwAAAIEAAACDAAAAgwAAAIMAAACDAAAAgwAAAIMAAACBAAAAgQAAAIEAAACBAAAAgQAAAIMAAACDAAAAgQAAAIEAAACDAAAAgQAAAIMAAACBA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_iit67"]
+resource_name = "sky_mesh"
+_surfaces = [{
+"aabb": AABB(-2.5, -2.5, -2.5, 5, 5, 5),
+"attribute_data": PackedByteArray("MgAAPxAAwD5kAIA+EADAPmQAgD4IACA/MgAAPwgAID8yAAA/IAAAPmAAgD4gAAA+YACAPhAAwD4yAAA/EADAPjYAQD8EACA/GwCAPwQAID8bAIA/DADAPjYAQD8QAMA+MgAAPwgAID9kAIA+CAAgP2QAgD4IAGA/MgAAPwgAYD82AEA/EADAPjIAAD8QAMA+MgAAPwcAID82AEA/BwAgP2AAgD4QAMA+AABANhAAwD4AAEA2CAAgP2AAgD4IACA/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQA"),
+"material": SubResource("StandardMaterial3D_p06dl"),
+"name": "openPBR_shader1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAgwAAAIEAAACBAAAAgwAAAIEAAACDAAAAgwAAAIMAAACDAAAAgwAAAIMAAACBAAAAgQAAAIEAAACBAAAAgQAAAIEAAACDAAAAgwAAAIEAAACDAAAAgwAAAIEAAACBAAAAgQAAAIMAAACBAAAAgQAAAIMAAACDAAAAgQAAAIEAAACDAAAAgQAAAIEAAACBAAAAgwAAAIMAAACBAAAAgwAAAIMAAACDAAAAgQAAAIMAAACDAAAAgQAAAIMAAACBAAAAgQAAAIEAAACBAAAAgwAAAIEAAACBAAAAgwAAAIMAAACBAAAAgQAAAIMAAACBAAAAgwAAAIEAAACDAAAAgQAAAIEAAACDAAAAgQAAAIMAAACDAAAAgwAAAIMAAACDA////f/9//z////9//3//P////3//f/8/////f/9//z//fwAA/3//P/9/AAD/f/8//38AAP9//z//fwAA/3//PwAA/3/+//5/AAD/f///AAAAAP9//v/+fwAA/3/+//5//3////9//z//f////3//P/9/////f/8//3////9//z//////////P/////////8//////////z//////////P/9//38AAP8//3//fwAA/z//f/9/AAD/P/9//38AAP8/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_h34in")
+
+[sub_resource type="Animation" id="Animation_1k1qo"]
+resource_name = "Take 001"
+length = 2.5833333
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2pdgx"]
+_data = {
+&"Take 001": SubResource("Animation_1k1qo")
+}
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ex3ro"]
+panorama = ExtResource("3_g0i7d")
+
+[sub_resource type="Sky" id="Sky_edgyd"]
+sky_material = SubResource("PanoramaSkyMaterial_ex3ro")
+
+[sub_resource type="Environment" id="Environment_uuh7x"]
+background_mode = 2
+sky = SubResource("Sky_edgyd")
+
+[sub_resource type="BoxMesh" id="BoxMesh_r70ic"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="portal_mesh" type="Node3D" parent="."]
+
+[node name="portal_mesh" type="MeshInstance3D" parent="portal_mesh"]
+material_override = ExtResource("1_uy73l")
+mesh = SubResource("ArrayMesh_ws0x5")
+skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="portal_mesh"]
+libraries = {
+&"": SubResource("AnimationLibrary_esebc")
+}
+
+[node name="portal_sky" type="Node3D" parent="."]
+
+[node name="sky_mesh" type="MeshInstance3D" parent="portal_sky"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.00233078, -0.0023345947, -0.0007443428)
+sorting_offset = -100.0
+material_override = ExtResource("2_0328w")
+mesh = SubResource("ArrayMesh_iit67")
+skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="portal_sky"]
+libraries = {
+&"": SubResource("AnimationLibrary_2pdgx")
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uuh7x")
+
+[node name="Cloud01" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02565521, -0.076233804, -4.032507)
+material_override = ExtResource("4_cemj0")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud08" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.68007827, 0.6784116, -1.8206551)
+material_override = ExtResource("4_cemj0")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud10" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62546194, -0.4513809, -2.8996696)
+material_override = ExtResource("4_cemj0")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud09" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1777272, 0.34779882, -4.721186)
+material_override = ExtResource("4_cemj0")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud07" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3859439, -0.041203022, -2.465831)
+material_override = ExtResource("4_cemj0")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud04" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03180635, 0.46940815, -4.1292734)
+material_override = ExtResource("4_cemj0")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud02" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.57727623, 0.9571693, -2.3574264)
+material_override = ExtResource("5_g0i7d")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud05" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.906031, -0.08168495, -2.3574264)
+material_override = ExtResource("5_g0i7d")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud12" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.956446, 2.3122282, -4.358291)
+material_override = ExtResource("4_cemj0")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud13" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7007731, 2.2745447, -3.0810928)
+material_override = ExtResource("4_cemj0")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud18" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5979711, 2.5533025, -3.6178641)
+material_override = ExtResource("5_g0i7d")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud14" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5562527, 1.9370811, -3.2254539)
+material_override = ExtResource("4_cemj0")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud15" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75306356, 2.736261, -5.0469704)
+material_override = ExtResource("4_cemj0")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud16" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3167348, 2.347259, -2.7916152)
+material_override = ExtResource("4_cemj0")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud17" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.96259713, 2.85787, -4.4550576)
+material_override = ExtResource("4_cemj0")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud19" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8368218, 2.306777, -2.6832106)
+material_override = ExtResource("5_g0i7d")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud28" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1371229, -3.0492234, -3.7038827)
+material_override = ExtResource("5_g0i7d")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud29" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01710093, -3.6654449, -3.3114724)
+material_override = ExtResource("4_cemj0")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud30" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22805107, -3.3428924, -4.893835)
+material_override = ExtResource("4_cemj0")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud31" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21984792, -3.255267, -3.6671667)
+material_override = ExtResource("4_cemj0")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud32" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.57655466, -2.7446558, -4.541076)
+material_override = ExtResource("4_cemj0")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud33" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29767, -3.295749, -2.7692294)
+material_override = ExtResource("5_g0i7d")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud11" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.52117956, 0.2202161, -4.0998716)
+material_override = ExtResource("5_g0i7d")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud03" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8928597, 1.349215, -1.8899242)
+material_override = ExtResource("6_ex3ro")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud06" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2463218, -0.4395448, -1.8899242)
+material_override = ExtResource("6_ex3ro")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud20" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5117428, -1.2561975, -1.7664392)
+material_override = ExtResource("4_cemj0")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud21" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.314932, -0.4570176, -3.5879557)
+material_override = ExtResource("4_cemj0")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud22" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7512608, -0.84601945, -1.3326006)
+material_override = ExtResource("4_cemj0")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud23" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1053984, -0.3354084, -2.996043)
+material_override = ExtResource("4_cemj0")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud24" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8340731, -0.4280774, -1.5725195)
+material_override = ExtResource("5_g0i7d")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud25" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5930848, 2.608808, -2.4794333)
+material_override = ExtResource("5_g0i7d")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud26" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.964765, 2.378792, -2.1294117)
+material_override = ExtResource("6_ex3ro")
+mesh = SubResource("BoxMesh_r70ic")
+
+[node name="Cloud27" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5637422, -0.15141907, -2.6498752)
+material_override = ExtResource("6_ex3ro")
+mesh = SubResource("BoxMesh_r70ic")

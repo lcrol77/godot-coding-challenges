@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://daqjuufefs662"]
+
+[ext_resource type="Material" uid="uid://dmns4paiptpbb" path="res://assets/chapter_04/vfx_ray_marching/materials/vfx_ray_marching_01.tres" id="1_2r18q"]
+[ext_resource type="Material" uid="uid://bpvpu4ky5hjsm" path="res://assets/chapter_04/vfx_ray_marching/materials/vfx_ray_marching_02.tres" id="2_eo82y"]
+[ext_resource type="Material" uid="uid://der3bb4a01a1m" path="res://assets/chapter_04/vfx_ray_marching/materials/vfx_ray_marching_03.tres" id="3_k741f"]
+[ext_resource type="Texture2D" uid="uid://d21h5sp2bscru" path="res://assets/chapter_04/vfx_ray_marching/textures/panorama_space.png" id="4_k741f"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2r18q"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_k741f"]
+panorama = ExtResource("4_k741f")
+
+[sub_resource type="Sky" id="Sky_1fmi0"]
+sky_material = SubResource("PanoramaSkyMaterial_k741f")
+
+[sub_resource type="Environment" id="Environment_kx7p5"]
+background_mode = 2
+background_color = Color(0.85882354, 0.85490197, 0.95686275, 1)
+sky = SubResource("Sky_1fmi0")
+
+[node name="Node3D" type="Node3D" unique_id=1584211828]
+
+[node name="MeshInstance3D_01" type="MeshInstance3D" parent="." unique_id=1011877346]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26274538, -0.16762215, -0.08334872)
+material_override = ExtResource("1_2r18q")
+mesh = SubResource("BoxMesh_2r18q")
+
+[node name="MeshInstance3D_02" type="MeshInstance3D" parent="." unique_id=198104800]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18117154, 0.25762153, 0.90765464)
+material_override = ExtResource("2_eo82y")
+mesh = SubResource("BoxMesh_2r18q")
+
+[node name="MeshInstance3D_03" type="MeshInstance3D" parent="." unique_id=2063572671]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.52339107, 0.1911209, -0.7455483)
+material_override = ExtResource("3_k741f")
+mesh = SubResource("BoxMesh_2r18q")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=149811161]
+environment = SubResource("Environment_kx7p5")

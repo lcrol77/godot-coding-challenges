@@ -1,0 +1,22 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://0xrf5xwkigpi"]
+
+[ext_resource type="Shader" uid="uid://bjjqwgfsxtmxg" path="res://assets/case_study/vfx_dice/materials/shaders/die_glsl.gdshader" id="1_j46r8"]
+[ext_resource type="Texture2D" uid="uid://b8uvmdq5shvqg" path="res://assets/case_study/vfx_dice/textures/die_gradient_tex.png" id="2_go6nt"]
+[ext_resource type="Texture2D" uid="uid://dmsu6efin5k61" path="res://assets/case_study/vfx_dice/textures/die_matcap_tex.png" id="3_n62xm"]
+[ext_resource type="Texture2D" uid="uid://df0in30p3jbfd" path="res://assets/case_study/vfx_dice/textures/die_projection_tex.png" id="5_u5a5r"]
+[ext_resource type="Texture2D" uid="uid://nhsexfbgj22o" path="res://assets/case_study/vfx_dice/textures/die_reflection_tex.png" id="6_gx62y"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_j46r8")
+shader_parameter/_Gradient = ExtResource("2_go6nt")
+shader_parameter/_Reflection = ExtResource("6_gx62y")
+shader_parameter/_Matcap = ExtResource("3_n62xm")
+shader_parameter/_Projection = ExtResource("5_u5a5r")
+shader_parameter/_Radius = 0.4
+shader_parameter/_Offset = -0.5
+shader_parameter/_Power = 6.0
+shader_parameter/_Aberration = Vector3(0.275, 0.435, 1)
+shader_parameter/_Lowlight = Color(0.14742, 0.00027988, 0.340944, 1)
+shader_parameter/_Midlight = Color(0.406704, 0.397471, 1, 1)
+shader_parameter/_Highlight = Color(1, 0.501961, 0.992157, 1)

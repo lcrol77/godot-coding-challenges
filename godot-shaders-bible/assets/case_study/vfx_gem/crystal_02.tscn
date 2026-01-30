@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://8y8g5ql1b8mn"]
+
+[ext_resource type="Material" uid="uid://di4787ikg0mv0" path="res://assets/case_study/vfx_gem/materials/crystal_orange.tres" id="1_hbn7f"]
+[ext_resource type="ArrayMesh" uid="uid://nacguj2s136n" path="res://assets/case_study/vfx_gem/meshes/crystal_02.obj" id="2_yuvth"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+material_override = ExtResource("1_hbn7f")
+mesh = ExtResource("2_yuvth")

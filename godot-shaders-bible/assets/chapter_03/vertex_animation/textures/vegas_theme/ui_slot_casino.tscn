@@ -1,0 +1,262 @@
+[gd_scene load_steps=13 format=3 uid="uid://f0vi03txs4g7"]
+
+[ext_resource type="Texture2D" uid="uid://d3213a6jv6733" path="res://assets/chapter_03/vertex_animation/textures/vegas_theme/casino_jackpot/ref.png" id="1_f845x"]
+[ext_resource type="Material" uid="uid://dhn5yb1vk6kpb" path="res://assets/chapter_03/vertex_animation/materials/ui_animation.tres" id="1_wqttg"]
+[ext_resource type="Texture2D" uid="uid://bwtnjwdju7mv4" path="res://assets/chapter_03/vertex_animation/textures/vegas_theme/casino_jackpot/img01.png" id="2_lfasw"]
+[ext_resource type="Texture2D" uid="uid://68ddhjep3n66" path="res://assets/chapter_03/vertex_animation/textures/vegas_theme/casino_jackpot/img07.png" id="2_u6koo"]
+[ext_resource type="Texture2D" uid="uid://hfyhtaugr0fl" path="res://assets/chapter_03/vertex_animation/textures/vegas_theme/casino_jackpot/img02.png" id="3_fqcnj"]
+[ext_resource type="Texture2D" uid="uid://drvqeagatasos" path="res://assets/chapter_03/vertex_animation/textures/vegas_theme/casino_jackpot/img06.png" id="4_5svr7"]
+[ext_resource type="Texture2D" uid="uid://b0q1j2hrt7w2t" path="res://assets/chapter_03/vertex_animation/textures/vegas_theme/casino_jackpot/img05.png" id="5_46dbt"]
+[ext_resource type="Texture2D" uid="uid://bv3xw31hd2cd7" path="res://assets/chapter_03/vertex_animation/textures/vegas_theme/casino_jackpot/img03.png" id="6_rdj1x"]
+[ext_resource type="Texture2D" uid="uid://douvthq41pvpx" path="res://assets/chapter_03/vertex_animation/textures/vegas_theme/casino_jackpot/img04.png" id="7_u6koo"]
+
+[sub_resource type="Animation" id="Animation_ojmtu"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_wqttg"]
+resource_name = "shine_rotation"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.271473, 0.460273, 6.28319, -0.284795, -0.43556, 0.25, 0),
+"times": PackedFloat32Array(0, 4)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uotds"]
+_data = {
+&"RESET": SubResource("Animation_ojmtu"),
+&"shine_rotation": SubResource("Animation_wqttg")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 20)
+
+[node name="Ref" type="TextureRect" parent="Control"]
+visible = false
+material = ExtResource("1_wqttg")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(256, 256)
+texture = ExtResource("1_f845x")
+
+[node name="Shine" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1, 1.1)
+pivot_offset = Vector2(256, 256)
+texture = ExtResource("2_u6koo")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Shine"]
+libraries = {
+&"": SubResource("AnimationLibrary_uotds")
+}
+autoplay = "shine_rotation"
+
+[node name="SlotMachine" type="TextureRect" parent="Control"]
+modulate = Color(0.182154, 0.317648, 0.216646, 1)
+material = ExtResource("1_wqttg")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.0
+offset_top = -12.0
+offset_right = 201.0
+offset_bottom = 187.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(204.5, 99.5)
+texture = ExtResource("2_lfasw")
+expand_mode = 1
+
+[node name="SevenMiddle" type="TextureRect" parent="Control"]
+material = ExtResource("1_wqttg")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = 61.0
+offset_right = 31.0
+offset_bottom = 121.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(28.5, 30)
+texture = ExtResource("3_fqcnj")
+expand_mode = 1
+
+[node name="SevenLeft" type="TextureRect" parent="Control"]
+modulate = Color(0.59755, 0.384411, 0.511933, 1)
+material = ExtResource("1_wqttg")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.0
+offset_top = 62.0
+offset_right = -50.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(28.5, 30)
+texture = ExtResource("3_fqcnj")
+expand_mode = 1
+
+[node name="SevenRight" type="TextureRect" parent="Control"]
+modulate = Color(0.858885, 0.600262, 0.430292, 1)
+material = ExtResource("1_wqttg")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 51.0
+offset_top = 62.0
+offset_right = 108.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(28.5, 30)
+texture = ExtResource("3_fqcnj")
+expand_mode = 1
+
+[node name="GoldRight" type="TextureRect" parent="Control"]
+material = ExtResource("1_wqttg")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 144.0
+offset_top = -157.0
+offset_right = 214.5
+offset_bottom = -85.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(35.25, 35.75)
+texture = ExtResource("6_rdj1x")
+expand_mode = 1
+
+[node name="GoldLeft" type="TextureRect" parent="Control"]
+modulate = Color(0.466181, 0.466181, 0.466181, 1)
+material = ExtResource("1_wqttg")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -213.0
+offset_top = -157.0
+offset_right = -142.5
+offset_bottom = -85.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(35.25, 35.75)
+texture = ExtResource("7_u6koo")
+expand_mode = 1
+
+[node name="Casino" type="TextureRect" parent="Control"]
+modulate = Color(0.653369, 0.461573, 0.320827, 1)
+material = ExtResource("1_wqttg")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = -186.0
+offset_right = 131.0
+offset_bottom = -95.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(133, 45.5)
+texture = ExtResource("5_46dbt")
+expand_mode = 1
+
+[node name="Jackpot" type="TextureRect" parent="Control"]
+modulate = Color(0.364806, 0.502532, 0.164898, 1)
+material = ExtResource("1_wqttg")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -222.0
+offset_top = -108.0
+offset_right = 234.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(228, 67)
+texture = ExtResource("4_5svr7")
+expand_mode = 1

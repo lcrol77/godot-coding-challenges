@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://o4b7uqxm0q7j"]
+
+[ext_resource type="Shader" uid="uid://rvpn8h2satr3" path="res://assets/chapter_04/vfx_gameboy/materials/shaders/vfx_gameboy.gdshader" id="1_81p02"]
+[ext_resource type="Texture2D" uid="uid://48bc54sio0rl" path="res://assets/chapter_04/vfx_gameboy/textures/hex_green.png" id="2_81p02"]
+
+[resource]
+shader = ExtResource("1_81p02")
+shader_parameter/_Palette = ExtResource("2_81p02")
+shader_parameter/_PixelSize = 6

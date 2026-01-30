@@ -1,0 +1,41 @@
+[gd_resource type="ArrayMesh" load_steps=3 format=4 uid="uid://vdy4gi7kxp70"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ewm8q"]
+resource_name = "material_forest_pines"
+transparency = 4
+vertex_color_use_as_albedo = true
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qtp0o"]
+_surfaces = [{
+"aabb": AABB(-0.052339, -0.052339, 0, 0.104678, 0.104678, 1e-05),
+"format": 34359742465,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAQAAAAQABQACAAEABAAGAAEAAQAHAAUABwABAAYABgAIAAcA"),
+"name": "material_forest_pines",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 9,
+"vertex_data": PackedByteArray("AAAAAG1hVj0AAAAAAAAAAAAAAAAAAAAAbWFWvQAAAAAAAAAAbWFWvW1hVj0AAAAAbWFWPW1hVj0AAAAAbWFWvW1hVr0AAAAAbWFWPQAAAAAAAAAAAAAAAG1hVr0AAAAAbWFWPW1hVr0AAAAA")
+}]
+blend_shape_mode = 0
+
+[resource]
+resource_name = "Plane_017"
+_surfaces = [{
+"aabb": AABB(-0.052339, -0.052339, 0, 0.104678, 0.104678, 1e-05),
+"attribute_data": PackedByteArray("QL/iPnVABj9Sv+I+AF1tP5YEJD38Xm0/jAYkPTJABj9Av+I+dUAGP1K/4j4AXW0/lgQkPfxebT+MBiQ9MkAGP0C/4j51QAY/Ur/iPgBdbT+WBCQ9/F5tP4wGJD0yQAY/QL/iPnVABj9Sv+I+AF1tP5YEJD38Xm0/jAYkPTJABj8="),
+"format": 34359742487,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwA"),
+"material": SubResource("StandardMaterial3D_ewm8q"),
+"name": "material_forest_pines",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("AAAAAG1hVj0AAAAAAAAAAAAAAAAAAAAAbWFWvQAAAAAAAAAAbWFWvW1hVj0AAAAAAAAAAAAAAAAAAAAAAAAAAG1hVr0AAAAAbWFWvW1hVr0AAAAAbWFWvQAAAAAAAAAAbWFWPQAAAAAAAAAAbWFWPW1hVr0AAAAAAAAAAG1hVr0AAAAAAAAAAAAAAAAAAAAAbWFWPW1hVj0AAAAAbWFWPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG1hVj0AAAAA/3//f/3//r//f/9//P/+v/9//3/9//6//3//f/7//7//f/9//f/+v/9//3/8//6//3//f/3//r//f/9//v//v/9//3/9//6//3//f/z//r//f/9//f/+v/9//3/+//+//3//f/3//r//f/9//P/+v/9//3/9//6//3//f/7//78=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_qtp0o")

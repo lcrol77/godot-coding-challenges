@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctj584k8l81h8"]
+
+[ext_resource type="Material" uid="uid://buv1jrcddq6qc" path="res://assets/chapter_01/spaces/world_space/materials/world_space.tres" id="1_ke0rn"]
+[ext_resource type="ArrayMesh" uid="uid://c7qim0q3irdsn" path="res://assets/chapter_01/spaces/world_space/meshes/tree.tres" id="1_poehi"]
+[ext_resource type="Texture2D" uid="uid://d10nsqqxfm78t" path="res://assets/chapter_01/spaces/world_space/textures/checker_tex.png" id="3_07x80"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsic7"]
+albedo_texture = ExtResource("3_07x80")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_no1d8"]
+
+[node name="TreeGroup" type="Node3D"]
+
+[node name="Tree" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6450194, 4.7683716e-07, -1.1522511)
+material_override = ExtResource("1_ke0rn")
+mesh = ExtResource("1_poehi")
+
+[node name="Tree2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19791329, 0, 0.3497951)
+material_override = ExtResource("1_ke0rn")
+mesh = ExtResource("1_poehi")
+
+[node name="Tree3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4804, -0.0003092289, -3.5723042)
+material_override = ExtResource("1_ke0rn")
+mesh = ExtResource("1_poehi")
+
+[node name="Tree7" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2375693, -0.0003092289, -2.1993947)
+material_override = ExtResource("1_ke0rn")
+mesh = ExtResource("1_poehi")
+
+[node name="Tree4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.54408, 0, -2.5855)
+material_override = ExtResource("1_ke0rn")
+mesh = ExtResource("1_poehi")
+
+[node name="Tree5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8731458, 0, 0.37258577)
+material_override = ExtResource("1_ke0rn")
+mesh = ExtResource("1_poehi")
+
+[node name="Tree6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6577, 0.10286498, 3.7087405)
+material_override = ExtResource("1_ke0rn")
+mesh = ExtResource("1_poehi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_hsic7")
+mesh = SubResource("PlaneMesh_no1d8")

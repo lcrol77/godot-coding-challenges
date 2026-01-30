@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bhhhg27nbwxip"]
+
+[ext_resource type="Material" uid="uid://3y2m78ra2372" path="res://assets/case_study/vfx_watermelon/materials/watermelon_fruit_specular.tres" id="1_cjqek"]
+[ext_resource type="Shader" uid="uid://ch3nwq2n2hplw" path="res://assets/case_study/vfx_watermelon/materials/shaders/watermelon_reflection.gdshader" id="2_surj6"]
+[ext_resource type="Texture2D" uid="uid://culcrh80hmtb0" path="res://assets/case_study/vfx_watermelon/textures/watermelon_fruits_tex.png" id="3_cjqek"]
+
+[resource]
+render_priority = 0
+next_pass = ExtResource("1_cjqek")
+shader = ExtResource("2_surj6")
+shader_parameter/_MainTex = ExtResource("3_cjqek")
+shader_parameter/_Offset = -0.2
+shader_parameter/_NormalInfluecen = -0.2
+shader_parameter/_SSSPower = 50.0
+shader_parameter/_SSSIntensity = 19.1
+shader_parameter/_Color = Color(1, 0.477338, 0.325937, 1)

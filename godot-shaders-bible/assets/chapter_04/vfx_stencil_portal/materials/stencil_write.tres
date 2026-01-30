@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ccmo7ams4qw30"]
+
+[ext_resource type="Shader" uid="uid://drjkxntb0j3um" path="res://assets/chapter_04/vfx_stencil_portal/materials/shaders/stencil_write.gdshader" id="1_wxbnu"]
+[ext_resource type="Texture2D" uid="uid://cqvoogao3x0gj" path="res://assets/chapter_04/vfx_stencil_portal/textures/portal_door_tex.png" id="2_gb3mk"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_wxbnu")
+shader_parameter/_BaseTex = ExtResource("2_gb3mk")
