@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bf6g2fl4gailj"]
+
+[ext_resource type="Shader" uid="uid://cq5inic4kh6ni" path="res://assets_final/chapter_02/anisotropy/materials/shaders/anisotropic_reflection.gdshader" id="1_m62k1"]
+[ext_resource type="Texture2D" uid="uid://yatpe7pvejbw" path="res://assets_final/chapter_02/anisotropy/textures/character_hair_tex.png" id="2_oueau"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_m62k1")
+shader_parameter/_MainTex = ExtResource("2_oueau")
+shader_parameter/_AU = 0.0
+shader_parameter/_AV = 256.0
+shader_parameter/_ReflectionFactor = 0.5

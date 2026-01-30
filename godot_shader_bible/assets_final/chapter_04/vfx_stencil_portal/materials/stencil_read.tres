@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=0 format=3 uid="uid://dt81gcl8luaxp"]
+
+[ext_resource type="Shader" uid="uid://xig1xrapy6fs" path="res://assets_final/chapter_04/vfx_stencil_portal/materials/shaders/stencil_read.gdshader" id="1_061a5"]
+[ext_resource type="Texture2D" uid="uid://dxtnonyxbei3f" path="res://assets_final/chapter_04/vfx_stencil_portal/textures/space_box_tex.png" id="2_061a5"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_061a5")
+shader_parameter/_BaseColor = ExtResource("2_061a5")

@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://bus505jed165l"]
+
+[ext_resource type="Material" uid="uid://ctbqfqkc1q23d" path="res://assets_final/case_study/vfx_cracked_ice/materials/vfx_chacked_ice.tres" id="1_ve7pe"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_quo2q"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01447, -0.00258744, 0)
+material_override = ExtResource("1_ve7pe")
+mesh = SubResource("PlaneMesh_quo2q")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01447, 0, -2)
+material_override = ExtResource("1_ve7pe")
+mesh = SubResource("PlaneMesh_quo2q")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01447, 0, 2)
+material_override = ExtResource("1_ve7pe")
+mesh = SubResource("PlaneMesh_quo2q")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.985533, 0, 0)
+material_override = ExtResource("1_ve7pe")
+mesh = SubResource("PlaneMesh_quo2q")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.985533, 0, -2)
+material_override = ExtResource("1_ve7pe")
+mesh = SubResource("PlaneMesh_quo2q")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.985533, 0, 2)
+material_override = ExtResource("1_ve7pe")
+mesh = SubResource("PlaneMesh_quo2q")

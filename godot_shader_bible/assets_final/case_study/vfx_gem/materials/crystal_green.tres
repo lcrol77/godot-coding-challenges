@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://c7wbgj0nav8jq"]
+
+[ext_resource type="Shader" uid="uid://b07wws860qylh" path="res://assets_final/case_study/vfx_gem/materials/shader/crystal.gdshader" id="1_tmkhc"]
+[ext_resource type="Texture2D" uid="uid://b6455jxgt3j6n" path="res://assets_final/case_study/vfx_gem/textures/crystal_pattern_03.png" id="2_pvt1k"]
+[ext_resource type="Texture2D" uid="uid://dbrsjep0xgv5a" path="res://assets_final/case_study/vfx_gem/textures/crystal_color_tex.png" id="3_ejjwy"]
+[ext_resource type="Texture2D" uid="uid://c7l81rnmhxs55" path="res://assets_final/case_study/vfx_item_box/texture/item_box_matcap_tex.png" id="4_pppvi"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_tmkhc")
+shader_parameter/_Pattern = ExtResource("2_pvt1k")
+shader_parameter/_Specular = ExtResource("4_pppvi")
+shader_parameter/_Reflection = ExtResource("3_ejjwy")
+shader_parameter/_Offset = -0.475
+shader_parameter/_Power = 3.779
+shader_parameter/_LowLight = Color(0, 0.141523, 0.141667, 1)
+shader_parameter/_MidLight = Color(0.520606, 0.935139, 0, 1)
+shader_parameter/_HighLight = Color(0.938874, 0.938874, 1.54018e-06, 1)

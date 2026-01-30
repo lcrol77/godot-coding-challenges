@@ -1,0 +1,165 @@
+[gd_scene load_steps=11 format=3 uid="uid://dm36sw48kvkmy"]
+
+[ext_resource type="Texture2D" uid="uid://bcyb3itc4wrq4" path="res://assets_final/chapter_03/vertex_animation/textures/vegas_theme/coins/ref.png" id="1_7w3en"]
+[ext_resource type="Texture2D" uid="uid://c1ksfjypc111d" path="res://assets_final/chapter_03/vertex_animation/textures/vegas_theme/coins/img05.png" id="2_0hfqk"]
+[ext_resource type="Material" uid="uid://dhn5yb1vk6kpb" path="res://assets_final/chapter_03/vertex_animation/materials/ui_animation.tres" id="3_euagg"]
+[ext_resource type="Texture2D" uid="uid://ckryks1akg2r3" path="res://assets_final/chapter_03/vertex_animation/textures/vegas_theme/coins/img02.png" id="4_oncxg"]
+[ext_resource type="Texture2D" uid="uid://7gxm834jnhqh" path="res://assets_final/chapter_03/vertex_animation/textures/vegas_theme/coins/img01.png" id="5_n2jj3"]
+[ext_resource type="Texture2D" uid="uid://besbi2ukkssqs" path="res://assets_final/chapter_03/vertex_animation/textures/vegas_theme/coins/img03.png" id="6_fw3ap"]
+[ext_resource type="Texture2D" uid="uid://rafmy35gows6" path="res://assets_final/chapter_03/vertex_animation/textures/vegas_theme/coins/img04.png" id="7_qlsh2"]
+
+[sub_resource type="Animation" id="Animation_ojmtu"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_wqttg"]
+resource_name = "shine_rotation"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.271473, 0.460273, 6.28319, -0.284795, -0.43556, 0.25, 0),
+"times": PackedFloat32Array(0, 4)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uotds"]
+_data = {
+&"RESET": SubResource("Animation_ojmtu"),
+&"shine_rotation": SubResource("Animation_wqttg")
+}
+
+[node name="Coins" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ref" type="TextureRect" parent="Control"]
+visible = false
+modulate = Color(1, 1, 1, 0.270588)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_7w3en")
+expand_mode = 1
+
+[node name="Shine" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1, 1.1)
+pivot_offset = Vector2(256, 256)
+texture = ExtResource("2_0hfqk")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Shine"]
+libraries = {
+&"": SubResource("AnimationLibrary_uotds")
+}
+autoplay = "shine_rotation"
+
+[node name="X2" type="TextureRect" parent="Control"]
+modulate = Color(0.223103, 0.223103, 0.223103, 1)
+material = ExtResource("3_euagg")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -203.0
+offset_right = 75.0
+offset_bottom = -106.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_oncxg")
+expand_mode = 1
+
+[node name="Coins" type="TextureRect" parent="Control"]
+material = ExtResource("3_euagg")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -112.0
+offset_right = 143.5
+offset_bottom = -5.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_n2jj3")
+expand_mode = 1
+
+[node name="CoinLeft" type="TextureRect" parent="Control"]
+modulate = Color(0.374139, 0.374139, 0.374139, 1)
+material = ExtResource("3_euagg")
+layout_mode = 0
+offset_left = -141.0
+offset_top = 6.0
+offset_right = 57.5
+offset_bottom = 204.5
+texture = ExtResource("6_fw3ap")
+expand_mode = 1
+
+[node name="CoinRight" type="TextureRect" parent="Control"]
+material = ExtResource("3_euagg")
+layout_mode = 0
+offset_left = -15.0
+offset_top = 14.0
+offset_right = 183.5
+offset_bottom = 212.5
+texture = ExtResource("7_qlsh2")
+expand_mode = 1

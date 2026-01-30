@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://demwl7i4ayd8w"]
+
+[ext_resource type="Shader" uid="uid://8bpnjutvnex3" path="res://assets_final/chapter_01/spaces/tangent_space/materials/shaders/anime_eyes.gdshader" id="1_mtjgs"]
+[ext_resource type="Texture2D" uid="uid://bunctqnuo7ixn" path="res://assets_final/chapter_01/spaces/tangent_space/textures/eye_border.png" id="2_mtjgs"]
+[ext_resource type="Texture2D" uid="uid://c10cb70c4euan" path="res://assets_final/chapter_01/spaces/tangent_space/textures/eye_depth.png" id="4_5fhl8"]
+[ext_resource type="Texture2D" uid="uid://rvm0wd86tfj3" path="res://assets_final/chapter_01/spaces/tangent_space/textures/eye_colorful_color.png" id="4_mtjgs"]
+[ext_resource type="Texture2D" uid="uid://dco3hrajpeq5t" path="res://assets_final/chapter_01/spaces/tangent_space/textures/eye_shine.png" id="5_wp51s"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_mtjgs")
+shader_parameter/_MainTex = ExtResource("4_mtjgs")
+shader_parameter/_Depth = ExtResource("4_5fhl8")
+shader_parameter/_Border = ExtResource("2_mtjgs")
+shader_parameter/_Shine = ExtResource("5_wp51s")
+shader_parameter/_Offset = 0.25

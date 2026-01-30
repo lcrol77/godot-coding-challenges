@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ot6buhwbum8l"]
+
+[ext_resource type="Shader" uid="uid://dacojoiuc1mvs" path="res://assets_final/chapter_02/hemisphere/materials/shaders/hemisphere.gdshader" id="1_js1ja"]
+[ext_resource type="Texture2D" uid="uid://c2uky8tqxf2g1" path="res://assets_final/chapter_02/hemisphere/textures/rebey_vane_solid_tex.png" id="2_4e17j"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_js1ja")
+shader_parameter/_MainTex = ExtResource("2_4e17j")
+shader_parameter/_GroundColor = Color(0.4, 0.32941177, 0.27450982, 1)
+shader_parameter/_SkyColor = Color(0.34901962, 0.5568628, 0.70980394, 1)
+shader_parameter/_Smoothness = 0.0

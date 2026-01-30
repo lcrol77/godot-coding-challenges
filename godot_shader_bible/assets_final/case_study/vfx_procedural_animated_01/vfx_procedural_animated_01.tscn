@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw06lj7dh1gje"]
+
+[ext_resource type="Material" uid="uid://bgr72uuvkb0um" path="res://assets_final/case_study/vfx_procedural_animated_01/materials/procedural_animated_01.tres" id="1_f4elo"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_mitfg"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_f4elo")
+mesh = SubResource("QuadMesh_mitfg")

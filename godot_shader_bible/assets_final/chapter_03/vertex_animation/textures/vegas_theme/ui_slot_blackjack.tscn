@@ -1,0 +1,239 @@
+[gd_scene load_steps=14 format=3 uid="uid://bo4xjtsgw43x7"]
+
+[ext_resource type="Material" uid="uid://dhn5yb1vk6kpb" path="res://assets_final/chapter_03/vertex_animation/materials/ui_animation.tres" id="1_2ob7m"]
+[ext_resource type="Texture2D" uid="uid://5nn3hxbmimq3" path="res://assets_final/chapter_03/vertex_animation/textures/vegas_theme/blackjack_poker/ref.png" id="1_8oobd"]
+[ext_resource type="Texture2D" uid="uid://68ddhjep3n66" path="res://assets_final/chapter_03/vertex_animation/textures/vegas_theme/casino_jackpot/img07.png" id="3_pi1bp"]
+[ext_resource type="Texture2D" uid="uid://cmkl75eqnp6h7" path="res://assets_final/chapter_03/vertex_animation/textures/vegas_theme/blackjack_poker/img01.png" id="4_vc0ya"]
+[ext_resource type="Texture2D" uid="uid://cct8uaomflawj" path="res://assets_final/chapter_03/vertex_animation/textures/vegas_theme/blackjack_poker/img02.png" id="5_go2s7"]
+[ext_resource type="Texture2D" uid="uid://tr1rfjmw87wb" path="res://assets_final/chapter_03/vertex_animation/textures/vegas_theme/blackjack_poker/img03.png" id="6_c6jcj"]
+[ext_resource type="Texture2D" uid="uid://dej7c2k6n087c" path="res://assets_final/chapter_03/vertex_animation/textures/vegas_theme/blackjack_poker/img04.png" id="7_g7hyy"]
+[ext_resource type="Texture2D" uid="uid://ptt7ps0m35wj" path="res://assets_final/chapter_03/vertex_animation/textures/vegas_theme/blackjack_poker/img05.png" id="8_xvsfs"]
+[ext_resource type="Texture2D" uid="uid://cdrj344pw4crc" path="res://assets_final/chapter_03/vertex_animation/textures/vegas_theme/blackjack_poker/img06.png" id="9_jmo33"]
+[ext_resource type="Texture2D" uid="uid://cwjiyi1e8nr27" path="res://assets_final/chapter_03/vertex_animation/textures/vegas_theme/blackjack_poker/img07.png" id="10_pi1bp"]
+
+[sub_resource type="Animation" id="Animation_ojmtu"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_wqttg"]
+resource_name = "shine_rotation"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.271473, 0.460273, 6.28319, -0.284795, -0.43556, 0.25, 0),
+"times": PackedFloat32Array(0, 4)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uotds"]
+_data = {
+&"RESET": SubResource("Animation_ojmtu"),
+&"shine_rotation": SubResource("Animation_wqttg")
+}
+
+[node name="Blackjack" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 20)
+
+[node name="Ref" type="TextureRect" parent="Control"]
+visible = false
+modulate = Color(0.47788, 0.47788, 0.47788, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(256, 256)
+texture = ExtResource("1_8oobd")
+expand_mode = 1
+
+[node name="Shine" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1, 1.1)
+pivot_offset = Vector2(256, 256)
+texture = ExtResource("3_pi1bp")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Shine"]
+libraries = {
+&"": SubResource("AnimationLibrary_uotds")
+}
+autoplay = "shine_rotation"
+
+[node name="SlotMachine" type="TextureRect" parent="Control"]
+modulate = Color(0.330003, 0.375365, 0.396959, 1)
+material = ExtResource("1_2ob7m")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -4.0
+offset_right = 204.0
+offset_bottom = 195.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_vc0ya")
+expand_mode = 1
+
+[node name="Heart" type="TextureRect" parent="Control"]
+material = ExtResource("1_2ob7m")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = 82.0
+offset_right = -74.0
+offset_bottom = 110.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_go2s7")
+expand_mode = 1
+
+[node name="Spader" type="TextureRect" parent="Control"]
+modulate = Color(0.59755, 0.384411, 0.511933, 1)
+material = ExtResource("1_2ob7m")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = 79.0
+offset_right = -12.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_c6jcj")
+expand_mode = 1
+
+[node name="Diamond" type="TextureRect" parent="Control"]
+modulate = Color(0.858885, 0.600262, 0.430292, 1)
+material = ExtResource("1_2ob7m")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 17.0
+offset_top = 79.0
+offset_right = 51.0
+offset_bottom = 112.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_g7hyy")
+expand_mode = 1
+
+[node name="Club" type="TextureRect" parent="Control"]
+modulate = Color(0.858885, 0.600262, 0.430292, 1)
+material = ExtResource("1_2ob7m")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 74.0
+offset_top = 78.0
+offset_right = 108.0
+offset_bottom = 111.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_xvsfs")
+expand_mode = 1
+
+[node name="Blackjack" type="TextureRect" parent="Control"]
+modulate = Color(0.648765, 0.457811, 0.317635, 1)
+material = ExtResource("1_2ob7m")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.0
+offset_top = -193.0
+offset_right = 197.0
+offset_bottom = -84.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_jmo33")
+expand_mode = 1
+
+[node name="Poker" type="TextureRect" parent="Control"]
+modulate = Color(0.187936, 0.267528, 0.0725248, 1)
+material = ExtResource("1_2ob7m")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -214.0
+offset_top = -114.0
+offset_right = 215.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_pi1bp")
+expand_mode = 1

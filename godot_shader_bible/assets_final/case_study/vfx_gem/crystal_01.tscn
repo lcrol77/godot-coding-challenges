@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7x5abgliej3e"]
+
+[ext_resource type="Material" uid="uid://c7wbgj0nav8jq" path="res://assets_final/case_study/vfx_gem/materials/crystal_green.tres" id="1_ad30v"]
+[ext_resource type="ArrayMesh" uid="uid://bclevp34ebol0" path="res://assets_final/case_study/vfx_gem/meshes/crystal_01.obj" id="5_tahut"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Body" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_ad30v")
+mesh = ExtResource("5_tahut")

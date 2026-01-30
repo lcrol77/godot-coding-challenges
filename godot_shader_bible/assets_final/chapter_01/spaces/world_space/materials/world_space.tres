@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://buv1jrcddq6qc"]
+
+[ext_resource type="Shader" uid="uid://clxu04j7ietqo" path="res://assets_final/chapter_01/spaces/world_space/materials/shaders/world_space.gdshader" id="1_6yw1j"]
+[ext_resource type="Texture2D" uid="uid://bpd71dv5swlj" path="res://assets_final/chapter_01/spaces/world_space/textures/tree_tex.jpg" id="2_162qv"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_6yw1j")
+shader_parameter/_MainTex = ExtResource("2_162qv")
+shader_parameter/rotation_angle = 0.0

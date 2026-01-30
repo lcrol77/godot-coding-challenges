@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=0 format=3 uid="uid://dmns4paiptpbb"]
+
+[ext_resource type="Shader" uid="uid://djj37swdqmshl" path="res://assets_final/chapter_04/vfx_ray_marching/materials/shaders/vfx_ray_marching.gdshader" id="1_sdr7u"]
+[ext_resource type="CompressedTexture3D" uid="uid://bxoa47wfdoirw" path="res://assets_final/chapter_04/vfx_ray_marching/textures/cloud_01_3dtex.png" id="2_sdr7u"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_sdr7u")
+shader_parameter/_BaseTex = ExtResource("2_sdr7u")
+shader_parameter/_ColorLight = Color(1, 0.89411765, 0.4745098, 1)
+shader_parameter/_ColorMid = Color(0.9082558, 0.5429278, 1.732707e-06, 1)
+shader_parameter/_ColorShadow = Color(0.59607846, 0, 0.43529412, 1)

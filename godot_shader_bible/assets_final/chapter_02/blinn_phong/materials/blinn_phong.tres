@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://c0nbhww2qtu2h"]
+
+[ext_resource type="Shader" uid="uid://cdsjkjcrkwfyu" path="res://assets_final/chapter_02/blinn_phong/materials/shaders/blinn_phong.gdshader" id="1_ghfex"]
+[ext_resource type="Texture2D" uid="uid://bulsmu4a6cxmb" path="res://assets_final/chapter_02/lambert/textures/checker_default_tex.png" id="2_h6auf"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ghfex")
+shader_parameter/_MainTex = ExtResource("2_h6auf")

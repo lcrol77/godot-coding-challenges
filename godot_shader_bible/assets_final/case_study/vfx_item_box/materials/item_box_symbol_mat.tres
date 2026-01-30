@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ivrvfsijchfb"]
+
+[ext_resource type="Shader" uid="uid://bpdml8ejcv1rx" path="res://assets_final/case_study/vfx_item_box/materials/shaders/item_box_symbol.gdshader" id="1_gbdji"]
+[ext_resource type="Texture2D" uid="uid://clrs3i4iv00wu" path="res://assets_final/case_study/vfx_item_box/texture/item_box_symbol_tex.png" id="2_ae2hc"]
+
+[resource]
+render_priority = 1
+shader = ExtResource("1_gbdji")
+shader_parameter/_Symbol = ExtResource("2_ae2hc")

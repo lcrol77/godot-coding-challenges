@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cx7gtifeki33b"]
+
+[ext_resource type="Shader" uid="uid://be75imcxoxvb1" path="res://assets_final/chapter_01/spaces/tangent_space/materials/shaders/anime_skin.gdshader" id="1_ykymb"]
+[ext_resource type="Texture2D" uid="uid://cd774vjbep6ae" path="res://assets_final/chapter_01/spaces/tangent_space/textures/skin.png" id="2_kc5ih"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ykymb")
+shader_parameter/_MainTex = ExtResource("2_kc5ih")

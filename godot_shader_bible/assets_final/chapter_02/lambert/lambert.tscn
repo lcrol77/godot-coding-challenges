@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjoss742vy6p7"]
+
+[ext_resource type="Material" uid="uid://cydhmcjs7sxx" path="res://assets_final/chapter_02/lambert/materials/lambert.tres" id="1_koec6"]
+[ext_resource type="ArrayMesh" uid="uid://7q8v1n7umic5" path="res://assets_final/chapter_02/lambert/meshes/suzanne.tres" id="2_wv6co"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_koec6")
+mesh = ExtResource("2_wv6co")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.708057, 0.706156, 0, -0.706156, -0.708057, 0, 0, 2.12223)

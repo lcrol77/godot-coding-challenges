@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cydhmcjs7sxx"]
+
+[ext_resource type="Shader" uid="uid://djaqm8pty7tml" path="res://assets_final/chapter_02/lambert/materials/shaders/lambert.gdshader" id="1_jtvce"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_jtvce")
+shader_parameter/_Shadow = Color(0.176748, 0.240282, 0.58989, 1)
+shader_parameter/_Highlight = Color(0.643644, 0.680371, 0.863008, 1)
+shader_parameter/_Smoothness = 0.2

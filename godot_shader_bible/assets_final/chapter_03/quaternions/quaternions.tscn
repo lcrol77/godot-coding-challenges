@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4pkb8thf7pbc"]
+
+[ext_resource type="Script" uid="uid://c67mo86gkoaop" path="res://assets_final/chapter_03/quaternions/materials/shaders/light_to_shader.gd" id="1_5xhdh"]
+[ext_resource type="Material" uid="uid://cp2ueebe85gxq" path="res://assets_final/chapter_03/quaternions/materials/quaternions.tres" id="1_vi8b4"]
+[ext_resource type="ArrayMesh" uid="uid://conciwfca81hy" path="res://assets_final/chapter_03/quaternions/meshes/Crypt.tres" id="3_e8adr"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_5xhdh")
+
+[node name="Crypt" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_vi8b4")
+mesh = ExtResource("3_e8adr")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0.010890961, 0.69824886, 0)

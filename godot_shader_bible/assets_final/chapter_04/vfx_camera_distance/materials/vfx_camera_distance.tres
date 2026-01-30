@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=0 format=3 uid="uid://c3oyi83kaxdvu"]
+
+[ext_resource type="Shader" uid="uid://d080jnklo6kmt" path="res://assets_final/chapter_04/vfx_camera_distance/materials/shaders/vfx_camera_distance.gdshader" id="1_uons3"]
+[ext_resource type="Texture2D" uid="uid://3ibxe0ldy8r2" path="res://assets_final/chapter_04/vfx_camera_distance/textures/pine_A_tex.png" id="2_vwqsp"]
+[ext_resource type="Texture2D" uid="uid://bqrxb00h2aw3m" path="res://assets_final/chapter_04/vfx_camera_distance/textures/pine_RGB_tex.png" id="3_74x7o"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_uons3")
+shader_parameter/_MainTexRGB = ExtResource("3_74x7o")
+shader_parameter/_MainTexA = ExtResource("2_vwqsp")
+shader_parameter/_Distance = 3.5000000521542
+shader_parameter/_EdgeColor = Color(0.8164166, 0.04189778, 0.42440027, 1)
