@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://draj4p33oe7go"]
+[gd_scene load_steps=17 format=3 uid="uid://draj4p33oe7go"]
 
 [ext_resource type="Texture2D" uid="uid://wb5q4g0gvq5i" path="res://assets/prototype/red/texture_09.png" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://6dl6fko8lq4b" path="res://assets/prototype/dark/texture_04.png" id="2_1bvp3"]
@@ -31,16 +31,46 @@ background_mode = 2
 sky = SubResource("Sky_4c57u")
 ambient_light_source = 3
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1bvp3"]
+noise_type = 2
+fractal_gain = 0.47
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lquwl"]
+noise = SubResource("FastNoiseLite_1bvp3")
+seamless = true
+as_normal_map = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7mycd"]
+noise_type = 2
+fractal_gain = 0.47
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_272bh"]
+noise = SubResource("FastNoiseLite_7mycd")
+seamless = true
+as_normal_map = true
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_272bh"]
 render_priority = 0
 shader = ExtResource("4_lquwl")
 shader_parameter/primary_color = Color(0, 0.43137255, 0.5921569, 1)
+shader_parameter/roughness = 0.2
+shader_parameter/normalmap_a = SubResource("NoiseTexture2D_lquwl")
+shader_parameter/normalmap_b = SubResource("NoiseTexture2D_272bh")
+shader_parameter/normalmap_a_strength = 0.5
+shader_parameter/normalmap_b_strength = 0.25
+shader_parameter/movement_direction = Vector2(0.2, 0.1)
+shader_parameter/move_strength = 0.02
+shader_parameter/uv_scale = 0.4
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_kek77"]
 material = SubResource("ShaderMaterial_272bh")
 size = Vector2(5, 5)
 
 [node name="Main" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.6201961, 0.5333252, -0.5752573, -0.2773821, 0.8350509, 0.47513074, 0.7337684, -0.13510814, 0.66583014, 8.721861, 4.756774, 5.8733635)
+shadow_enabled = true
 
 [node name="Pool" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -60,5 +90,5 @@ mesh = SubResource("PlaneMesh_5vw27")
 environment = SubResource("Environment_efxa6")
 
 [node name="WaterPlane" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6403053, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7480868, 0)
 mesh = SubResource("PlaneMesh_kek77")
