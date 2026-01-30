@@ -1,7 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bomieatoueos7"]
-
-[ext_resource type="Shader" uid="uid://cqbp2mbta2t77" path="res://assets/case_study/vfx_procedural_animated_02/materials/shaders/procedural_animated_02.gdshader" id="1_flso1"]
-
-[resource]
-render_priority = 0
-shader = ExtResource("1_flso1")

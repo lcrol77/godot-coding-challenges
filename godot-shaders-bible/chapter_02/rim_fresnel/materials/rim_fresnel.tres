@@ -1,9 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://coxfm3l6awfdx"]
-
-[ext_resource type="Shader" uid="uid://cfjkp50oaypfd" path="res://assets/chapter_02/rim_fresnel/materials/shaders/rim_fresnel.gdshader" id="1_yq84j"]
-[ext_resource type="Texture2D" uid="uid://bulsmu4a6cxmb" path="res://assets/chapter_02/lambert/textures/checker_default_tex.png" id="2_kar2m"]
-
-[resource]
-render_priority = 0
-shader = ExtResource("1_yq84j")
-shader_parameter/_MainTex = ExtResource("2_kar2m")

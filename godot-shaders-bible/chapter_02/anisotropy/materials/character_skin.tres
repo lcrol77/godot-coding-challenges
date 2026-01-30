@@ -1,9 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bvpnp0kiuxk74"]
-
-[ext_resource type="Shader" uid="uid://bgoa7qe4au0y5" path="res://assets/chapter_02/anisotropy/materials/shaders/unlit.gdshader" id="1_nawuf"]
-[ext_resource type="Texture2D" uid="uid://cxp07xaxjud0r" path="res://assets/chapter_02/anisotropy/textures/character_skin_tex.png" id="2_5uu6c"]
-
-[resource]
-render_priority = 0
-shader = ExtResource("1_nawuf")
-shader_parameter/_MainTex = ExtResource("2_5uu6c")

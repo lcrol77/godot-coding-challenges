@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwk21bpk45uk0"]
-
-[ext_resource type="PackedScene" uid="uid://dmmjusy2dh41s" path="res://assets/case_study/vfx_dice/meshes/die_02_mesh.fbx" id="1_yo4mb"]
-[ext_resource type="Material" uid="uid://ccalcfes0igk2" path="res://assets/case_study/vfx_dice/materials/die_02_mat.tres" id="2_568k5"]
-
-[node name="die_02_mesh" instance=ExtResource("1_yo4mb")]
-
-[node name="die_02" parent="." index="0"]
-material_override = ExtResource("2_568k5")

@@ -1,9 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bgr72uuvkb0um"]
-
-[ext_resource type="Shader" uid="uid://qa3bty0nh7ry" path="res://assets/case_study/vfx_procedural_animated_01/materials/shaders/procedural_animated_01.gdshader" id="1_j6hxm"]
-[ext_resource type="Texture2D" uid="uid://bct4a7uooa3g1" path="res://assets/case_study/vfx_procedural_animated_01/textures/perlin_noise.png" id="2_16dbd"]
-
-[resource]
-render_priority = 0
-shader = ExtResource("1_j6hxm")
-shader_parameter/_MainTex = ExtResource("2_16dbd")
