@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://draj4p33oe7go"]
+[gd_scene load_steps=21 format=3 uid="uid://draj4p33oe7go"]
 
 [ext_resource type="Texture2D" uid="uid://wb5q4g0gvq5i" path="res://assets/prototype/red/texture_09.png" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://6dl6fko8lq4b" path="res://assets/prototype/dark/texture_04.png" id="2_1bvp3"]
@@ -53,6 +53,7 @@ as_normal_map = true
 render_priority = 0
 shader = ExtResource("4_lquwl")
 shader_parameter/primary_color = Color(0, 0.43137255, 0.5921569, 1)
+shader_parameter/secondary_color = Color(7.70092e-07, 0.30378902, 0.42239723, 1)
 shader_parameter/roughness = 0.2
 shader_parameter/normalmap_a = SubResource("NoiseTexture2D_lquwl")
 shader_parameter/normalmap_b = SubResource("NoiseTexture2D_272bh")
@@ -61,10 +62,28 @@ shader_parameter/normalmap_b_strength = 0.25
 shader_parameter/movement_direction = Vector2(0.2, 0.1)
 shader_parameter/move_strength = 0.02
 shader_parameter/uv_scale = 0.4
+shader_parameter/depth_distance = 4.0
+shader_parameter/beers_law = 12.0
+shader_parameter/water_transparancy = 0.05
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_kek77"]
 material = SubResource("ShaderMaterial_272bh")
 size = Vector2(5, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
+albedo_color = Color(0.20871013, 0.20871016, 0.20871013, 1)
+metallic = 0.83
+roughness = 0.17
+
+[sub_resource type="SphereMesh" id="SphereMesh_lquwl"]
+radius = 1.0
+height = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vw27"]
+albedo_texture = ExtResource("1_1bvp3")
+
+[sub_resource type="BoxMesh" id="BoxMesh_kek77"]
+size = Vector3(1, 2, 1)
 
 [node name="Main" type="Node3D"]
 
@@ -92,3 +111,13 @@ environment = SubResource("Environment_efxa6")
 [node name="WaterPlane" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7480868, 0)
 mesh = SubResource("PlaneMesh_kek77")
+
+[node name="ShinySphere" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87670255, 1.239943, -0.9251249)
+material_override = SubResource("StandardMaterial3D_1bvp3")
+mesh = SubResource("SphereMesh_lquwl")
+
+[node name="ShinySphere2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1088275, 1.502929, -1.3941069)
+material_override = SubResource("StandardMaterial3D_5vw27")
+mesh = SubResource("BoxMesh_kek77")
