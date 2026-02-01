@@ -1,2 +1,0 @@
-class_name Controller
-extends Camera3D
