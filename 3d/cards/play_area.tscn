@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2fk7l66t14hv"]
+[gd_scene load_steps=10 format=3 uid="uid://d2fk7l66t14hv"]
 
 [ext_resource type="Script" uid="uid://jm3a4glx63ll" path="res://game_manager.gd" id="1_vkdyd"]
 [ext_resource type="PackedScene" uid="uid://ct5ocfjltmoe3" path="res://assets/KayKit/Assets/gltf/floor_tile_extralarge_grates.gltf" id="2_63gna"]
 [ext_resource type="PackedScene" uid="uid://cuc6vmb7degcn" path="res://assets/KayKit/Assets/gltf/table_long_tablecloth.gltf" id="3_vkdyd"]
-[ext_resource type="PackedScene" uid="uid://cj1gpsr14epmx" path="res://hand.tscn" id="4_frxyd"]
+[ext_resource type="Script" uid="uid://cvdr6kmlqh3y" path="res://zones.gd" id="4_1opyf"]
+[ext_resource type="PackedScene" uid="uid://cj1gpsr14epmx" path="res://hand/hand.tscn" id="4_frxyd"]
+[ext_resource type="PackedScene" uid="uid://b0ge3u2puigsh" path="res://lane/lane.tscn" id="6_ffmjr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_63gna"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -45,6 +47,11 @@ update_scale = false
 
 [node name="Zones" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+script = ExtResource("4_1opyf")
 
 [node name="Hand" parent="Zones" instance=ExtResource("4_frxyd")]
 transform = Transform3D(1, 0, 0, 0, 0.17364824, 0.9848078, 0, -0.9848078, 0.17364824, 0, 3, 3)
+
+[node name="Lanes" type="Node3D" parent="Zones"]
+
+[node name="Lane" parent="Zones/Lanes" instance=ExtResource("6_ffmjr")]

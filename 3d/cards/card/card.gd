@@ -2,12 +2,12 @@
 class_name Card
 extends Node3D
 
+signal play_card(card: Card)
+signal play_canceled(card: Card) #TODO: Implemente me!
+
 const HOVER_OFFSET := 0.025
 const NORMAL_COLOR := Color("ffffff")
 const HOVER_COLOR := Color("cd883b")
-
-var hover_tween: Tween
-var origin_pos: Vector3
 
 @export var target_position: Vector3
 @export var target_rotation: Vector3
@@ -30,26 +30,16 @@ func _process(delta: float) -> void:
 	global_rotation.z = lerp_angle(global_rotation.z, target_rotation.z,
 		1.0 - exp(-transform_speed * delta)
 		)
-
-func _ready() -> void:
-	origin_pos = global_position
-
+		
 func _on_area_3d_mouse_entered() -> void:
 	set_color(HOVER_COLOR)
 	
 func _on_area_3d_mouse_exited() -> void:
 	set_color(NORMAL_COLOR)
-	
-func _hover(is_hovered: bool) -> void:
-	if hover_tween and hover_tween.is_running():
-		hover_tween.kill()
 
-	var p := origin_pos
-	if is_hovered:
-		p.y += HOVER_OFFSET
-
-	hover_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
-	hover_tween.tween_property(self, "global_position", p, 0.2)
+func _on_area_3d_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	if event.is_action("accept"):
+		play_card.emit(self)
 
 func set_color(c: Color) -> void:
 	var mat := card_mesh.get_active_material(0) as StandardMaterial3D

@@ -10,7 +10,7 @@ size = Vector3(6.3, 8.8, 0.1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_4utbb"]
 size = Vector3(6.3, 8.8, 0.1)
 
-[node name="Card" type="Node3D"]
+[node name="Card" type="Node3D" groups=["cards"]]
 script = ExtResource("1_fjcud")
 
 [node name="CardMesh" type="MeshInstance3D" parent="."]
@@ -24,5 +24,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_fjcud")
 transform = Transform3D(1, 0, 0, 0, 1, -2.1175824e-22, 0, -6.352747e-22, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_4utbb")
 
+[connection signal="input_event" from="CardMesh/Area3D" to="." method="_on_area_3d_input_event"]
 [connection signal="mouse_entered" from="CardMesh/Area3D" to="." method="_on_area_3d_mouse_entered"]
 [connection signal="mouse_exited" from="CardMesh/Area3D" to="." method="_on_area_3d_mouse_exited"]
