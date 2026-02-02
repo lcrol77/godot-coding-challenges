@@ -13,7 +13,7 @@ config_version=5
 config/name="cards"
 run/main_scene="uid://d2fk7l66t14hv"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://c71bcf45xaaxv"
 
 [display]
 
