@@ -2,45 +2,46 @@
 class_name Hand
 extends Node3D
 
-const CARD := preload("res://card/card.tscn")
-
 @export var height_curve: Curve
 @export var width_curve: Curve
 @export var rotation_curve: Curve
-@export var hand_width = .75
 
+@onready var rest_position = position
+var tuck_position := Vector3(0, -0.5, 0.75)
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("spawn_card"):
-		var new_card: Card = CARD.instantiate()
-		add_child(new_card)
+func _ready() -> void:
+	sort_hand()
 
 func sort_hand() -> void:
-	for card: Card in get_children():
-		var hand_ratio: float = 0.5
+	for card in get_children():
+		var hand_ratio = 0.5
 		if get_child_count() > 1:
 			hand_ratio = float(card.get_index()) / float(get_child_count() - 1)
 		var offset = Vector3.ZERO
 		offset.x += width_curve.sample(hand_ratio) * get_hand_width()
 		offset.y += height_curve.sample(hand_ratio)
 		offset.z += card.get_index() * 0.1
-		card.position = position + basis * offset
-		card.rotation = global_rotation.rotated(
+		card.target_position = global_position + global_basis * offset
+		card.target_rotation = global_rotation.rotated(
 			Vector3.FORWARD, 
 			deg_to_rad(rotation_curve.sample(hand_ratio))
 			)
-
+		
 func get_hand_width() -> float:
 	match get_child_count():
 		2:
-			return 0.15
-		3:
-			return 0.25
-		4:
-			return 0.5
-		_:
 			return 0.75
-
-
-func _on_child_entered_tree(_node: Node) -> void:
+		3:
+			return 1.25
+		4:
+			return 1.75
+		_:
+			return 2.0
+			
+func tuck_cards() -> void:
+	position = rest_position + tuck_position
+	sort_hand()
+	
+func untuck_cards() -> void:
+	position = rest_position
 	sort_hand()

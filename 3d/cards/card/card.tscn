@@ -3,18 +3,18 @@
 [ext_resource type="Script" uid="uid://csfi6dujxvd3b" path="res://card/card.gd" id="1_fjcud"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_nxf5b"]
-size = Vector3(2.5, 3.5, 0.01)
+size = Vector3(6.3, 8.8, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fjcud"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4utbb"]
-size = Vector3(2.5, 3.5, 0.01)
+size = Vector3(6.3, 8.8, 0.1)
 
 [node name="Card" type="Node3D"]
 script = ExtResource("1_fjcud")
 
 [node name="CardMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 0, 0, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 mesh = SubResource("BoxMesh_nxf5b")
 surface_material_override/0 = SubResource("StandardMaterial3D_fjcud")
 

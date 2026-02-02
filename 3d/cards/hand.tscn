@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://cj1gpsr14epmx"]
+
+[ext_resource type="Script" uid="uid://onb5ylg6xqxe" path="res://hand.gd" id="1_bfasp"]
+[ext_resource type="PackedScene" uid="uid://blwgspwpixv4g" path="res://card/card.tscn" id="2_e75s6"]
+
+[sub_resource type="Curve" id="Curve_a6h3t"]
+_data = [Vector2(0, 0), 0.0, 2.0, 0, 0, Vector2(0.5, 0.5), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_dqaan"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -1), 0.0, 2.0, 0, 1, Vector2(1, 1), 2.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_lp8k7"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Hand" type="Node3D"]
+script = ExtResource("1_bfasp")
+height_curve = SubResource("Curve_a6h3t")
+width_curve = SubResource("Curve_dqaan")
+rotation_curve = SubResource("Curve_lp8k7")
+
+[node name="Card" parent="." instance=ExtResource("2_e75s6")]
+transform = Transform3D(0.99998254, 0, 0, 0, 0.9988404, 0, 0, 0, 0.9995285, -2, -1, 0)
+target_position = Vector3(-2, -1, 0)
+
+[node name="Card2" parent="." instance=ExtResource("2_e75s6")]
+transform = Transform3D(0.99982744, 0, 0, 0, 0.9988461, 0, 0, 0, 0.99835247, -1, -0.5, 0.1)
+target_position = Vector3(-1, -0.5, 0.1)
+
+[node name="Card3" parent="." instance=ExtResource("2_e75s6")]
+transform = Transform3D(0.9999865, 0, 0, 0, 0.9988172, 0, 0, 0, 0.99886805, 0, 0, 0.2)
+target_position = Vector3(0, 0, 0.2)
+
+[node name="Card4" parent="." instance=ExtResource("2_e75s6")]
+transform = Transform3D(0.9999867, 0, 0, 0, 0.99892336, 0, 0, 0, 0.9989222, 1, -0.5, 0.3)
+target_position = Vector3(1, -0.5, 0.3)
+
+[node name="Card5" parent="." instance=ExtResource("2_e75s6")]
+transform = Transform3D(0.9999867, 0, 0, 0, 0.99892336, 0, 0, 0, 0.9989222, 2, -1, 0.4)
+target_position = Vector3(2, -1, 0.4)
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
+[connection signal="child_order_changed" from="." to="." method="_on_child_order_changed"]

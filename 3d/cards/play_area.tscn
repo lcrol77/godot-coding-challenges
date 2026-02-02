@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://d2fk7l66t14hv"]
+
+[ext_resource type="Script" uid="uid://jm3a4glx63ll" path="res://game_manager.gd" id="1_vkdyd"]
+[ext_resource type="PackedScene" uid="uid://ct5ocfjltmoe3" path="res://assets/KayKit/Assets/gltf/floor_tile_extralarge_grates.gltf" id="2_63gna"]
+[ext_resource type="PackedScene" uid="uid://cuc6vmb7degcn" path="res://assets/KayKit/Assets/gltf/table_long_tablecloth.gltf" id="3_vkdyd"]
+[ext_resource type="PackedScene" uid="uid://cj1gpsr14epmx" path="res://hand.tscn" id="4_frxyd"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_63gna"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_vkdyd"]
+sky_material = SubResource("ProceduralSkyMaterial_63gna")
+
+[sub_resource type="Environment" id="Environment_frxyd"]
+background_mode = 2
+sky = SubResource("Sky_vkdyd")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="PlayArea" type="Node3D"]
+script = ExtResource("1_vkdyd")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_frxyd")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.92284966, -0.37224784, 0.09889387, 0.03760767, 0.16844583, 0.98499334, -0.3833198, 0.91271985, -0.14145082, 4.8885527, 8.221486, 2.8617449)
+shadow_enabled = true
+
+[node name="floor_tile_extralarge_grates2" parent="." instance=ExtResource("2_63gna")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="table_long_tablecloth2" parent="." instance=ExtResource("3_vkdyd")]
+transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.17364824, 0.9848078, 0, -0.9848078, 0.17364824, 0, 12, 2)
+fov = 45.0
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Camera3D"]
+remote_path = NodePath("../../Zones/Hand")
+update_position = false
+update_scale = false
+
+[node name="Zones" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="Hand" parent="Zones" instance=ExtResource("4_frxyd")]
+transform = Transform3D(1, 0, 0, 0, 0.17364824, 0.9848078, 0, -0.9848078, 0.17364824, 0, 3, 3)
