@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://blwgspwpixv4g"]
+[gd_scene load_steps=6 format=3 uid="uid://blwgspwpixv4g"]
 
 [ext_resource type="Script" uid="uid://csfi6dujxvd3b" path="res://card/card.gd" id="1_fjcud"]
+[ext_resource type="Texture2D" uid="uid://csmeh0hky3fmx" path="res://assets/KayKit/Assets/gltf/dungeon_texture.png" id="2_trrkg"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_nxf5b"]
 size = Vector3(6.3, 8.8, 0.1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fjcud"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trrkg"]
+albedo_texture = ExtResource("2_trrkg")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4utbb"]
 size = Vector3(6.3, 8.8, 0.1)
@@ -16,7 +18,7 @@ script = ExtResource("1_fjcud")
 [node name="CardMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 mesh = SubResource("BoxMesh_nxf5b")
-surface_material_override/0 = SubResource("StandardMaterial3D_fjcud")
+surface_material_override/0 = SubResource("StandardMaterial3D_trrkg")
 
 [node name="Area3D" type="Area3D" parent="CardMesh"]
 

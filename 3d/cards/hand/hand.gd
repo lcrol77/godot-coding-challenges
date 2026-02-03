@@ -21,8 +21,8 @@ func sort_hand() -> void:
 		offset.x += width_curve.sample(hand_ratio) * get_hand_width()
 		offset.y += height_curve.sample(hand_ratio)
 		offset.z += card.get_index() * 0.1
-		card.target_position = global_position + global_basis * offset
-		card.target_rotation = global_rotation.rotated(
+		card.global_position = global_position + global_basis * offset
+		card.global_rotation = global_rotation.rotated(
 			Vector3.FORWARD, 
 			deg_to_rad(rotation_curve.sample(hand_ratio))
 			)
