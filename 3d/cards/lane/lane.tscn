@@ -31,3 +31,5 @@ mesh = SubResource("BoxMesh_qt8c7")
 [connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]
 [connection signal="mouse_entered" from="Area3D" to="." method="_on_area_3d_mouse_entered"]
 [connection signal="mouse_exited" from="Area3D" to="." method="_on_area_3d_mouse_exited"]
+[connection signal="child_entered_tree" from="CardSlot" to="." method="_on_card_slot_child_entered_tree"]
+[connection signal="child_exiting_tree" from="CardSlot" to="." method="_on_card_slot_child_exiting_tree"]

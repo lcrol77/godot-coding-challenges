@@ -56,6 +56,3 @@ transform = Transform3D(1, 0, 0, 0, 0.17364824, 0.9848078, 0, -0.9848078, 0.1736
 
 [node name="TestLane" parent="Zones/Lanes" instance=ExtResource("6_ffmjr")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.1, 0)
-
-[node name="Camera3D2" type="Camera3D" parent="Zones/Lanes/TestLane"]
-transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, 2.5167117, 2.6396236e-09, -0.06038761)

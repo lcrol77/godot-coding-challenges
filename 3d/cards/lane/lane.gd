@@ -5,6 +5,7 @@ signal selected(lane: Lane)
 
 @onready var highlight: MeshInstance3D = $Highlight
 @onready var card_slot: Node3D = $CardSlot
+@onready var collision_shape_3d: CollisionShape3D = $Area3D/CollisionShape3D
 
 func toggle_highlight(is_vis: bool) -> void:
 	highlight.visible = is_vis
@@ -12,7 +13,7 @@ func toggle_highlight(is_vis: bool) -> void:
 func is_empty() -> bool:
 	return card_slot.get_child_count() == 0
 
-func add_card(card: Card) -> void:
+func add_card_to_lane(card: Card) -> void:
 	var card_parent = card.get_parent()
 	card.reparent(card_slot, true)
 	card.owner = self
@@ -25,6 +26,7 @@ func _on_area_3d_input_event(_camera: Node, event: InputEvent, _event_position: 
 	if event.is_action_pressed("accept"):
 		if is_empty():
 			selected.emit(self)
+			get_viewport().set_input_as_handled()
 
 func _on_area_3d_mouse_entered() -> void:
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
@@ -32,3 +34,11 @@ func _on_area_3d_mouse_entered() -> void:
 
 func _on_area_3d_mouse_exited() -> void:
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+
+
+func _on_card_slot_child_entered_tree(_node: Node) -> void:
+	collision_shape_3d.disabled = true
+
+
+func _on_card_slot_child_exiting_tree(_node: Node) -> void:
+	collision_shape_3d.disabled = false

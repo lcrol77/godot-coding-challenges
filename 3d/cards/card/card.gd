@@ -2,7 +2,7 @@
 class_name Card
 extends Node3D
 
-signal play_card(card: Card)
+signal card_clicked(card: Card)
 
 const HOVER_OFFSET := 0.025
 const NORMAL_COLOR := Color("ffffff")
@@ -20,7 +20,7 @@ func _on_area_3d_mouse_exited() -> void:
 
 func _on_area_3d_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event.is_action("accept"):
-		play_card.emit(self)
+		card_clicked.emit(self)
 
 func set_color(c: Color) -> void:
 	var mat := card_mesh.get_active_material(0) as StandardMaterial3D

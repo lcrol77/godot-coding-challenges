@@ -45,3 +45,10 @@ func tuck_cards() -> void:
 func untuck_cards() -> void:
 	position = rest_position
 	sort_hand()
+
+func add_card_to_hand(card: Card) -> void:
+	card.reparent(self, true)
+	card.owner = self
+	card.global_rotation = global_rotation
+	card.global_position = global_position
+	sort_hand()
