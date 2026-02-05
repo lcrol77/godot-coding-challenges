@@ -28,6 +28,10 @@ window/size/viewport_height=1080
 
 project/assembly_name="cards"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg")
+
 [global_group]
 
 cards="holds all the cards"

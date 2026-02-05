@@ -3,9 +3,9 @@ extends Node3D
 
 signal selected(lane: Lane)
 
-@onready var highlight: MeshInstance3D = $Highlight
-@onready var card_slot: Node3D = $CardSlot
 @onready var collision_shape_3d: CollisionShape3D = $Area3D/CollisionShape3D
+@onready var card_slot: Node3D = $CardSlot
+@onready var highlight: MeshInstance3D = $Highlight
 
 func toggle_highlight(is_vis: bool) -> void:
 	highlight.visible = is_vis

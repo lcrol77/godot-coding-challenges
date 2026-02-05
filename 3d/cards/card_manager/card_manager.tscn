@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://cf7rbdb48py5d"]
+
+[ext_resource type="Script" uid="uid://cvdr6kmlqh3y" path="res://card_manager/card_manager.gd" id="1_gkpax"]
+[ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="2_1xpsy"]
+[ext_resource type="PackedScene" uid="uid://cj1gpsr14epmx" path="res://hand/hand.tscn" id="2_ipq4y"]
+[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="4_msl7f"]
+[ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="5_bdna0"]
+[ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="6_3pg62"]
+[ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="7_g1a6t"]
+[ext_resource type="Script" uid="uid://dve6un35ih3lg" path="res://card_manager/state_machine/state_machine.gd" id="7_gkpax"]
+[ext_resource type="Script" uid="uid://dxlqfr82ys0ah" path="res://card_manager/state_machine/base_state.gd" id="8_wo0tt"]
+[ext_resource type="Script" uid="uid://jeme56vb08y1" path="res://card_manager/state_machine/neutral_state.gd" id="9_s1djk"]
+[ext_resource type="Script" uid="uid://b1pf2hopu5g20" path="res://card_manager/state_machine/selected_state.gd" id="11_ieic4"]
+
+[node name="CardManager" type="Node3D" unique_id=1729373528 node_paths=PackedStringArray("state_chart")]
+script = ExtResource("1_gkpax")
+state_chart = NodePath("StateChart")
+
+[node name="StateChartDebugger" parent="." unique_id=698947138 instance=ExtResource("2_1xpsy")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 457.0
+offset_bottom = 673.0
+grow_horizontal = 1
+grow_vertical = 1
+initial_node_to_watch = NodePath("../StateChart")
+
+[node name="Hand" parent="." unique_id=810779411 instance=ExtResource("2_ipq4y")]
+transform = Transform3D(1, 0, 0, 0, 0.17364824, 0.9848078, 0, -0.9848078, 0.17364824, 0, 3, 3)
+
+[node name="StateChart" type="Node" parent="." unique_id=1913319205]
+script = ExtResource("4_msl7f")
+metadata/_custom_type_script = "uid://couw105c3bde4"
+
+[node name="Turn" type="Node" parent="StateChart" unique_id=212792939]
+script = ExtResource("5_bdna0")
+initial_state = NodePath("NeutralState")
+metadata/_custom_type_script = "uid://jk2jm1g6q853"
+
+[node name="NeutralState" type="Node" parent="StateChart/Turn" unique_id=1670887944]
+script = ExtResource("6_3pg62")
+
+[node name="OnSelect" type="Node" parent="StateChart/Turn/NeutralState" unique_id=126470337]
+script = ExtResource("7_g1a6t")
+to = NodePath("../../SelectedState")
+event = &"OnSelect"
+delay_in_seconds = "0.0"
+
+[node name="SelectedState" type="Node" parent="StateChart/Turn" unique_id=1701846749]
+script = ExtResource("6_3pg62")
+
+[node name="OnPlay" type="Node" parent="StateChart/Turn/SelectedState" unique_id=884149932]
+script = ExtResource("7_g1a6t")
+to = NodePath("../../NeutralState")
+event = &"OnPlay"
+delay_in_seconds = "0.0"
+
+[node name="StateMachine" type="Node" parent="." unique_id=647192910 node_paths=PackedStringArray("card_manager")]
+unique_name_in_owner = true
+script = ExtResource("7_gkpax")
+card_manager = NodePath("..")
+
+[node name="Turn" type="Node" parent="StateMachine" unique_id=1349177304]
+script = ExtResource("8_wo0tt")
+
+[node name="NeutralState" type="Node" parent="StateMachine/Turn" unique_id=1019911977]
+script = ExtResource("9_s1djk")
+
+[node name="SelectedState" type="Node" parent="StateMachine/Turn" unique_id=1335919859]
+script = ExtResource("11_ieic4")
+
+[connection signal="state_processing" from="StateChart/Turn/NeutralState" to="StateMachine/Turn/NeutralState" method="_on_neutral_state_state_processing"]

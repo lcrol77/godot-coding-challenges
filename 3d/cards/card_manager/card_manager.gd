@@ -1,11 +1,12 @@
-class_name Zones
+class_name CardManager
 extends Node3D
 
 signal lane_selected(lane: Lane)
 
+@export var state_chart: StateChart
+@export var lanes: Array[Lane]
+
 @onready var hand: Hand = $Hand
-@onready var test_lane: Lane = $Lanes/TestLane
-@onready var lanes: Array = [test_lane]
 
 var selected_card: Card
 
@@ -22,7 +23,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _card_clicked(card: Card) -> void:
 	var card_parent := card.get_parent()
 	if card_parent is Hand:
-		_play_card(card)
+		selected_card = card
 	else:
 		_pick_up_card(card)
 

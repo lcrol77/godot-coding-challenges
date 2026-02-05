@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0ge3u2puigsh"]
+[gd_scene format=3 uid="uid://b0ge3u2puigsh"]
 
 [ext_resource type="Script" uid="uid://qrekf1okstpv" path="res://lane/lane.gd" id="1_mfiqx"]
 
@@ -13,18 +13,18 @@ albedo_color = Color(0.5764706, 0.77254903, 0.44705883, 1)
 material = SubResource("StandardMaterial3D_k64ag")
 size = Vector3(1.8, 2.2, 0.1)
 
-[node name="Lane" type="Node3D"]
+[node name="Lane" type="Node3D" unique_id=476950123]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 script = ExtResource("1_mfiqx")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." unique_id=924648019]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=275944508]
 shape = SubResource("BoxShape3D_6ma31")
 
-[node name="CardSlot" type="Node3D" parent="."]
+[node name="CardSlot" type="Node3D" parent="." unique_id=1441459065]
 
-[node name="Highlight" type="MeshInstance3D" parent="."]
+[node name="Highlight" type="MeshInstance3D" parent="." unique_id=220392]
 visible = false
 mesh = SubResource("BoxMesh_qt8c7")
 
