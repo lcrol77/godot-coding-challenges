@@ -7,13 +7,13 @@ signal lane_selected(lane: Lane)
 @onready var test_lane: Lane = $Lanes/TestLane
 @onready var lanes: Array = [test_lane]
 
+var selected_card: Card
+
 func _ready() -> void:
 	for card: Card in get_tree().get_nodes_in_group("cards"):
 		card.card_clicked.connect(_card_clicked)
 	for lane: Lane in lanes:
-		lane.selected.connect(func(node):
-			lane_selected.emit(node)
-		)
+		lane.selected.connect(_play_card)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("cancel"):

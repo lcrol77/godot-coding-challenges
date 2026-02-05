@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2fk7l66t14hv"]
+[gd_scene format=3 uid="uid://d2fk7l66t14hv"]
 
 [ext_resource type="Script" uid="uid://jm3a4glx63ll" path="res://game_manager.gd" id="1_vkdyd"]
 [ext_resource type="PackedScene" uid="uid://ct5ocfjltmoe3" path="res://assets/KayKit/Assets/gltf/floor_tile_extralarge_grates.gltf" id="2_63gna"]
@@ -20,39 +20,39 @@ sky = SubResource("Sky_vkdyd")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="PlayArea" type="Node3D"]
+[node name="PlayArea" type="Node3D" unique_id=637977501]
 script = ExtResource("1_vkdyd")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=148596407]
 environment = SubResource("Environment_frxyd")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=456765086]
 transform = Transform3D(-0.92284966, -0.37224784, 0.09889387, 0.03760767, 0.16844583, 0.98499334, -0.3833198, 0.91271985, -0.14145082, 4.8885527, 8.221486, 2.8617449)
 shadow_enabled = true
 
-[node name="floor_tile_extralarge_grates2" parent="." instance=ExtResource("2_63gna")]
+[node name="floor_tile_extralarge_grates2" parent="." unique_id=480241062 instance=ExtResource("2_63gna")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
-[node name="table_long_tablecloth2" parent="." instance=ExtResource("3_vkdyd")]
+[node name="table_long_tablecloth2" parent="." unique_id=400262428 instance=ExtResource("3_vkdyd")]
 transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, 0, 0, 0)
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=437555340]
 transform = Transform3D(1, 0, 0, 0, 0.17364824, 0.9848078, 0, -0.9848078, 0.17364824, 0, 12, 2)
 fov = 45.0
 
-[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Camera3D"]
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Camera3D" unique_id=466396604]
 remote_path = NodePath("../../Zones/Hand")
 update_position = false
 update_scale = false
 
-[node name="Zones" type="Node3D" parent="."]
+[node name="Zones" type="Node3D" parent="." unique_id=1118672814]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 script = ExtResource("4_1opyf")
 
-[node name="Hand" parent="Zones" instance=ExtResource("4_frxyd")]
+[node name="Hand" parent="Zones" unique_id=1095256670 instance=ExtResource("4_frxyd")]
 transform = Transform3D(1, 0, 0, 0, 0.17364824, 0.9848078, 0, -0.9848078, 0.17364824, 0, 3, 3)
 
-[node name="Lanes" type="Node3D" parent="Zones"]
+[node name="Lanes" type="Node3D" parent="Zones" unique_id=913660964]
 
-[node name="TestLane" parent="Zones/Lanes" instance=ExtResource("6_ffmjr")]
+[node name="TestLane" parent="Zones/Lanes" unique_id=27101688 instance=ExtResource("6_ffmjr")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.1, 0)
