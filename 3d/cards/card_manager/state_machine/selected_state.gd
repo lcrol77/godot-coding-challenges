@@ -3,6 +3,7 @@ class_name SelectedState extends BaseState
 func _on_selected_state_state_entered() -> void:
 	card_manager.hand.tuck_cards()
 	for lane: Lane in card_manager.lanes:
+		lane.selected.connect(play_card)
 		if lane.is_empty():
 			lane.toggle_highlight(true)
 
@@ -16,7 +17,8 @@ func play_card(lane: Lane)-> void:
 
 func _on_selected_state_state_exited() -> void:
 	for lane: Lane in card_manager.lanes:
-			lane.toggle_highlight(false)
+		lane.selected.disconnect(play_card)
+		lane.toggle_highlight(false)
 	card_manager.selected_card = null
 	card_manager.hand.untuck_cards()
 	

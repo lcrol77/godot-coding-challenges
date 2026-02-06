@@ -24,6 +24,7 @@ offset_right = 457.0
 offset_bottom = 673.0
 grow_horizontal = 1
 grow_vertical = 1
+enabled = false
 initial_node_to_watch = NodePath("../StateChart")
 
 [node name="Hand" parent="." unique_id=810779411 instance=ExtResource("2_ipq4y")]
@@ -76,6 +77,8 @@ script = ExtResource("9_s1djk")
 [node name="SelectedState" type="Node" parent="StateMachine/Turn" unique_id=1335919859]
 script = ExtResource("11_ieic4")
 
+[connection signal="state_entered" from="StateChart/Turn/NeutralState" to="StateMachine/Turn/NeutralState" method="_on_neutral_state_state_entered"]
+[connection signal="state_exited" from="StateChart/Turn/NeutralState" to="StateMachine/Turn/NeutralState" method="_on_neutral_state_state_exited"]
 [connection signal="state_processing" from="StateChart/Turn/NeutralState" to="StateMachine/Turn/NeutralState" method="_on_neutral_state_state_processing"]
 [connection signal="state_entered" from="StateChart/Turn/SelectedState" to="StateMachine/Turn/SelectedState" method="_on_selected_state_state_entered"]
 [connection signal="state_exited" from="StateChart/Turn/SelectedState" to="StateMachine/Turn/SelectedState" method="_on_selected_state_state_exited"]
