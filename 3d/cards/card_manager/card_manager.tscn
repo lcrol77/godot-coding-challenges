@@ -7,10 +7,6 @@
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="5_bdna0"]
 [ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="6_3pg62"]
 [ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="7_g1a6t"]
-[ext_resource type="Script" uid="uid://dve6un35ih3lg" path="res://card_manager/state_machine/state_machine.gd" id="7_gkpax"]
-[ext_resource type="Script" uid="uid://dxlqfr82ys0ah" path="res://card_manager/state_machine/base_state.gd" id="8_wo0tt"]
-[ext_resource type="Script" uid="uid://jeme56vb08y1" path="res://card_manager/state_machine/neutral_state.gd" id="9_s1djk"]
-[ext_resource type="Script" uid="uid://b1pf2hopu5g20" path="res://card_manager/state_machine/selected_state.gd" id="11_ieic4"]
 
 [node name="CardManager" type="Node3D" unique_id=1729373528 node_paths=PackedStringArray("state_chart")]
 script = ExtResource("1_gkpax")
@@ -63,23 +59,9 @@ to = NodePath("../../NeutralState")
 event = &"OnCancel"
 delay_in_seconds = "0.0"
 
-[node name="StateMachine" type="Node" parent="." unique_id=647192910 node_paths=PackedStringArray("card_manager")]
-unique_name_in_owner = true
-script = ExtResource("7_gkpax")
-card_manager = NodePath("..")
-
-[node name="Turn" type="Node" parent="StateMachine" unique_id=1349177304]
-script = ExtResource("8_wo0tt")
-
-[node name="NeutralState" type="Node" parent="StateMachine/Turn" unique_id=1019911977]
-script = ExtResource("9_s1djk")
-
-[node name="SelectedState" type="Node" parent="StateMachine/Turn" unique_id=1335919859]
-script = ExtResource("11_ieic4")
-
-[connection signal="state_entered" from="StateChart/Turn/NeutralState" to="StateMachine/Turn/NeutralState" method="_on_neutral_state_state_entered"]
-[connection signal="state_exited" from="StateChart/Turn/NeutralState" to="StateMachine/Turn/NeutralState" method="_on_neutral_state_state_exited"]
-[connection signal="state_processing" from="StateChart/Turn/NeutralState" to="StateMachine/Turn/NeutralState" method="_on_neutral_state_state_processing"]
-[connection signal="state_entered" from="StateChart/Turn/SelectedState" to="StateMachine/Turn/SelectedState" method="_on_selected_state_state_entered"]
-[connection signal="state_exited" from="StateChart/Turn/SelectedState" to="StateMachine/Turn/SelectedState" method="_on_selected_state_state_exited"]
-[connection signal="state_unhandled_input" from="StateChart/Turn/SelectedState" to="StateMachine/Turn/SelectedState" method="_on_selected_state_state_unhandled_input"]
+[connection signal="state_entered" from="StateChart/Turn/NeutralState" to="." method="_on_neutral_state_state_entered"]
+[connection signal="state_exited" from="StateChart/Turn/NeutralState" to="." method="_on_neutral_state_state_exited"]
+[connection signal="state_processing" from="StateChart/Turn/NeutralState" to="." method="_on_neutral_state_state_processing"]
+[connection signal="state_entered" from="StateChart/Turn/SelectedState" to="." method="_on_selected_state_state_entered"]
+[connection signal="state_exited" from="StateChart/Turn/SelectedState" to="." method="_on_selected_state_state_exited"]
+[connection signal="state_unhandled_input" from="StateChart/Turn/SelectedState" to="." method="_on_selected_state_state_unhandled_input"]

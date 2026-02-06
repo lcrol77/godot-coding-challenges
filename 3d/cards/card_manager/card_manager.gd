@@ -7,3 +7,47 @@ extends Node3D
 @onready var hand: Hand = $Hand
 
 var selected_card: Card
+
+#region neutral_state
+func _on_neutral_state_state_processing(_delta: float) -> void:
+	if selected_card:
+		state_chart.send_event("OnSelect")
+
+func card_clicked(card: Card) -> void:
+	var card_parent := card.get_parent()
+	if card_parent is Hand:
+		selected_card = card
+	else:
+		hand.add_card_to_hand(card)
+
+func _on_neutral_state_state_entered() -> void:
+	for card: Card in get_tree().get_nodes_in_group("cards"):
+		card.card_clicked.connect(card_clicked)
+
+func _on_neutral_state_state_exited() -> void:
+	for card: Card in get_tree().get_nodes_in_group("cards"):
+		card.card_clicked.disconnect(card_clicked)
+#endregion
+#region selected_state
+func _on_selected_state_state_entered() -> void:
+	hand.tuck_cards()
+	for lane: Lane in lanes:
+		lane.selected.connect(play_card)
+		if lane.is_empty():
+			lane.toggle_highlight(true)
+
+func _on_selected_state_state_unhandled_input(event: InputEvent) -> void:
+	if event.is_action("cancel"):
+		state_chart.send_event("OnCancel")
+
+func play_card(lane: Lane)-> void:
+	lane.add_card_to_lane(selected_card)
+	state_chart.send_event("OnPlay")
+
+func _on_selected_state_state_exited() -> void:
+	for lane: Lane in lanes:
+		lane.selected.disconnect(play_card)
+		lane.toggle_highlight(false)
+	selected_card = null
+	hand.untuck_cards()
+#endregion
