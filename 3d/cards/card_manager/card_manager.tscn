@@ -56,6 +56,12 @@ to = NodePath("../../NeutralState")
 event = &"OnPlay"
 delay_in_seconds = "0.0"
 
+[node name="OnCancel" type="Node" parent="StateChart/Turn/SelectedState" unique_id=893966099]
+script = ExtResource("7_g1a6t")
+to = NodePath("../../NeutralState")
+event = &"OnCancel"
+delay_in_seconds = "0.0"
+
 [node name="StateMachine" type="Node" parent="." unique_id=647192910 node_paths=PackedStringArray("card_manager")]
 unique_name_in_owner = true
 script = ExtResource("7_gkpax")
@@ -71,3 +77,6 @@ script = ExtResource("9_s1djk")
 script = ExtResource("11_ieic4")
 
 [connection signal="state_processing" from="StateChart/Turn/NeutralState" to="StateMachine/Turn/NeutralState" method="_on_neutral_state_state_processing"]
+[connection signal="state_entered" from="StateChart/Turn/SelectedState" to="StateMachine/Turn/SelectedState" method="_on_selected_state_state_entered"]
+[connection signal="state_exited" from="StateChart/Turn/SelectedState" to="StateMachine/Turn/SelectedState" method="_on_selected_state_state_exited"]
+[connection signal="state_unhandled_input" from="StateChart/Turn/SelectedState" to="StateMachine/Turn/SelectedState" method="_on_selected_state_state_unhandled_input"]

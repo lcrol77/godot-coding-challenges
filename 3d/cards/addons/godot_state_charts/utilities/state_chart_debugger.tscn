@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcwkugn6v3oy7"]
+[gd_scene format=3 uid="uid://bcwkugn6v3oy7"]
 
-[ext_resource type="Script" path="res://addons/godot_state_charts/utilities/state_chart_debugger.gd" id="1_i74os"]
+[ext_resource type="Script" uid="uid://e8nusn7nkafe" path="res://addons/godot_state_charts/utilities/state_chart_debugger.gd" id="1_i74os"]
 
-[node name="StateChartDebugger" type="MarginContainer"]
+[node name="StateChartDebugger" type="MarginContainer" unique_id=512725670]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -11,83 +11,87 @@ grow_vertical = 2
 script = ExtResource("1_i74os")
 maximum_lines = 50
 
-[node name="TabContainer" type="TabContainer" parent="."]
+[node name="TabContainer" type="TabContainer" parent="." unique_id=535194837]
 layout_mode = 2
+current_tab = 0
 
-[node name="StateChart" type="MarginContainer" parent="TabContainer"]
+[node name="StateChart" type="MarginContainer" parent="TabContainer" unique_id=505678348]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
+metadata/_tab_index = 0
 
-[node name="Tree" type="Tree" parent="TabContainer/StateChart"]
+[node name="Tree" type="Tree" parent="TabContainer/StateChart" unique_id=1249250409]
 unique_name_in_owner = true
 layout_mode = 2
 scroll_horizontal_enabled = false
 scroll_vertical_enabled = false
 
-[node name="History" type="MarginContainer" parent="TabContainer"]
+[node name="History" type="MarginContainer" parent="TabContainer" unique_id=318168632]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
+metadata/_tab_index = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/History"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/History" unique_id=941739541]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="HistoryEdit" type="TextEdit" parent="TabContainer/History/VBoxContainer"]
+[node name="HistoryEdit" type="TextEdit" parent="TabContainer/History/VBoxContainer" unique_id=1912714269]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/History/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/History/VBoxContainer" unique_id=56341805]
 layout_mode = 2
 
-[node name="ClearButton" type="Button" parent="TabContainer/History/VBoxContainer/HBoxContainer"]
+[node name="ClearButton" type="Button" parent="TabContainer/History/VBoxContainer/HBoxContainer" unique_id=1923922506]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Clear"
 
-[node name="CopyToClipboardButton" type="Button" parent="TabContainer/History/VBoxContainer/HBoxContainer"]
+[node name="CopyToClipboardButton" type="Button" parent="TabContainer/History/VBoxContainer/HBoxContainer" unique_id=2139914599]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Copy to Clipboard"
 
-[node name="Settings" type="MarginContainer" parent="TabContainer"]
+[node name="Settings" type="MarginContainer" parent="TabContainer" unique_id=1199404706]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
+metadata/_tab_index = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings" unique_id=406919520]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="IgnoreEventsCheckbox" type="CheckBox" parent="TabContainer/Settings/VBoxContainer"]
+[node name="IgnoreEventsCheckbox" type="CheckBox" parent="TabContainer/Settings/VBoxContainer" unique_id=381281833]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Do not show events in the history."
 text = "Ignore events"
 
-[node name="IgnoreStateChangesCheckbox" type="CheckBox" parent="TabContainer/Settings/VBoxContainer"]
+[node name="IgnoreStateChangesCheckbox" type="CheckBox" parent="TabContainer/Settings/VBoxContainer" unique_id=1163482020]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Do not show state changes in the history."
 text = "Ignore state changes"
 
-[node name="IgnoreTransitionsCheckbox" type="CheckBox" parent="TabContainer/Settings/VBoxContainer"]
+[node name="IgnoreTransitionsCheckbox" type="CheckBox" parent="TabContainer/Settings/VBoxContainer" unique_id=1606935056]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Do not show transitions in the history."
 text = "Ignore transitions"
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1996228696]
 wait_time = 0.5
 autostart = true
 

@@ -1,47 +1,17 @@
 class_name CardManager
 extends Node3D
 
-signal lane_selected(lane: Lane)
-
 @export var state_chart: StateChart
 @export var lanes: Array[Lane]
 
 @onready var hand: Hand = $Hand
+@onready var selected_state: SelectedState = $StateMachine/Turn/SelectedState
+@onready var neutral_state: NeutralState = $StateMachine/Turn/NeutralState
 
 var selected_card: Card
 
 func _ready() -> void:
 	for card: Card in get_tree().get_nodes_in_group("cards"):
-		card.card_clicked.connect(_card_clicked)
+		card.card_clicked.connect(neutral_state.card_clicked)
 	for lane: Lane in lanes:
-		lane.selected.connect(_play_card)
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("cancel"):
-		cancel_play_card()
-
-func _card_clicked(card: Card) -> void:
-	var card_parent := card.get_parent()
-	if card_parent is Hand:
-		selected_card = card
-	else:
-		_pick_up_card(card)
-
-func cancel_play_card() -> void:
-	lane_selected.emit(null)
-	hand.untuck_cards()
-
-func _play_card(card: Card)-> void:
-	hand.tuck_cards()
-	for lane: Lane in lanes:
-		if lane.is_empty():
-			lane.toggle_highlight(true)
-	var lane:Lane = await lane_selected
-	if lane == null:
-		return
-	lane.add_card_to_lane(card)
-	lane.toggle_highlight(false)
-	hand.untuck_cards()
-
-func _pick_up_card(card: Card)-> void:
-	hand.add_card_to_hand(card)
+		lane.selected.connect(selected_state.play_card)

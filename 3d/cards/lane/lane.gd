@@ -28,17 +28,8 @@ func _on_area_3d_input_event(_camera: Node, event: InputEvent, _event_position: 
 			selected.emit(self)
 			get_viewport().set_input_as_handled()
 
-func _on_area_3d_mouse_entered() -> void:
-	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
-
-
-func _on_area_3d_mouse_exited() -> void:
-	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
-
-
 func _on_card_slot_child_entered_tree(_node: Node) -> void:
 	collision_shape_3d.disabled = true
-
 
 func _on_card_slot_child_exiting_tree(_node: Node) -> void:
 	collision_shape_3d.disabled = false
