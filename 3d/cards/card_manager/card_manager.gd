@@ -54,3 +54,12 @@ func _on_selected_state_state_exited() -> void:
 	selected_card = null
 	hand.untuck_cards()
 #endregion
+#region DraggingState
+
+#endregion
+#region AimingState
+
+#endregion
+#region ReleasedState
+
+#endregion
