@@ -32,13 +32,13 @@ metadata/_custom_type_script = "uid://couw105c3bde4"
 
 [node name="Turn" type="Node" parent="StateChart" unique_id=212792939]
 script = ExtResource("5_bdna0")
-initial_state = NodePath("NeutralState")
+initial_state = NodePath("BaseState")
 metadata/_custom_type_script = "uid://jk2jm1g6q853"
 
-[node name="NeutralState" type="Node" parent="StateChart/Turn" unique_id=1670887944]
+[node name="BaseState" type="Node" parent="StateChart/Turn" unique_id=1670887944]
 script = ExtResource("6_3pg62")
 
-[node name="OnSelect" type="Node" parent="StateChart/Turn/NeutralState" unique_id=126470337]
+[node name="OnSelect" type="Node" parent="StateChart/Turn/BaseState" unique_id=126470337]
 script = ExtResource("7_g1a6t")
 to = NodePath("../../SelectedState")
 event = &"OnSelect"
@@ -47,21 +47,69 @@ delay_in_seconds = "0.0"
 [node name="SelectedState" type="Node" parent="StateChart/Turn" unique_id=1701846749]
 script = ExtResource("6_3pg62")
 
-[node name="OnPlay" type="Node" parent="StateChart/Turn/SelectedState" unique_id=884149932]
+[node name="OnCancel" type="Node" parent="StateChart/Turn/SelectedState" unique_id=316642945]
 script = ExtResource("7_g1a6t")
-to = NodePath("../../NeutralState")
-event = &"OnPlay"
-delay_in_seconds = "0.0"
-
-[node name="OnCancel" type="Node" parent="StateChart/Turn/SelectedState" unique_id=893966099]
-script = ExtResource("7_g1a6t")
-to = NodePath("../../NeutralState")
+to = NodePath("../../BaseState")
 event = &"OnCancel"
 delay_in_seconds = "0.0"
 
-[connection signal="state_entered" from="StateChart/Turn/NeutralState" to="." method="_on_neutral_state_state_entered"]
-[connection signal="state_exited" from="StateChart/Turn/NeutralState" to="." method="_on_neutral_state_state_exited"]
-[connection signal="state_processing" from="StateChart/Turn/NeutralState" to="." method="_on_neutral_state_state_processing"]
+[node name="OnDrag" type="Node" parent="StateChart/Turn/SelectedState" unique_id=1828973318]
+script = ExtResource("7_g1a6t")
+to = NodePath("../../DraggingState")
+event = &"OnDrag"
+delay_in_seconds = "0.0"
+
+[node name="DraggingState" type="Node" parent="StateChart/Turn" unique_id=794274625]
+script = ExtResource("6_3pg62")
+
+[node name="OnCancel" type="Node" parent="StateChart/Turn/DraggingState" unique_id=1976834371]
+script = ExtResource("7_g1a6t")
+to = NodePath("../../BaseState")
+event = &"OnCancel"
+delay_in_seconds = "0.0"
+
+[node name="OnDrop" type="Node" parent="StateChart/Turn/DraggingState" unique_id=1720433287]
+script = ExtResource("7_g1a6t")
+to = NodePath("../../ReleasedState")
+event = &"OnDrop"
+delay_in_seconds = "0.0"
+
+[node name="OnAiming" type="Node" parent="StateChart/Turn/DraggingState" unique_id=1433230440]
+script = ExtResource("7_g1a6t")
+to = NodePath("../../AimingState")
+event = &"OnAiming"
+delay_in_seconds = "0.0"
+
+[node name="AimingState" type="Node" parent="StateChart/Turn" unique_id=1543031464]
+script = ExtResource("6_3pg62")
+
+[node name="OnCancel" type="Node" parent="StateChart/Turn/AimingState" unique_id=893966099]
+script = ExtResource("7_g1a6t")
+to = NodePath("../../BaseState")
+event = &"OnCancel"
+delay_in_seconds = "0.0"
+
+[node name="OnDrop" type="Node" parent="StateChart/Turn/AimingState" unique_id=2044098250]
+script = ExtResource("7_g1a6t")
+to = NodePath("../../ReleasedState")
+event = &"OnDrop"
+delay_in_seconds = "0.0"
+
+[node name="ReleasedState" type="Node" parent="StateChart/Turn" unique_id=646810776]
+script = ExtResource("6_3pg62")
+
+[node name="OnReleased" type="Node" parent="StateChart/Turn/ReleasedState" unique_id=1265963911]
+script = ExtResource("7_g1a6t")
+to = NodePath("../../BaseState")
+event = &"OnReleased"
+delay_in_seconds = "0.0"
+
+[connection signal="state_entered" from="StateChart/Turn/BaseState" to="." method="_on_base_state_state_entered"]
+[connection signal="state_entered" from="StateChart/Turn/BaseState" to="." method="_on_neutral_state_state_entered"]
+[connection signal="state_exited" from="StateChart/Turn/BaseState" to="." method="_on_neutral_state_state_exited"]
+[connection signal="state_exited" from="StateChart/Turn/BaseState" to="." method="_on_base_state_state_exited"]
+[connection signal="state_processing" from="StateChart/Turn/BaseState" to="." method="_on_base_state_state_processing"]
+[connection signal="state_processing" from="StateChart/Turn/BaseState" to="." method="_on_neutral_state_state_processing"]
 [connection signal="state_entered" from="StateChart/Turn/SelectedState" to="." method="_on_selected_state_state_entered"]
 [connection signal="state_exited" from="StateChart/Turn/SelectedState" to="." method="_on_selected_state_state_exited"]
 [connection signal="state_unhandled_input" from="StateChart/Turn/SelectedState" to="." method="_on_selected_state_state_unhandled_input"]
