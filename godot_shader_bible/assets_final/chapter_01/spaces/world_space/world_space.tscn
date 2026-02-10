@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctj584k8l81h8"]
+[gd_scene format=3 uid="uid://ctj584k8l81h8"]
 
 [ext_resource type="Material" uid="uid://buv1jrcddq6qc" path="res://assets_final/chapter_01/spaces/world_space/materials/world_space.tres" id="1_ke0rn"]
 [ext_resource type="ArrayMesh" uid="uid://c7qim0q3irdsn" path="res://assets_final/chapter_01/spaces/world_space/meshes/tree.tres" id="1_poehi"]

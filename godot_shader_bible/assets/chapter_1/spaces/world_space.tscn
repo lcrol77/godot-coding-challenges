@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bltnc7ft6juet"]
+
+[ext_resource type="ArrayMesh" uid="uid://bgerplm7k88jb" path="res://assets/chapter_1/spaces/meshes/tree.tres" id="1_mq8nh"]
+[ext_resource type="Material" uid="uid://bnrk3dmev4ovy" path="res://assets/chapter_1/spaces/materials/world_space.tres" id="1_whnp0"]
+
+[node name="WorldSpace" type="Node3D" unique_id=945669954]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1304092533]
+material_override = ExtResource("1_whnp0")
+mesh = ExtResource("1_mq8nh")
