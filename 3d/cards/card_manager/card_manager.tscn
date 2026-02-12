@@ -20,7 +20,6 @@ offset_right = 457.0
 offset_bottom = 673.0
 grow_horizontal = 1
 grow_vertical = 1
-enabled = false
 initial_node_to_watch = NodePath("../StateChart")
 
 [node name="Hand" parent="." unique_id=810779411 instance=ExtResource("2_ipq4y")]
@@ -104,12 +103,16 @@ to = NodePath("../../BaseState")
 event = &"OnReleased"
 delay_in_seconds = "0.0"
 
-[connection signal="state_entered" from="StateChart/Turn/BaseState" to="." method="_on_base_state_state_entered"]
 [connection signal="state_entered" from="StateChart/Turn/BaseState" to="." method="_on_neutral_state_state_entered"]
+[connection signal="state_entered" from="StateChart/Turn/BaseState" to="." method="_on_base_state_state_entered"]
 [connection signal="state_exited" from="StateChart/Turn/BaseState" to="." method="_on_neutral_state_state_exited"]
 [connection signal="state_exited" from="StateChart/Turn/BaseState" to="." method="_on_base_state_state_exited"]
-[connection signal="state_processing" from="StateChart/Turn/BaseState" to="." method="_on_base_state_state_processing"]
 [connection signal="state_processing" from="StateChart/Turn/BaseState" to="." method="_on_neutral_state_state_processing"]
+[connection signal="state_processing" from="StateChart/Turn/BaseState" to="." method="_on_base_state_state_processing"]
 [connection signal="state_entered" from="StateChart/Turn/SelectedState" to="." method="_on_selected_state_state_entered"]
 [connection signal="state_exited" from="StateChart/Turn/SelectedState" to="." method="_on_selected_state_state_exited"]
 [connection signal="state_unhandled_input" from="StateChart/Turn/SelectedState" to="." method="_on_selected_state_state_unhandled_input"]
+[connection signal="state_entered" from="StateChart/Turn/DraggingState" to="." method="_on_dragging_state_state_entered"]
+[connection signal="state_exited" from="StateChart/Turn/DraggingState" to="." method="_on_dragging_state_state_exited"]
+[connection signal="state_processing" from="StateChart/Turn/DraggingState" to="." method="_on_dragging_state_state_processing"]
+[connection signal="state_unhandled_input" from="StateChart/Turn/DraggingState" to="." method="_on_dragging_state_state_unhandled_input"]

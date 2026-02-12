@@ -9,11 +9,9 @@ extends Node3D
 var selected_card: Card
 
 #region BaseState
-
 func _on_base_state_state_entered() -> void:
 	for card: Card in get_tree().get_nodes_in_group("cards"):
 		card.card_clicked.connect(card_clicked)
-
 
 func _on_base_state_state_exited() -> void:
 	for card: Card in get_tree().get_nodes_in_group("cards"):
@@ -29,37 +27,55 @@ func card_clicked(card: Card) -> void:
 		selected_card = card
 	else:
 		hand.add_card_to_hand(card)
-
 #endregion
 #region SelectedState
 func _on_selected_state_state_entered() -> void:
 	hand.tuck_cards()
 	for lane: Lane in lanes:
-		lane.selected.connect(play_card)
+		#lane.selected.connect(play_card)
 		if lane.is_empty():
 			lane.toggle_highlight(true)
+	state_chart.send_event("OnDrag")
 
 func _on_selected_state_state_unhandled_input(event: InputEvent) -> void:
 	if event.is_action("cancel"):
+		selected_card = null
+		hand.untuck_cards()
 		state_chart.send_event("OnCancel")
 
-func play_card(lane: Lane)-> void:
-	lane.add_card_to_lane(selected_card)
-	state_chart.send_event("OnPlay")
-
 func _on_selected_state_state_exited() -> void:
-	for lane: Lane in lanes:
-		lane.selected.disconnect(play_card)
-		lane.toggle_highlight(false)
-	selected_card = null
-	hand.untuck_cards()
+	#for lane: Lane in lanes:
+		#lane.selected.disconnect(play_card)
+		#lane.toggle_highlight(false)
+	#selected_card = null
+	#hand.untuck_cards()
+	pass
 #endregion
 #region DraggingState
+func _on_dragging_state_state_entered() -> void:
+	pass
+
+func _on_dragging_state_state_processing(_delta: float) -> void:
+	var mouse_position := get_viewport().get_mouse_position()
+	print(mouse_position)
+	selected_card.global_position = Vector3(mouse_position.x, selected_card.global_position.y, mouse_position.y)
+
+func _on_dragging_state_state_exited() -> void:
+	pass # Replace with function body.
+
+func _on_dragging_state_state_unhandled_input(event: InputEvent) -> void:
+	if event.is_action("cancel"):
+		selected_card = null
+		hand.untuck_cards()
+		state_chart.send_event("OnCancel")
 
 #endregion
 #region AimingState
 
 #endregion
 #region ReleasedState
-
 #endregion
+
+func play_card(lane: Lane)-> void:
+	lane.add_card_to_lane(selected_card)
+	state_chart.send_event("OnPlay")
