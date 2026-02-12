@@ -3,7 +3,6 @@ extends Node3D
 
 @export var state_chart: StateChart
 @export var lanes: Array[Lane]
-@export var use_remap_based_dragging: bool = true ## which type of dragging impolementation to use. if check it will use the remap based impl. if unchecked it will use a plane & raycast based implementation
 @export var plane_height: float = 3.0 ## The height of the intercetion plane. Defaults to 3.5. 3 is the height of the table in the main scene.
 
 @onready var hand: Hand = $Hand
@@ -59,10 +58,7 @@ func _on_dragging_state_state_entered() -> void:
 	pass
 
 func _on_dragging_state_state_processing(_delta: float) -> void:
-	if use_remap_based_dragging:
-		handle_dragging_with_remap_impl()
-	else:
-		handle_dragging_with_ray_cast_impl()
+	handle_dragging()
 
 func _on_dragging_state_state_exited() -> void:
 	pass
@@ -73,15 +69,7 @@ func _on_dragging_state_state_unhandled_input(event: InputEvent) -> void:
 		hand.untuck_cards()
 		state_chart.send_event("OnCancel")
 
-# essentially I need a mapping of my mouse_position wrt the viewport
-# and an accepted x,z coordinates that make sense for the card in world space. 
-func handle_dragging_with_remap_impl() -> void:
-	var mouse_position := get_viewport().get_mouse_position()
-	# the x movement feels pretty great here, y not so much
-	var mapped_mouse_pos := Vector2(remap(mouse_position.x,0,1920,-5,5),remap(mouse_position.y,0,1080,-1,5))
-	selected_card.global_position = Vector3(mapped_mouse_pos.x, selected_card.global_position.y, mapped_mouse_pos.y)
-
-func handle_dragging_with_ray_cast_impl() -> void:
+func handle_dragging() -> void:
 	var hit: Vector3 = _mouse_hit_on_drag_plane()
 	if hit == null:
 		return
