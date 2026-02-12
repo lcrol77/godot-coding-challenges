@@ -11,6 +11,8 @@
 [node name="CardManager" type="Node3D" unique_id=1729373528 node_paths=PackedStringArray("state_chart")]
 script = ExtResource("1_gkpax")
 state_chart = NodePath("StateChart")
+use_remap_based_dragging = false
+plane_height = 5.0
 
 [node name="StateChartDebugger" parent="." unique_id=698947138 instance=ExtResource("2_1xpsy")]
 anchors_preset = 0
