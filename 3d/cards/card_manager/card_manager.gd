@@ -10,6 +10,10 @@ extends Node3D
 
 var selected_card: Card
 
+func _ready() -> void:
+	for lane: Lane in lanes:
+		lane.selected.connect(play_card)
+
 #region BaseState
 func _on_base_state_state_entered() -> void:
 	for card: Card in get_tree().get_nodes_in_group("cards"):
@@ -34,23 +38,16 @@ func card_clicked(card: Card) -> void:
 func _on_selected_state_state_entered() -> void:
 	hand.tuck_cards()
 	for lane: Lane in lanes:
-		#lane.selected.connect(play_card)
 		if lane.is_empty():
 			lane.toggle_highlight(true)
+			lane.is_clickable = true
 	state_chart.send_event("OnDrag")
 
 func _on_selected_state_state_unhandled_input(event: InputEvent) -> void:
 	if event.is_action("cancel"):
-		selected_card = null
-		hand.untuck_cards()
-		state_chart.send_event("OnCancel")
+		handle_cancel()
 
 func _on_selected_state_state_exited() -> void:
-	#for lane: Lane in lanes:
-		#lane.selected.disconnect(play_card)
-		#lane.toggle_highlight(false)
-	#selected_card = null
-	#hand.untuck_cards()
 	pass
 #endregion
 #region DraggingState
@@ -58,23 +55,18 @@ func _on_dragging_state_state_entered() -> void:
 	pass
 
 func _on_dragging_state_state_processing(_delta: float) -> void:
-	handle_dragging()
+	var hit: Vector3 = _mouse_hit_on_drag_plane()
+	if hit == null:
+		return
+	selected_card.global_position = hit
 
 func _on_dragging_state_state_exited() -> void:
 	pass
 
 func _on_dragging_state_state_unhandled_input(event: InputEvent) -> void:
 	if event.is_action("cancel"):
-		selected_card = null
-		hand.untuck_cards()
-		state_chart.send_event("OnCancel")
+		handle_cancel()
 
-func handle_dragging() -> void:
-	var hit: Vector3 = _mouse_hit_on_drag_plane()
-	if hit == null:
-		return
-	selected_card.global_position = hit
-	
 func _mouse_hit_on_drag_plane() -> Variant:
 	var camera := get_viewport().get_camera_3d()
 	if not camera:
@@ -93,5 +85,14 @@ func _mouse_hit_on_drag_plane() -> Variant:
 #endregion
 
 func play_card(lane: Lane)-> void:
+	assert(selected_card != null, "Cannot play, selected card is null")
 	lane.add_card_to_lane(selected_card)
 	state_chart.send_event("OnPlay")
+
+func handle_cancel() -> void:
+	for lane: Lane in lanes:
+		lane.toggle_highlight(false)
+		lane.is_clickable = false
+	selected_card = null
+	hand.untuck_cards()
+	state_chart.send_event("OnCancel")
