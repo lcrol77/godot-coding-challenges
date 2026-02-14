@@ -114,6 +114,7 @@ delay_in_seconds = "0.0"
 [connection signal="state_exited" from="StateChart/Turn/SelectedState" to="." method="_on_selected_state_state_exited"]
 [connection signal="state_unhandled_input" from="StateChart/Turn/SelectedState" to="." method="_on_selected_state_state_unhandled_input"]
 [connection signal="state_entered" from="StateChart/Turn/DraggingState" to="." method="_on_dragging_state_state_entered"]
-[connection signal="state_exited" from="StateChart/Turn/DraggingState" to="." method="_on_dragging_state_state_exited"]
 [connection signal="state_processing" from="StateChart/Turn/DraggingState" to="." method="_on_dragging_state_state_processing"]
 [connection signal="state_unhandled_input" from="StateChart/Turn/DraggingState" to="." method="_on_dragging_state_state_unhandled_input"]
+[connection signal="state_entered" from="StateChart/Turn/ReleasedState" to="." method="_on_released_state_state_entered"]
+[connection signal="state_exited" from="StateChart/Turn/ReleasedState" to="." method="_on_released_state_state_exited"]

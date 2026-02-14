@@ -22,20 +22,20 @@ height_curve = SubResource("Curve_a6h3t")
 width_curve = SubResource("Curve_dqaan")
 rotation_curve = SubResource("Curve_lp8k7")
 
-[node name="Card" parent="." unique_id=880813993 instance=ExtResource("2_e75s6")]
-transform = Transform3D(0.99998254, 0, 0, 0, 0.9988404, 0, 0, 0, 0.9995285, -2, 0, 0)
+[node name="Card" parent="." unique_id=1561602803 instance=ExtResource("2_e75s6")]
+transform = Transform3D(0.9999867, 0, 0, 0, 0.99892336, 0, 0, 0, 0.9989222, 0, 0.5, 0)
 
-[node name="Card2" parent="." unique_id=1716915004 instance=ExtResource("2_e75s6")]
-transform = Transform3D(0.99982744, 0, 0, 0, 0.9988461, 0, 0, 0, 0.99835247, -1, 0.375, 0.1)
+[node name="Card2" parent="." unique_id=317811249 instance=ExtResource("2_e75s6")]
+transform = Transform3D(0.9999867, 0, 0, 0, 0.99892336, 0, 0, 0, 0.9989222, 0, 0.5, 0)
 
-[node name="Card3" parent="." unique_id=510374264 instance=ExtResource("2_e75s6")]
-transform = Transform3D(0.9999865, 0, 0, 0, 0.9988172, 0, 0, 0, 0.99886805, 0, 0.5, 0.2)
+[node name="Card3" parent="." unique_id=2034818257 instance=ExtResource("2_e75s6")]
+transform = Transform3D(0.9999867, 0, 0, 0, 0.99892336, 0, 0, 0, 0.9989222, 0, 0.5, 0)
 
-[node name="Card4" parent="." unique_id=591884176 instance=ExtResource("2_e75s6")]
-transform = Transform3D(0.9999867, 0, 0, 0, 0.99892336, 0, 0, 0, 0.9989222, 1, 0.375, 0.3)
+[node name="Card4" parent="." unique_id=782276835 instance=ExtResource("2_e75s6")]
+transform = Transform3D(0.9999867, 0, 0, 0, 0.99892336, 0, 0, 0, 0.9989222, 0, 0.5, 0)
 
-[node name="Card5" parent="." unique_id=1561602803 instance=ExtResource("2_e75s6")]
-transform = Transform3D(0.9999867, 0, 0, 0, 0.99892336, 0, 0, 0, 0.9989222, 2, 0, 0.4)
+[node name="Card5" parent="." unique_id=866814528 instance=ExtResource("2_e75s6")]
+transform = Transform3D(0.9999867, 0, 0, 0, 0.99892336, 0, 0, 0, 0.9989222, 0, 0.5, 0)
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]

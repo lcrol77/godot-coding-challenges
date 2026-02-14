@@ -52,7 +52,9 @@ func _on_selected_state_state_exited() -> void:
 #endregion
 #region DraggingState
 func _on_dragging_state_state_entered() -> void:
-	pass
+	if selected_card == null:
+		handle_cancel()
+	selected_card.area_3d.input_ray_pickable = false
 
 func _on_dragging_state_state_processing(_delta: float) -> void:
 	var hit: Vector3 = _mouse_hit_on_drag_plane()
@@ -60,12 +62,11 @@ func _on_dragging_state_state_processing(_delta: float) -> void:
 		return
 	selected_card.global_position = hit
 
-func _on_dragging_state_state_exited() -> void:
-	pass
-
 func _on_dragging_state_state_unhandled_input(event: InputEvent) -> void:
-	if event.is_action("cancel"):
+	if event.is_action_pressed("cancel"):
 		handle_cancel()
+	if event.is_action_pressed("accept"):
+		pass
 
 func _mouse_hit_on_drag_plane() -> Variant:
 	var camera := get_viewport().get_camera_3d()
@@ -82,17 +83,27 @@ func _mouse_hit_on_drag_plane() -> Variant:
 
 #endregion
 #region ReleasedState
+func _on_released_state_state_entered() -> void:
+	state_chart.send_event("OnReleased")
+
+func _on_released_state_state_exited() -> void:
+	return_to_base_state_cleanup()
 #endregion
 
 func play_card(lane: Lane)-> void:
 	assert(selected_card != null, "Cannot play, selected card is null")
 	lane.add_card_to_lane(selected_card)
-	state_chart.send_event("OnPlay")
+	state_chart.send_event("OnDrop")
 
 func handle_cancel() -> void:
+	return_to_base_state_cleanup()
+	state_chart.send_event("OnCancel")
+
+func return_to_base_state_cleanup() -> void:
 	for lane: Lane in lanes:
 		lane.toggle_highlight(false)
 		lane.is_clickable = false
+	if selected_card:
+		selected_card.area_3d.input_ray_pickable = true
 	selected_card = null
 	hand.untuck_cards()
-	state_chart.send_event("OnCancel")
