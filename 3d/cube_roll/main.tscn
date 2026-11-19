@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bsfw70bdxnfsr"]
+[gd_scene format=3 uid="uid://bsfw70bdxnfsr"]
 
 [ext_resource type="Texture2D" uid="uid://dhbytni0jd0vc" path="res://textures/prototype/light/texture_07.png" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://64swiwuydi0d" path="res://player.tscn" id="2_0xm2m"]
@@ -20,23 +20,23 @@ uv1_offset = Vector3(0.625, 0, 0.375)
 uv1_triplanar = true
 uv1_world_triplanar = true
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node3D" unique_id=979141608]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2142990673]
 environment = SubResource("Environment_1bvp3")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=955064485]
 transform = Transform3D(1, 0, 0, 0, 0.2801306, 0.9599619, 0, -0.9599619, 0.2801306, 0, 5.600708, 0)
 
-[node name="Player" parent="." instance=ExtResource("2_0xm2m")]
+[node name="Player" parent="." unique_id=1496923042 instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1409886, 0)
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1075118768]
 transform = Transform3D(0.77877843, 0.35714686, -0.5157036, 0, 0.8221017, 0.5693407, 0.6272991, -0.44339028, 0.64023507, -5.1744714, 5.7126555, 6.423996)
 projection = 1
 size = 10.0
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1239667342]
 transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
 use_collision = true
 material = SubResource("StandardMaterial3D_0xm2m")
