@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c0vvsbls8vsqf"]
+
+[ext_resource type="Shader" uid="uid://b0gokls6jpqmr" path="res://sine_waves.gdshader" id="1_2ma71"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_olk56"]
+render_priority = 0
+shader = ExtResource("1_2ma71")
+shader_parameter/displacement = 0.2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vyxkh"]
+subdivide_width = 9
+subdivide_depth = 9
+
+[node name="Main" type="Node3D" unique_id=572514047]
+
+[node name="Plane" type="MeshInstance3D" parent="." unique_id=2089959269]
+material_override = SubResource("ShaderMaterial_olk56")
+mesh = SubResource("PlaneMesh_vyxkh")

@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://b4x7u2ikq5qj6"]
+
+[ext_resource type="Script" uid="uid://cuby8b2qny3ud" path="res://player_character.gd" id="1_02ohv"]
+
+[sub_resource type="Gradient" id="Gradient_tfo3t"]
+offsets = PackedFloat32Array(0, 0.35, 0.58, 0.9, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0.8392157, 0.45490196, 1, 1, 0.8392157, 0.45490196, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vyxkh"]
+gradient = SubResource("Gradient_tfo3t")
+width = 14
+height = 14
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vyxkh"]
+radius = 6.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vyxkh"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_02ohv"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_olk56"]
+gradient = SubResource("Gradient_02ohv")
+width = 8
+height = 8
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Curve" id="Curve_5up26"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.10198864, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_02ohv"]
+curve = SubResource("Curve_5up26")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5up26"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+gravity = Vector3(0, 0, 0)
+color = Color(1, 1, 0.4745098, 0.24705882)
+alpha_curve = SubResource("CurveTexture_02ohv")
+
+[node name="PlayerCharacter" type="CharacterBody2D" unique_id=712568498]
+script = ExtResource("1_02ohv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1436863370]
+texture_filter = 1
+texture = SubResource("GradientTexture2D_vyxkh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1426768756]
+shape = SubResource("CircleShape2D_vyxkh")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1645435211]
+material = SubResource("CanvasItemMaterial_vyxkh")
+amount = 30
+texture = SubResource("GradientTexture2D_olk56")
+fixed_fps = 60
+interpolate = false
+fract_delta = false
+process_material = SubResource("ParticleProcessMaterial_5up26")
