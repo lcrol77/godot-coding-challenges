@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://d0q132sk6t37w"]
+
+[ext_resource type="Script" uid="uid://jgu6q8cxh2tp" path="res://moveable_object.gd" id="1_chpmo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vyxkh"]
+size = Vector2(8, 8)
+
+[sub_resource type="Gradient" id="Gradient_fvnwe"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vyxkh"]
+gradient = SubResource("Gradient_fvnwe")
+width = 8
+height = 8
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_chpmo"]
+cull_mode = 1
+polygon = PackedVector2Array(-4, -4, -4, 4, 4, 4, 4, -4)
+
+[node name="Moveable" type="CharacterBody2D" unique_id=1650426539]
+motion_mode = 1
+script = ExtResource("1_chpmo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=436883224]
+shape = SubResource("RectangleShape2D_vyxkh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=297672702]
+light_mask = 2
+visibility_layer = 2
+texture = SubResource("GradientTexture2D_vyxkh")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="." unique_id=1146632835]
+occluder = SubResource("OccluderPolygon2D_chpmo")

@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cuby8b2qny3ud" path="res://player_character.gd" id="1_02ohv"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_02ohv"]
+light_mode = 1
+
 [sub_resource type="Gradient" id="Gradient_tfo3t"]
 offsets = PackedFloat32Array(0, 0.35, 0.58, 0.9, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0.8392157, 0.45490196, 1, 1, 0.8392157, 0.45490196, 0)
@@ -57,6 +60,7 @@ script = ExtResource("1_02ohv")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1436863370]
 texture_filter = 1
+material = SubResource("CanvasItemMaterial_02ohv")
 texture = SubResource("GradientTexture2D_vyxkh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1426768756]
